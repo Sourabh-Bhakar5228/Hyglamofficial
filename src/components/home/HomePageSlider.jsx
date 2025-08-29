@@ -121,46 +121,9 @@ const WeddingDressSlider = () => {
           </div>
         </div>
 
-        {/* Main content */}
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Left content - Text */}
-          <div className="lg:w-2/5 flex flex-col justify-center animate-on-scroll">
-            <div className="bg-white p-8 rounded-lg shadow-xl border border-gray-200">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Crafting Dreams Since 1994
-              </h2>
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                For over three decades, we have dedicated ourselves to creating
-                the most exquisite wedding dresses. Each gown is meticulously
-                crafted with attention to detail, premium fabrics, and timeless
-                elegance that brides have cherished for generations.
-              </p>
-
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="text-center p-4 bg-gray-100 rounded-lg hover:bg-gray-200 cursor-pointer">
-                  <h3 className="font-bold text-gray-900 text-xl">
-                    SHOW DRESSES
-                  </h3>
-                  <p className="text-gray-600 mt-2">
-                    Our spectacular collection
-                  </p>
-                </div>
-                <div className="text-center p-4 bg-gray-100 rounded-lg hover:bg-gray-200 cursor-pointer">
-                  <h3 className="font-bold text-gray-900 text-xl">
-                    BEST SELLERS
-                  </h3>
-                  <p className="text-gray-600 mt-2">Most loved by our brides</p>
-                </div>
-              </div>
-
-              <button className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 px-6 rounded-lg transition duration-300 font-semibold transform hover:scale-105">
-                Explore Collection
-              </button>
-            </div>
-          </div>
-
+        <div className="flex justify-center">
           {/* Right content - Slider */}
-          <div className="lg:w-3/5 animate-on-scroll">
+          <div className="w-full lg:w-4/5 animate-on-scroll">
             <div
               className="relative h-96 md:h-[500px] rounded-xl overflow-hidden shadow-2xl"
               onMouseEnter={handleSliderHover}
@@ -175,7 +138,7 @@ const WeddingDressSlider = () => {
                   }`}
                 >
                   <img
-                    src="https://plus.unsplash.com/premium_photo-1674748385436-db725f68e312?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ5fHxqd2VsbGVyeXxlbnwwfHwwfHx8MA%3D%3D"
+                    src="https://plus.unsplash.com/premium_photo-1674748385436-db725f68e312?w=600&auto=format&fit=crop&q=60"
                     alt="Elegant lace wedding dress"
                     className="w-full h-full object-cover"
                   />
@@ -197,7 +160,7 @@ const WeddingDressSlider = () => {
                   }`}
                 >
                   <img
-                    src="https://plus.unsplash.com/premium_photo-1732700371929-33734953c369?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA5fHxqd2VsbGVyeXxlbnwwfHwwfHx8MA%3D%3D"
+                    src="https://plus.unsplash.com/premium_photo-1732700371929-33734953c369?w=600&auto=format&fit=crop&q=60"
                     alt="Modern wedding dress"
                     className="w-full h-full object-cover"
                   />
@@ -217,7 +180,7 @@ const WeddingDressSlider = () => {
                   }`}
                 >
                   <img
-                    src="https://plus.unsplash.com/premium_photo-1680181724947-75f0956f1469?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTczfHxqd2VsbGVyeXxlbnwwfHwwfHx8MA%3D%3D"
+                    src="https://plus.unsplash.com/premium_photo-1680181724947-75f0956f1469?w=600&auto=format&fit=crop&q=60"
                     alt="Classic wedding dress"
                     className="w-full h-full object-cover"
                   />
@@ -276,31 +239,6 @@ const WeddingDressSlider = () => {
                 <p className="text-sm text-gray-600">Perfect fit guaranteed</p>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Features section */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 text-white animate-on-scroll">
-          <div className="bg-gray-800 p-6 rounded-lg text-center hover:bg-gray-700 transition-colors">
-            <i className="fas fa-award text-3xl mb-4"></i>
-            <h3 className="text-xl font-bold mb-2">Premium Quality</h3>
-            <p className="text-gray-300">
-              Only the finest materials and craftsmanship
-            </p>
-          </div>
-          <div className="bg-gray-800 p-6 rounded-lg text-center hover:bg-gray-700 transition-colors">
-            <i className="fas fa-heart text-3xl mb-4"></i>
-            <h3 className="text-xl font-bold mb-2">Made with Love</h3>
-            <p className="text-gray-300">
-              Each dress crafted with care and attention
-            </p>
-          </div>
-          <div className="bg-gray-800 p-6 rounded-lg text-center hover:bg-gray-700 transition-colors">
-            <i className="fas fa-truck text-3xl mb-4"></i>
-            <h3 className="text-xl font-bold mb-2">Worldwide Delivery</h3>
-            <p className="text-gray-300">
-              We deliver to any location across the globe
-            </p>
           </div>
         </div>
       </div>

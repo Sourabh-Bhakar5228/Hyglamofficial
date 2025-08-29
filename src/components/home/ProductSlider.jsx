@@ -341,21 +341,6 @@ const ProductSlider = () => {
           ))}
         </div>
       )}
-
-      {/* Progress Bar */}
-      {/* <div className="w-full bg-gray-200 h-1 mt-6 rounded-full overflow-hidden">
-        <div
-          className="h-full bg-black transition-all duration-300 ease-out rounded-full"
-          style={{ width: `${((currentSlide + 1) / totalSlides) * 100}%` }}
-        />
-      </div> */}
-
-      {/* Slide Counter */}
-      {/* <div className="text-center mt-4 text-gray-600">
-        <span className="text-sm font-medium">
-          {currentSlide + 1} of {totalSlides}
-        </span>
-      </div> */}
     </div>
   );
 };
