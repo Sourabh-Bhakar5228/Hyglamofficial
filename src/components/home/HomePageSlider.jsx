@@ -110,16 +110,7 @@ const WeddingDressSlider = () => {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header section */}
-        <div className="text-center mb-12 animate-on-scroll">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 floating">
-            We have more than 30 years manufacturing the best wedding dresses
-          </h1>
-          <div className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 text-xl text-white">
-            <span>We have the.</span>
-            <span className="font-bold">best quality in.</span>
-            <span>wedding dresses</span>
-          </div>
-        </div>
+        <div className="text-center mb-12 animate-on-scroll"></div>
 
         <div className="flex justify-center">
           {/* Right content - Slider */}

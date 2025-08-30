@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/hygalmlogo.png"; // 🦢 Put your Swan Black Logo here
+import logo from "../../assets/hygalmlogo.png"; // 🦢 Swan Black Logo
+import leftLogo from "../../assets/lettermark.png"; // Left Decorative Logo
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,37 +27,49 @@ const Navbar = () => {
       } border-b border-[#cbb87f]`}
     >
       <div className="flex justify-between items-center px-6 md:px-12 py-4">
-        {/* Left Menu (Desktop) */}
-        <ul className="hidden md:flex space-x-8 text-black font-medium">
-          <li>
-            <Link to="/" className="hover:text-[#cbb87f]">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/products" className="hover:text-[#cbb87f]">
-              Products
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" className="hover:text-[#cbb87f]">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="/faq" className="hover:text-[#cbb87f]">
-              FAQ
-            </Link>
-          </li>
-          <li>
-            <Link to="/gallery" className="hover:text-[#cbb87f]">
-              Gallery
-            </Link>
-          </li>
-        </ul>
+        {/* Left Menu (Desktop with Logo + Links) */}
+        <div className="hidden md:flex items-center space-x-8 text-black font-medium h-14">
+          {/* Logo */}
+          <Link to="/" className="flex items-center h-full">
+            <img
+              src={leftLogo}
+              alt="Hyglam Logo"
+              className="max-h-36 w-auto object-contain"
+            />
+          </Link>
+
+          {/* Menu Left Side */}
+          <Link to="/" className="hover:text-[#cbb87f]">
+            Home
+          </Link>
+          <Link to="/products" className="hover:text-[#cbb87f]">
+            Products
+          </Link>
+          <Link to="/about" className="hover:text-[#cbb87f]">
+            About
+          </Link>
+        </div>
+
+        {/* Right Menu (FAQ + Gallery + Contact) */}
+        <div className="hidden md:flex items-center space-x-8 text-black font-medium">
+          <Link to="/faq" className="hover:text-[#cbb87f]">
+            FAQ
+          </Link>
+          <Link to="/gallery" className="hover:text-[#cbb87f]">
+            Gallery
+          </Link>
+
+          {/* Contact Button */}
+          <Link
+            to="/contact"
+            className="px-6 py-2 border border-[#cbb87f] text-black rounded-full hover:bg-[#cbb87f] hover:text-white transition"
+          >
+            Contact
+          </Link>
+        </div>
 
         {/* Mobile Logo (Left) */}
-        <div className="md:hidden flex justify-start flex-1  ">
+        <div className="md:hidden flex justify-start flex-1">
           <img src={logo} alt="Hyglam" className="h-10" />
         </div>
 
@@ -70,20 +83,12 @@ const Navbar = () => {
             )}
           </button>
         </div>
-
-        {/* Contact Button */}
-        <Link
-          to="/contact"
-          className="hidden md:block px-6 py-2 border border-[#cbb87f] text-black rounded-full hover:bg-[#cbb87f] hover:text-white transition"
-        >
-          Contact
-        </Link>
       </div>
 
-      {/* Center Logo (Desktop) */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 top-full -mt-8 hidden md:flex">
-        <div className="w-20 h-20 bg-black border border-[#cbb87f] rounded-full flex items-center justify-center shadow-md">
-          <img src={logo} alt="Hyglam Logo" className="h-12" />
+      {/* Center Logo (Desktop - Floating) */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 top-full -mt-20   hidden md:flex">
+        <div className="w-36 h-36 bg-black border border-[#cbb87f] rounded-full flex items-center justify-center shadow-md">
+          <img src={logo} alt="Hyglam Logo" className="h-28" />
         </div>
       </div>
 
