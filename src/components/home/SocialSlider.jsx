@@ -213,13 +213,6 @@ const HyglamLuxurySlider = () => {
             </span>
             <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent w-24 sm:w-48"></div>
           </div>
-
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-300 mb-2">
-            {mediaItems[currentIndex].title}
-          </h3>
-          <p className="text-sm sm:text-base text-gray-400 font-light tracking-wide">
-            {mediaItems[currentIndex].description}
-          </p>
         </div>
 
         {/* Enhanced Slider */}
@@ -237,7 +230,7 @@ const HyglamLuxurySlider = () => {
             <div
               className="relative w-full"
               style={{
-                height: "300px",
+                height: "500px",
                 "@media (min-width: 640px)": { height: "400px" },
                 "@media (min-width: 1024px)": { height: "500px" },
               }}
