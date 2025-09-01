@@ -6,28 +6,28 @@ const HyglamTestimonialCTA = () => {
 
   const testimonials = [
     {
-      quote: "Hyglam jewellery makes me feel confident, every single day!",
-      author: "Riya, Delhi",
+      quote:
+        "Hyglam earrings are my everyday go-to. They're lightweight and stylish.",
+      author: "Neha, Bangalore",
     },
     {
       quote:
-        "The quality is amazing and the designs are so trendy. Perfect for my everyday look!",
+        "I wore Hyglam's festive collection for Diwali, and everyone asked where I got it!",
       author: "Priya, Mumbai",
     },
     {
       quote:
-        "I love how versatile these pieces are. From office to parties, they work everywhere!",
-      author: "Ananya, Bangalore",
+        "Finally found a brand that makes jewellery for office wear without being boring.",
+      author: "Simran, Noida",
     },
     {
       quote:
-        "Finally found jewelry that doesn't irritate my skin. Beautiful and comfortable!",
-      author: "Kavya, Pune",
+        "The Glam Girl collection made me feel like a star at my friend's wedding.",
+      author: "Mehak, Delhi",
     },
     {
-      quote:
-        "The Boss Lady collection is my favorite. Makes me feel powerful and elegant!",
-      author: "Shreya, Chennai",
+      quote: "Affordable yet premium — Hyglam is now part of all my looks.",
+      author: "Ankita, Pune",
     },
   ];
 

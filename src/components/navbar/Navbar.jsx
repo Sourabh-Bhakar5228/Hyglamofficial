@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/hygalmlogo.png"; // 🦢 Swan Black Logo
-import leftLogo from "../../assets/lettermark.png"; // Left Decorative Logo
+import logo from "/assets/hygalmlogo.png"; // 🦢 Swan Black Logo
+import leftLogo from "/assets/lettermark.png"; // Left Decorative Logo
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +23,9 @@ const Navbar = () => {
   return (
     <nav
       className={`w-full z-50 transition-all duration-300 ${
-        isSticky ? "fixed top-0 shadow-lg bg-white/95" : "relative bg-white"
+        isSticky
+          ? "fixed top-0 shadow-lg bg-black/95 md:bg-white/95"
+          : "relative bg-black md:bg-white"
       } border-b border-[#cbb87f]`}
     >
       <div className="flex justify-between items-center px-6 md:px-12 py-4">
@@ -77,18 +79,18 @@ const Navbar = () => {
         <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? (
-              <X className="text-black" size={28} />
+              <X className="text-white" size={28} />
             ) : (
-              <Menu className="text-black" size={28} />
+              <Menu className="text-white" size={28} />
             )}
           </button>
         </div>
       </div>
 
       {/* Center Logo (Desktop - Floating) */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 top-full -mt-20   hidden md:flex">
-        <div className="w-36 h-36 bg-black border border-[#cbb87f] rounded-full flex items-center justify-center shadow-md">
-          <img src={logo} alt="Hyglam Logo" className="h-28" />
+      <div className="absolute left-1/2 transform -translate-x-1/2 top-full -mt-16 hidden md:flex">
+        <div className="w-36 h-36 bg-black border border-[#cbb87f] rounded-full flex items-center justify-center shadow-sm transition-shadow duration-300 hover:shadow-[0_0_15px_2px_#fab040]">
+          <img src={logo} alt="Hyglam Logo" className="h-36" />
         </div>
       </div>
 

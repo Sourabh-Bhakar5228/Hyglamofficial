@@ -1,9 +1,27 @@
 import React, { useState } from "react";
 import { Star, ShoppingBag, Heart, X } from "lucide-react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const JewelryStore = () => {
   const [activeCategory, setActiveCategory] = useState("festive");
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [showInquiryForm, setShowInquiryForm] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    address: "",
+    product: "",
+    price: "",
+  });
+
+  // Banner data
+  const bannerData = {
+    title: "Exquisite Jewelry Collection",
+    subtitle: "Discover pieces that tell your story",
+    cta: "Shop Now",
+    image: "https://picsum.photos/id/1005/1200/500",
+  };
 
   // Complete product data organized by category and product type
   const categories = [
@@ -592,6 +610,83 @@ const JewelryStore = () => {
     return allProducts;
   };
 
+  const handleAddToBag = (product) => {
+    setSelectedProduct(product);
+    setFormData({
+      ...formData,
+      product: product.name,
+      price: `₹${product.price}`,
+    });
+    setShowInquiryForm(true);
+  };
+
+  const handleFormChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/bhakarsoursbh@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            address: formData.address,
+            product: formData.product,
+            price: formData.price,
+            _subject: "New Jewelry Inquiry",
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success("Your inquiry has been submitted successfully!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+
+        setShowInquiryForm(false);
+        setSelectedProduct(null);
+        setFormData({
+          name: "",
+          email: "",
+          address: "",
+          product: "",
+          price: "",
+        });
+      }
+    } catch (error) {
+      toast.error(
+        "There was an error submitting your inquiry. Please try again.",
+        {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        }
+      );
+    }
+  };
+
   const ProductModal = ({ product, onClose }) => {
     if (!product) return null;
 
@@ -639,7 +734,10 @@ const JewelryStore = () => {
               </div>
             </div>
             <div className="flex space-x-4">
-              <button className="flex-1 bg-black text-white py-3 px-6 rounded-lg font-medium hover:bg-gray-800 transition-colors flex items-center justify-center">
+              <button
+                onClick={() => handleAddToBag(product)}
+                className="flex-1 bg-black text-white py-3 px-6 rounded-lg font-medium hover:bg-gray-800 transition-colors flex items-center justify-center"
+              >
                 <ShoppingBag size={20} className="mr-2" />
                 Add to Bag
               </button>
@@ -653,11 +751,124 @@ const JewelryStore = () => {
     );
   };
 
+  const InquiryForm = ({ product, onClose }) => {
+    if (!product) return null;
+
+    return (
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className="bg-white rounded-lg max-w-md w-full">
+          <div className="p-6">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-bold">Inquiry Form</h2>
+              <button
+                onClick={onClose}
+                className="text-gray-500 hover:text-gray-700"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <div className="mb-4 p-3 bg-gray-50 rounded-lg">
+              <p className="font-medium">{formData.product}</p>
+              <p className="text-lg font-bold text-gray-900">
+                {formData.price}
+              </p>
+            </div>
+
+            <form onSubmit={handleFormSubmit}>
+              <div className="mb-4">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleFormChange}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                />
+              </div>
+
+              <div className="mb-4">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleFormChange}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                />
+              </div>
+
+              <div className="mb-6">
+                <label
+                  htmlFor="address"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Shipping Address *
+                </label>
+                <textarea
+                  id="address"
+                  name="address"
+                  value={formData.address}
+                  onChange={handleFormChange}
+                  required
+                  rows={3}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+                ></textarea>
+              </div>
+
+              <input type="hidden" name="product" value={formData.product} />
+              <input type="hidden" name="price" value={formData.price} />
+
+              <button
+                type="submit"
+                className="w-full bg-black text-white py-3 px-6 rounded-lg font-medium hover:bg-gray-800 transition-colors"
+              >
+                Submit Inquiry
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Category Navigation */}
+      <ToastContainer />
+
+      {/* Banner - Made larger */}
+      <div className="relative bg-gray-900">
+        <img
+          src={bannerData.image}
+          alt="Jewelry Collection"
+          className="w-full h-96 object-cover opacity-70"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
+          <h1 className="text-5xl font-bold mb-4">{bannerData.title}</h1>
+          <p className="text-2xl mb-8">{bannerData.subtitle}</p>
+          <button className="bg-white text-gray-900 px-8 py-4 rounded-lg font-medium hover:bg-gray-100 transition-colors text-lg">
+            {bannerData.cta}
+          </button>
+        </div>
+      </div>
+
+      {/* Category Navigation - Centered */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex overflow-x-auto space-x-6 pb-2 -mx-4 px-4">
+        <div className="flex justify-center overflow-x-auto space-x-6 pb-2">
           {categories.map((category) => (
             <button
               key={category.id}
@@ -682,8 +893,8 @@ const JewelryStore = () => {
           <p className="text-gray-600 text-lg">{currentCategory.description}</p>
         </div>
 
-        {/* Product Types Navigation */}
-        <div className="mt-8 flex overflow-x-auto space-x-4 pb-4">
+        {/* Product Types Navigation - Centered */}
+        <div className="mt-8 flex justify-center overflow-x-auto space-x-4 pb-4">
           {Object.keys(currentCategory.products).map((type) => (
             <button
               key={type}
@@ -740,10 +951,21 @@ const JewelryStore = () => {
       </div>
 
       {/* Product Modal */}
-      {selectedProduct && (
+      {selectedProduct && !showInquiryForm && (
         <ProductModal
           product={selectedProduct}
           onClose={() => setSelectedProduct(null)}
+        />
+      )}
+
+      {/* Inquiry Form Modal */}
+      {showInquiryForm && (
+        <InquiryForm
+          product={selectedProduct}
+          onClose={() => {
+            setShowInquiryForm(false);
+            setSelectedProduct(null);
+          }}
         />
       )}
     </div>

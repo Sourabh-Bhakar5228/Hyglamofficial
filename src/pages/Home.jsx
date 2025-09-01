@@ -1,5 +1,6 @@
 import Collection from "../components/home/Collection";
 import HomePage from "../components/home/HomePageSlider";
+import InspirationSection from "../components/home/Inspiration";
 import JewelryRotator from "../components/home/JewelryRotator";
 import JewelryLandingPage from "../components/home/LandingPage";
 import ProductSlider from "../components/home/ProductSlider";
@@ -12,6 +13,7 @@ const Home = () => {
     <div>
       <HomePage />
       <Servicessection />
+      <InspirationSection />
       <ProductSlider />
       <Collection />
       <JewelryLandingPage />
