@@ -40,15 +40,11 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Menu Left Side */}
-          <Link to="/" className="hover:text-[#cbb87f]">
-            Home
+          <Link to="/about" className="hover:text-[#cbb87f]">
+            About
           </Link>
           <Link to="/products" className="hover:text-[#cbb87f]">
             Products
-          </Link>
-          <Link to="/about" className="hover:text-[#cbb87f]">
-            About
           </Link>
         </div>
 
@@ -72,7 +68,9 @@ const Navbar = () => {
 
         {/* Mobile Logo (Left) */}
         <div className="md:hidden flex justify-start flex-1">
-          <img src={logo} alt="Hyglam" className="h-10" />
+          <Link to="/">
+            <img src={logo} alt="Hyglam" className="h-10" />
+          </Link>
         </div>
 
         {/* Hamburger Menu (Mobile) */}
@@ -88,23 +86,25 @@ const Navbar = () => {
       </div>
 
       {/* Center Logo (Desktop - Floating) */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 top-full -mt-16 hidden md:flex">
-        <div className="w-36 h-36 bg-black border border-[#cbb87f] rounded-full flex items-center justify-center shadow-sm transition-shadow duration-300 hover:shadow-[0_0_15px_2px_#fab040]">
-          <img src={logo} alt="Hyglam Logo" className="h-36" />
-        </div>
+      <div className="absolute left-1/2 transform -translate-x-1/2 top-full -mt-12 hidden md:flex">
+        <Link to="/">
+          <div className="w-36 h-36 bg-black border border-[#cbb87f] rounded-full flex items-center justify-center shadow-sm transition-shadow duration-300 hover:shadow-[0_0_15px_2px_#fab040] animate-bounce">
+            <img src={logo} alt="Hyglam Logo" className="h-36" />
+          </div>
+        </Link>
       </div>
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
         <div className="md:hidden bg-white border-t border-[#cbb87f] px-6 py-4 space-y-4 text-black font-medium">
-          <Link to="/" className="block hover:text-[#cbb87f]">
+          {/* <Link to="/" className="block hover:text-[#cbb87f]">
             Home
+          </Link> */}
+          <Link to="/about" className="block hover:text-[#cbb87f]">
+            About
           </Link>
           <Link to="/products" className="block hover:text-[#cbb87f]">
             Products
-          </Link>
-          <Link to="/about" className="block hover:text-[#cbb87f]">
-            About
           </Link>
           <Link to="/faq" className="block hover:text-[#cbb87f]">
             FAQ

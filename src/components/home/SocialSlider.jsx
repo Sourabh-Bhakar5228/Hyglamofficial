@@ -15,70 +15,70 @@ const HyglamLuxurySlider = () => {
   const mediaItems = [
     {
       type: "image",
-      src: "https://picsum.photos/id/1018/1200/800",
+      src: "https://cdn.pixabay.com/photo/2014/10/24/08/09/diamond-500872_1280.jpg",
       alt: "Diamond Elegance Collection",
       title: "Diamond Elegance Collection",
       description: "Handcrafted brilliance in every facet",
     },
     {
       type: "video",
-      src: "https://player.vimeo.com/external/370331493.sd.mp4?s=e90dcaba73c19e0e36f03406b47b5e33e8ca7a94&profile_id=139&oauth2_token_id=57447761",
+      src: "https://cdn.pixabay.com/video/2020/11/07/55744-503980978_tiny.mp4",
       poster: "https://picsum.photos/id/1024/1200/800",
       title: "Golden Radiance Set",
       description: "Timeless luxury meets modern design",
     },
     {
       type: "image",
-      src: "https://picsum.photos/id/1033/1200/800",
+      src: "https://cdn.pixabay.com/photo/2016/09/06/14/12/ring-1649210_1280.jpg",
       alt: "Pearl Luxury Set",
       title: "Pearl Luxury Set",
       description: "Ocean's treasures, refined",
     },
     {
       type: "video",
-      src: "https://player.vimeo.com/external/457001552.sd.mp4?s=2d138f4075e4b3ee7c4935e6eeabbd2b4b5c5d3f&profile_id=139&oauth2_token_id=57447761",
+      src: "https://cdn.pixabay.com/video/2020/11/07/54945-486852968_tiny.mp4",
       poster: "https://picsum.photos/id/1035/1200/800",
       title: "Platinum Majesty",
       description: "Exquisite platinum craftsmanship",
     },
     {
       type: "image",
-      src: "https://picsum.photos/id/1038/1200/800",
+      src: "https://cdn.pixabay.com/photo/2017/04/24/07/03/jewelry-2255623_1280.jpg",
       alt: "Sapphire Dreams",
       title: "Sapphire Dreams",
       description: "Azure beauty in precious metal",
     },
     {
       type: "video",
-      src: "https://player.vimeo.com/external/370331607.sd.mp4?s=ade39fa679d032bc5d5555d258d5e6b4d6a888d6&profile_id=139&oauth2_token_id=57447761",
+      src: "https://cdn.pixabay.com/video/2020/11/07/54926-483011907_tiny.mp4",
       poster: "https://picsum.photos/id/1040/1200/800",
       title: "Ruby Passion",
       description: "Fiery gems of eternal allure",
     },
     {
       type: "image",
-      src: "https://picsum.photos/id/1043/1200/800",
+      src: "https://cdn.pixabay.com/photo/2023/05/23/09/23/cameo-8012321_1280.jpg",
       alt: "Emerald Glory",
       title: "Emerald Glory",
       description: "Nature's green perfection captured",
     },
     {
       type: "video",
-      src: "https://player.vimeo.com/external/464741837.sd.mp4?s=5a4b15d9dff649eef2f4b081b7d35d1d6e8d9a0d&profile_id=139&oauth2_token_id=57447761",
+      src: "https://cdn.pixabay.com/video/2024/07/03/219278_tiny.mp4",
       poster: "https://picsum.photos/id/1044/1200/800",
       title: "Opulent Collection",
       description: "Where luxury meets artistry",
     },
     {
       type: "image",
-      src: "https://picsum.photos/id/1047/1200/800",
+      src: "https://cdn.pixabay.com/photo/2015/02/01/16/14/treasure-chest-619762_1280.jpg",
       alt: "Gold Heritage",
       title: "Gold Heritage",
       description: "Legacy pieces for generations",
     },
     {
       type: "video",
-      src: "https://player.vimeo.com/external/457000850.sd.mp4?s=8b5a9a0f6b6a5f6b5a9a0f6b6a5f6b5a9a0f6b6a5&profile_id=139&oauth2_token_id=57447761",
+      src: "https://cdn.pixabay.com/video/2021/11/13/96130-651410436_tiny.mp4",
       poster: "https://picsum.photos/id/1050/1200/800",
       title: "Diamond Splendor",
       description: "Ultimate expression of elegance",
@@ -196,7 +196,7 @@ const HyglamLuxurySlider = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_white_1px,_transparent_1px)] bg-[length:30px_30px]"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-8xl mx-auto relative z-10">
         {/* Enhanced Header */}
         <div className="text-center mb-8 sm:mb-16">
           <div className="relative inline-block">
@@ -218,7 +218,7 @@ const HyglamLuxurySlider = () => {
         {/* Enhanced Slider */}
         <div
           ref={sliderRef}
-          className="relative max-w-5xl mx-auto group"
+          className="relative max-w-8xl mx-auto group"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onTouchStart={handleTouchStart}
@@ -230,7 +230,7 @@ const HyglamLuxurySlider = () => {
             <div
               className="relative w-full"
               style={{
-                height: "500px",
+                height: "700px",
                 "@media (min-width: 640px)": { height: "400px" },
                 "@media (min-width: 1024px)": { height: "500px" },
               }}
