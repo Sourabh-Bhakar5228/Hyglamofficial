@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
-import logo from "/assets/hygalmlogo.png"; // 🦢 Swan Black Logo
-import leftLogo from "/assets/lettermark.png"; // Left Decorative Logo
+import { Menu, X, Heart, ShoppingCart } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "/assets/hygalmlogo.png";
+import leftLogo from "/assets/lettermark.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
+      setIsSticky(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavClick = (path) => {
+    setIsOpen(false);
+    navigate(path);
+  };
 
   return (
     <nav
@@ -31,7 +33,6 @@ const Navbar = () => {
       <div className="flex justify-between items-center px-6 md:px-12 py-4">
         {/* Left Menu (Desktop with Logo + Links) */}
         <div className="hidden md:flex items-center space-x-8 text-black font-medium h-14">
-          {/* Logo */}
           <Link to="/" className="flex items-center h-full">
             <img
               src={leftLogo}
@@ -39,7 +40,6 @@ const Navbar = () => {
               className="max-h-36 w-auto object-contain"
             />
           </Link>
-
           <Link to="/about" className="hover:text-[#cbb87f]">
             About
           </Link>
@@ -48,14 +48,28 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Right Menu (FAQ + Gallery + Contact) */}
-        <div className="hidden md:flex items-center space-x-8 text-black font-medium">
+        {/* Right Menu (Desktop with FAQ, Gallery, Cart, Wishlist, Contact) */}
+        <div className="hidden md:flex items-center space-x-4 text-black font-medium">
           <Link to="/faq" className="hover:text-[#cbb87f]">
             FAQ
           </Link>
           <Link to="/gallery" className="hover:text-[#cbb87f]">
             Gallery
           </Link>
+
+          {/* Cart & Wishlist Icons */}
+          <button
+            className="flex items-center space-x-1 hover:text-[#cbb87f]"
+            onClick={() => handleNavClick("/cart")}
+          >
+            <ShoppingCart size={20} />
+          </button>
+          <button
+            className="flex items-center space-x-1 hover:text-[#cbb87f]"
+            onClick={() => handleNavClick("/wishlist")}
+          >
+            <Heart size={20} />
+          </button>
 
           {/* Contact Button */}
           <Link
@@ -66,14 +80,14 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Mobile Logo (Left) */}
+        {/* Mobile Logo */}
         <div className="md:hidden flex justify-start flex-1">
           <Link to="/">
             <img src={logo} alt="Hyglam" className="h-10" />
           </Link>
         </div>
 
-        {/* Hamburger Menu (Mobile) */}
+        {/* Hamburger Menu */}
         <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? (
@@ -85,7 +99,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Center Logo (Desktop - Floating) */}
+      {/* Center Logo (Desktop Floating) */}
       <div className="absolute left-1/2 transform -translate-x-1/2 top-full -mt-12 hidden md:flex">
         <Link to="/">
           <div className="w-36 h-36 bg-black border border-[#cbb87f] rounded-full flex items-center justify-center shadow-sm transition-shadow duration-300 hover:shadow-[0_0_15px_2px_#fab040] animate-bounce">
@@ -97,27 +111,57 @@ const Navbar = () => {
       {/* Mobile Menu Dropdown */}
       {isOpen && (
         <div className="md:hidden bg-white border-t border-[#cbb87f] px-6 py-4 space-y-4 text-black font-medium">
-          {/* <Link to="/" className="block hover:text-[#cbb87f]">
-            Home
-          </Link> */}
-          <Link to="/about" className="block hover:text-[#cbb87f]">
+          <Link
+            to="/about"
+            className="block hover:text-[#cbb87f]"
+            onClick={() => handleNavClick("/about")}
+          >
             About
           </Link>
-          <Link to="/products" className="block hover:text-[#cbb87f]">
+          <Link
+            to="/products"
+            className="block hover:text-[#cbb87f]"
+            onClick={() => handleNavClick("/products")}
+          >
             Products
           </Link>
-          <Link to="/faq" className="block hover:text-[#cbb87f]">
+          <Link
+            to="/faq"
+            className="block hover:text-[#cbb87f]"
+            onClick={() => handleNavClick("/faq")}
+          >
             FAQ
           </Link>
-          <Link to="/gallery" className="block hover:text-[#cbb87f]">
+          <Link
+            to="/gallery"
+            className="block hover:text-[#cbb87f]"
+            onClick={() => handleNavClick("/gallery")}
+          >
             Gallery
           </Link>
-          <Link
-            to="/contact"
-            className="block w-full mt-4 px-6 py-2 border border-[#cbb87f] text-black rounded-full hover:bg-[#cbb87f] hover:text-white transition text-center"
+
+          {/* Cart & Wishlist */}
+          <div className="flex space-x-4 mt-2">
+            <button
+              className="flex items-center space-x-2 hover:text-[#cbb87f]"
+              onClick={() => handleNavClick("/cart")}
+            >
+              <ShoppingCart size={20} /> <span>Cart</span>
+            </button>
+            <button
+              className="flex items-center space-x-2 hover:text-[#cbb87f]"
+              onClick={() => handleNavClick("/wishlist")}
+            >
+              <Heart size={20} /> <span>Wishlist</span>
+            </button>
+          </div>
+
+          <button
+            onClick={() => handleNavClick("/contact")}
+            className="w-full mt-4 px-6 py-2 border border-[#cbb87f] text-black rounded-full hover:bg-[#cbb87f] hover:text-white transition"
           >
             Contact
-          </Link>
+          </button>
         </div>
       )}
     </nav>

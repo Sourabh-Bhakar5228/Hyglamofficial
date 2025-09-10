@@ -7,6 +7,7 @@ import ProductSlider from "../components/home/ProductSlider";
 import Servicessection from "../components/home/Servicessection";
 import SocialSlider from "../components/home/SocialSlider";
 import TestimonialSlider from "../components/home/TestimonialSlider";
+import productsData from "../data/allProducts.json";
 
 const Home = () => {
   return (
@@ -14,7 +15,7 @@ const Home = () => {
       <HomePage />
       <Servicessection />
       <InspirationSection />
-      <ProductSlider />
+      <ProductSlider products={productsData} />
       <Collection />
       <JewelryLandingPage />
       <JewelryRotator />

@@ -1,0 +1,174 @@
+[
+  {
+    "id": "boss-lady",
+    "title": "Boss Lady",
+    "description": "For the woman who owns her power.",
+    "image": "https://picsum.photos/400/400?random=1",
+    "products": [
+      {
+        "id": "boss-necklace",
+        "name": "Statement Choker",
+        "price": 2499,
+        "category": "Necklaces",
+        "image": "https://picsum.photos/400/400?random=2"
+      },
+      {
+        "id": "boss-earrings",
+        "name": "Sharp Hoops",
+        "price": 1299,
+        "category": "Earrings",
+        "image": "https://picsum.photos/400/400?random=3"
+      },
+      {
+        "id": "boss-bracelet",
+        "name": "Modern Metallic Bracelet",
+        "price": 1799,
+        "category": "Bracelets",
+        "image": "https://picsum.photos/400/400?random=4"
+      },
+      {
+        "id": "boss-ring",
+        "name": "Office Statement Ring",
+        "price": 999,
+        "category": "Rings",
+        "image": "https://picsum.photos/400/400?random=5"
+      },
+      {
+        "id": "boss-pendant",
+        "name": "Geometric Pendant",
+        "price": 1499,
+        "category": "Pendants",
+        "image": "https://picsum.photos/400/400?random=6"
+      }
+    ]
+  },
+  {
+    "id": "everyday-girl",
+    "title": "Everyday Girl",
+    "description": "Simple yet stunning pieces for daily wear.",
+    "image": "https://picsum.photos/400/400?random=7",
+    "products": [
+      {
+        "id": "everyday-necklace",
+        "name": "Minimal Chain Pendant",
+        "price": 899,
+        "category": "Necklaces",
+        "image": "https://picsum.photos/400/400?random=8"
+      },
+      {
+        "id": "everyday-earrings",
+        "name": "Chic Stud Earrings",
+        "price": 599,
+        "category": "Earrings",
+        "image": "https://picsum.photos/400/400?random=9"
+      },
+      {
+        "id": "everyday-bracelet",
+        "name": "Everyday Bangle",
+        "price": 799,
+        "category": "Bracelets",
+        "image": "https://picsum.photos/400/400?random=10"
+      },
+      {
+        "id": "everyday-ring",
+        "name": "Casual Chic Ring",
+        "price": 699,
+        "category": "Rings",
+        "image": "https://picsum.photos/400/400?random=11"
+      },
+      {
+        "id": "everyday-pendant",
+        "name": "Elegant Pendant",
+        "price": 999,
+        "category": "Pendants",
+        "image": "https://picsum.photos/400/400?random=12"
+      }
+    ]
+  },
+  {
+    "id": "glam-girl",
+    "title": "Trendsetter (Glam Girl)",
+    "description": "For the spotlight moments & red-carpet glow.",
+    "image": "https://picsum.photos/400/400?random=13",
+    "products": [
+      {
+        "id": "glam-necklace",
+        "name": "Stone-Studded Choker",
+        "price": 2799,
+        "category": "Necklaces",
+        "image": "https://picsum.photos/400/400?random=14"
+      },
+      {
+        "id": "glam-earrings",
+        "name": "Cocktail Earrings",
+        "price": 1599,
+        "category": "Earrings",
+        "image": "https://picsum.photos/400/400?random=15"
+      },
+      {
+        "id": "glam-bracelet",
+        "name": "Glam Cuff Bracelet",
+        "price": 1999,
+        "category": "Bracelets",
+        "image": "https://picsum.photos/400/400?random=16"
+      },
+      {
+        "id": "glam-ring",
+        "name": "Cocktail Ring",
+        "price": 1299,
+        "category": "Rings",
+        "image": "https://picsum.photos/400/400?random=17"
+      },
+      {
+        "id": "glam-pendant",
+        "name": "Sparkly Pendant",
+        "price": 1799,
+        "category": "Pendants",
+        "image": "https://picsum.photos/400/400?random=18"
+      }
+    ]
+  },
+  {
+    "id": "festive-girl",
+    "title": "Festive Girl",
+    "description": "Celebrate in colour, culture & sparkle.",
+    "image": "https://picsum.photos/400/400?random=19",
+    "products": [
+      {
+        "id": "festive-necklace",
+        "name": "Kundan Necklace",
+        "price": 2999,
+        "category": "Necklaces",
+        "image": "https://picsum.photos/400/400?random=20"
+      },
+      {
+        "id": "festive-earrings",
+        "name": "Jhumkas",
+        "price": 1499,
+        "category": "Earrings",
+        "image": "https://picsum.photos/400/400?random=21"
+      },
+      {
+        "id": "festive-bracelet",
+        "name": "Ethnic Sparkle Bracelet",
+        "price": 1899,
+        "category": "Bracelets",
+        "image": "https://picsum.photos/400/400?random=22"
+      },
+      {
+        "id": "festive-ring",
+        "name": "Decorative Ring",
+        "price": 999,
+        "category": "Rings",
+        "image": "https://picsum.photos/400/400?random=23"
+      },
+      {
+        "id": "festive-pendant",
+        "name": "Stone Motif Pendant",
+        "price": 1599,
+        "category": "Pendants",
+        "image": "https://picsum.photos/400/400?random=24"
+      }
+    ]
+  }
+]
