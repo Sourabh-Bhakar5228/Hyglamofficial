@@ -8,7 +8,7 @@ const HyglamAboutUs = () => {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url(https://videos.openai.com/vg-assets/assets%2Ftask_01jsakerr2f6zr0tq67hqxa4c3%2Fimg_1.webp?st=2025-09-02T10%3A16%3A12Z&se=2025-09-08T11%3A16%3A12Z&sks=b&skt=2025-09-02T10%3A16%3A12Z&ske=2025-09-08T11%3A16%3A12Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=fea36edb-a052-425e-a84a-436fdce0a7b4&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=lCFafqb8IMH%2BK%2Ftz%2BnZjRD%2BZ7N7G%2FYDNprumLk6KutM%3D&az=oaivgprodscus)",
+              "url(https://images.unsplash.com/photo-1659095141570-be8b9aff59ce?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8andlbGxlcnl8ZW58MHx8MHx8fDA%3D)",
           }}
         ></div>
 
@@ -26,7 +26,7 @@ const HyglamAboutUs = () => {
         <div className="container mx-auto px-4 relative z-20 text-center">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Our <span className="text-gray-700">Story</span>
+              Our <span className="text-gray-300">Story</span>
             </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 leading-relaxed">
               Redefining artificial jewellery with affordable luxury for every
@@ -50,7 +50,7 @@ const HyglamAboutUs = () => {
           <div className="flex flex-col md:flex-row items-center gap-10">
             <div className="w-full md:w-1/2">
               <img
-                src="https://videos.openai.com/vg-assets/assets%2Ftask_01jtjbw4gnechv7azh15mgb04k%2F1746520680_img_2.webp?st=2025-09-02T10%3A18%3A07Z&se=2025-09-08T11%3A18%3A07Z&sks=b&skt=2025-09-02T10%3A18%3A07Z&ske=2025-09-08T11%3A18%3A07Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=fea36edb-a052-425e-a84a-436fdce0a7b4&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=CVezsUbF53lCCbtcCrGrHz8pZe%2Bcvcen0se9OE5eFpg%3D&az=oaivgprodscus"
+                src="https://media.tenor.com/kzfyLo5FIN8AAAAM/emerald-jewelry.gif"
                 alt="Hyglam jewellery"
                 className="rounded-lg shadow-lg w-full h-96 object-cover grayscale hover:grayscale-0 transition"
               />
@@ -166,15 +166,15 @@ const HyglamAboutUs = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                img: "https://videos.openai.com/vg-assets/assets%2Ftask_01k1g77ec1evhb3afftfnpkay3%2F1753964915_img_0.webp?st=2025-09-02T10%3A18%3A07Z&se=2025-09-08T11%3A18%3A07Z&sks=b&skt=2025-09-02T10%3A18%3A07Z&ske=2025-09-08T11%3A18%3A07Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=fea36edb-a052-425e-a84a-436fdce0a7b4&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=XdENYziS1NCYW00xgAZ7YMq1NKl%2FJ0CDo3K3MHoWsII%3D&az=oaivgprodscus",
+                img: "https://images.unsplash.com/photo-1656428361240-47e1737b7dce?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8andlbGxlcnl8ZW58MHx8MHx8fDA%3D",
                 title: "Everyday Elegance",
               },
               {
-                img: "https://videos.openai.com/vg-assets/assets%2Ftask_01jyeaphkpf9zrqmrgj0szxqzm%2F1750680198_img_0.webp?st=2025-09-02T10%3A18%3A07Z&se=2025-09-08T11%3A18%3A07Z&sks=b&skt=2025-09-02T10%3A18%3A07Z&ske=2025-09-08T11%3A18%3A07Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=fea36edb-a052-425e-a84a-436fdce0a7b4&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=GyWEA4B9dOoqtOp8qQUuCoBcBj9ZGwGf1anHtI6Z%2FBA%3D&az=oaivgprodscus",
+                img: "https://images.unsplash.com/photo-1679156271456-d6068c543ee7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGp3ZWxsZXJ5fGVufDB8fDB8fHww",
                 title: "Festive Joy",
               },
               {
-                img: "https://videos.openai.com/vg-assets/assets%2Ftask_01jy3qmg6afhxbn201fa66199c%2F1750324732_img_1.webp?st=2025-09-02T10%3A12%3A05Z&se=2025-09-08T11%3A12%3A05Z&sks=b&skt=2025-09-02T10%3A12%3A05Z&ske=2025-09-08T11%3A12%3A05Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=fea36edb-a052-425e-a84a-436fdce0a7b4&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=dz4JO44%2FXd77pDlaKJUd1RldxaTvqJbP0%2F6zZ4aDuM8%3D&az=oaivgprodscus",
+                img: "https://images.unsplash.com/photo-1695050049047-54e27a908898?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGp3ZWxsZXJ5fGVufDB8fDB8fHww",
                 title: "Evening Glamour",
               },
             ].map((item, idx) => (

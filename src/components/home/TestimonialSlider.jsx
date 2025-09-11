@@ -9,25 +9,34 @@ const HyglamTestimonialCTA = () => {
       quote:
         "Hyglam earrings are my everyday go-to. They're lightweight and stylish.",
       author: "Neha, Bangalore",
+      productImage: "https://source.unsplash.com/400x400/?earrings,jewelry", // example image
     },
     {
       quote:
         "I wore Hyglam's festive collection for Diwali, and everyone asked where I got it!",
       author: "Priya, Mumbai",
+      productImage:
+        "https://source.unsplash.com/400x400/?indian,jewelry,festive",
     },
     {
       quote:
         "Finally found a brand that makes jewellery for office wear without being boring.",
       author: "Simran, Noida",
+      productImage:
+        "https://source.unsplash.com/400x400/?office,necklace,jewelry",
     },
     {
       quote:
         "The Glam Girl collection made me feel like a star at my friend's wedding.",
       author: "Mehak, Delhi",
+      productImage:
+        "https://source.unsplash.com/400x400/?wedding,jewelry,necklace",
     },
     {
       quote: "Affordable yet premium — Hyglam is now part of all my looks.",
       author: "Ankita, Pune",
+      productImage:
+        "https://source.unsplash.com/400x400/?fashion,accessories,jewelry",
     },
   ];
 
@@ -104,13 +113,25 @@ const HyglamTestimonialCTA = () => {
                     key={index}
                     className="w-full lg:w-1/3 flex-shrink-0 px-4"
                   >
-                    <div className="bg-white text-black p-8 rounded-lg shadow-lg h-full flex flex-col justify-between min-h-[280px] mx-2">
+                    <div className="bg-white text-black p-8 rounded-lg shadow-lg h-full flex flex-col justify-between min-h-[350px] mx-2">
                       <div>
+                        {/* Product Image */}
+                        <div className="w-full h-40 mb-6 overflow-hidden rounded-md">
+                          <img
+                            src={testimonial.productImage}
+                            alt="Product"
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+
+                        {/* Quote */}
                         <div className="text-4xl mb-6 text-center">"</div>
                         <blockquote className="text-lg italic mb-6 leading-relaxed text-center">
                           {testimonial.quote}
                         </blockquote>
                       </div>
+
+                      {/* Author & Rating */}
                       <div className="text-center">
                         <p className="font-semibold text-lg">
                           — {testimonial.author}
