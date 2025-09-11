@@ -18,9 +18,7 @@ import ProductDetails from "../components/ProductDetails";
 export default function Routing() {
   return (
     <BrowserRouter>
-      {/* 🔹 ScrollRestoration must be outside <Routes> */}
       <ScrollRestoration />
-
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
@@ -29,8 +27,6 @@ export default function Routing() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/faq" element={<Faqs />} />
           <Route path="/contact" element={<Contact />} />
-
-          {/* Extra Routes */}
           <Route path="/cart" element={<Cart />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/product/:id" element={<ProductDetails />} />
