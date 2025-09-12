@@ -4,14 +4,10 @@ import { useWishlist } from "../components/context/WishlistContext";
 export default function Wishlist() {
   const { wishlist, removeFromWishlist } = useWishlist();
   const [removingItem, setRemovingItem] = useState(null);
-  const [showBanner, setShowBanner] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 600);
+    const timer = setTimeout(() => setIsLoading(false), 600);
     return () => clearTimeout(timer);
   }, []);
 
@@ -25,8 +21,8 @@ export default function Wishlist() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-        <div className="animate-pulse text-2xl text-gray-800">
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="animate-pulse text-2xl text-white font-semibold">
           Loading your wishlist...
         </div>
       </div>
@@ -35,64 +31,78 @@ export default function Wishlist() {
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 transition-all duration-300">
-      {/* Promotional Banner */}
-      {showBanner && (
-        <div className="bg-black text-white py-2 px-4 relative animate-fadeIn">
-          <div className="container mx-auto text-center">
-            ❤️ Save your favorite items for later!
-          </div>
-          <button
-            onClick={() => setShowBanner(false)}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
-          >
-            ✕
-          </button>
+      {/* Black & White Banner with Image */}
+      <div
+        className="relative h-[80vh] flex items-center justify-center bg-cover bg-center"
+        style={{
+          backgroundImage: `url('https://plus.unsplash.com/premium_photo-1672883551961-dd625e47990a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2hvcHBpbmclMjB3aXNobGlzdHxlbnwwfHwwfHx8MA%3D%3D')`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="relative text-center text-white px-6">
+          <h1 className="text-5xl md:text-6xl font-extrabold animate-slideInDown">
+            Your Wishlist
+          </h1>
+          <p className="text-lg md:text-xl mt-3 text-gray-200 animate-fadeInUp">
+            ❤️ Save your favorite items & shop later
+          </p>
+          <p className="text-base font-semibold mt-4 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full inline-block animate-fadeInUp">
+            {wishlist.length} item{wishlist.length !== 1 ? "s" : ""} | Total: ₹
+            {wishlist.reduce((s, i) => s + i.price, 0)}
+          </p>
         </div>
-      )}
+      </div>
 
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-8 text-center animate-slideInDown">
-          Your Wishlist
-        </h1>
-
+      {/* Wishlist Section */}
+      <div className="container mx-auto px-4 py-12">
         {wishlist.length === 0 ? (
-          <div className="text-center py-12 animate-fadeIn">
-            <div className="text-6xl mb-4">❤️</div>
-            <p className="text-xl">Your wishlist is empty</p>
-            <p className="text-gray-600 mt-2">Start adding items you love</p>
+          <div className="text-center py-16 animate-fadeIn text-gray-800">
+            <div className="text-7xl mb-4">❤️</div>
+            <p className="text-xl font-semibold">Your wishlist is empty</p>
+            <p className="text-gray-500 mt-2">
+              Start exploring and add items you adore
+            </p>
           </div>
         ) : (
-          <div className="space-y-4 transition-all duration-300">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 transition-all duration-300">
             {wishlist.map((item) => (
               <div
                 key={item.id}
-                className={`flex items-center gap-4 bg-white p-4 rounded-lg shadow-md border border-gray-200 transition-all duration-300 transform ${
+                className={`bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden transition-all duration-300 transform ${
                   removingItem === item.id
-                    ? "opacity-0 -translate-x-8"
-                    : "opacity-100 translate-x-0"
-                } hover:shadow-lg`}
+                    ? "opacity-0 scale-90"
+                    : "opacity-100 scale-100"
+                } hover:shadow-lg hover:-translate-y-1`}
               >
+                {/* Image Top */}
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-20 h-20 object-cover rounded transition-transform duration-300 hover:scale-105"
+                  className="w-full h-56 object-cover"
                 />
-                <div className="flex-1">
-                  <div className="font-semibold text-lg">{item.name}</div>
-                  <div className="text-gray-600">₹{item.price}</div>
+
+                {/* Details Below */}
+                <div className="p-4 flex flex-col items-center text-center">
+                  <h3 className="font-semibold text-lg text-gray-900">
+                    {item.name}
+                  </h3>
+                  <p className="text-gray-600 text-sm mt-1">
+                    Price: ₹{item.price}
+                  </p>
+                  <button
+                    onClick={() => handleRemove(item.id)}
+                    className="mt-4 px-5 py-2 border border-black rounded-full text-sm font-medium text-black hover:bg-black hover:text-white transition-all duration-300"
+                  >
+                    Remove
+                  </button>
                 </div>
-                <button
-                  onClick={() => handleRemove(item.id)}
-                  className="px-3 py-1 border border-gray-800 rounded transition-all duration-300 hover:bg-black hover:text-white"
-                >
-                  Remove
-                </button>
               </div>
             ))}
           </div>
         )}
       </div>
 
+      {/* Animations */}
       <style jsx>{`
         @keyframes fadeIn {
           from {
@@ -112,11 +122,24 @@ export default function Wishlist() {
             opacity: 1;
           }
         }
+        @keyframes fadeInUp {
+          from {
+            transform: translateY(20px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
         .animate-fadeIn {
-          animation: fadeIn 0.5s ease-out;
+          animation: fadeIn 0.6s ease-out;
         }
         .animate-slideInDown {
-          animation: slideInDown 0.5s ease-out;
+          animation: slideInDown 0.6s ease-out;
+        }
+        .animate-fadeInUp {
+          animation: fadeInUp 0.6s ease-out;
         }
       `}</style>
     </div>

@@ -14,6 +14,9 @@ import Faqs from "../pages/Faqs";
 import Cart from "../pages/Cart";
 import Wishlist from "../pages/Wishlist";
 import ProductDetails from "../components/ProductDetails";
+import PrivacyPolicy from "../components/services/PrivacyPolicy";
+import TermsOfService from "../components/services/TermsOfService";
+import CookiePolicy from "../components/services/CookiePolicy";
 
 export default function Routing() {
   return (
@@ -30,6 +33,9 @@ export default function Routing() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/cookies" element={<CookiePolicy />} />
         </Route>
       </Routes>
     </BrowserRouter>

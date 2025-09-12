@@ -9,34 +9,35 @@ const HyglamTestimonialCTA = () => {
       quote:
         "Hyglam earrings are my everyday go-to. They're lightweight and stylish.",
       author: "Neha, Bangalore",
-      productImage: "https://source.unsplash.com/400x400/?earrings,jewelry", // example image
+      productImage:
+        "https://images.unsplash.com/photo-1679531751641-79f78cbb5c0b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGRpYW1vbmR8ZW58MHx8MHx8fDA%3D", // example image
     },
     {
       quote:
         "I wore Hyglam's festive collection for Diwali, and everyone asked where I got it!",
       author: "Priya, Mumbai",
       productImage:
-        "https://source.unsplash.com/400x400/?indian,jewelry,festive",
+        "https://images.unsplash.com/photo-1679531751641-79f78cbb5c0b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGRpYW1vbmR8ZW58MHx8MHx8fDA%3D",
     },
     {
       quote:
         "Finally found a brand that makes jewellery for office wear without being boring.",
       author: "Simran, Noida",
       productImage:
-        "https://source.unsplash.com/400x400/?office,necklace,jewelry",
+        "https://images.unsplash.com/photo-1514612497953-05d1e5e171fa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGRpYW1vbmR8ZW58MHx8MHx8fDA%3D",
     },
     {
       quote:
         "The Glam Girl collection made me feel like a star at my friend's wedding.",
       author: "Mehak, Delhi",
       productImage:
-        "https://source.unsplash.com/400x400/?wedding,jewelry,necklace",
+        "https://images.unsplash.com/photo-1638517747421-a1eb8b4c9828?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fGRpYW1vbmR8ZW58MHx8MHx8fDA%3D",
     },
     {
       quote: "Affordable yet premium — Hyglam is now part of all my looks.",
       author: "Ankita, Pune",
       productImage:
-        "https://source.unsplash.com/400x400/?fashion,accessories,jewelry",
+        "https://images.unsplash.com/photo-1674329109778-0cc72c23537c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTN8fGRpYW1vbmR8ZW58MHx8MHx8fDA%3D",
     },
   ];
 
