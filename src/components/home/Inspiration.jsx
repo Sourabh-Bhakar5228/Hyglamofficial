@@ -29,9 +29,9 @@ const InspirationSection = () => {
         {/* Right Image */}
         <div className="flex-1">
           <img
-            src="/assets/images/maadurga1.webp" // <-- replace with your actual image path
+            src="/assets/images/durgama.png" // <-- replace with your actual image path
             alt="Maa Durga"
-            className="rounded-2xl shadow-lg w-full object-cover h-[400px] lg:h-[500px]"
+            className="rounded-2xl shadow-lg w-full object-contain h-[400px] lg:h-[500px]"
           />
         </div>
       </div>

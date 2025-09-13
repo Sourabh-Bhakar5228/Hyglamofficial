@@ -8,8 +8,42 @@ import {
   Linkedin,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+
+    if (!email) {
+      toast.error("Please enter a valid email!");
+      return;
+    }
+
+    try {
+      const res = await fetch(
+        "https://formsubmit.co/ajax/hyglamofficial@gmail.com",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        }
+      );
+
+      if (res.ok) {
+        toast.success("Subscribed successfully 🎉");
+        setEmail("");
+      } else {
+        toast.error("Failed to subscribe. Try again later.");
+      }
+    } catch (err) {
+      toast.error("Something went wrong!");
+    }
+  };
+
   return (
     <footer className="bg-black text-gray-300 border-t border-gray-800">
       {/* Top Section */}
@@ -62,6 +96,14 @@ const Footer = () => {
             <li>
               <Link to="/cart" className="hover:text-white transition-colors">
                 Cart
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/social-media"
+                className="hover:text-white transition-colors"
+              >
+                Socail Media
               </Link>
             </li>
           </ul>
@@ -144,16 +186,26 @@ const Footer = () => {
               Subscribe for beauty tips & exclusive offers
             </p>
           </div>
-          <div className="flex w-full md:w-auto">
+
+          {/* Custom Newsletter Form */}
+          <form onSubmit={handleSubscribe} className="flex w-full md:w-auto">
             <input
               type="email"
+              name="Email"
+              id="email"
+              required
               placeholder="Enter your email"
-              className="bg-gray-900 border border-gray-700 text-white px-4 py-2 rounded-l-md w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="bg-black  text-white px-4 py-2 rounded-l-md w-full md:w-64 focus:outline-none  "
             />
-            <button className="bg-indigo-600 hover:bg-indigo-700 px-6 py-2 rounded-r-md font-medium text-white transition-colors">
+            <button
+              type="submit"
+              className="bg-black hover:bg-white px-6 py-2 rounded-r-md font-medium text-white hover:text-black transition-colors"
+            >
               Subscribe
             </button>
-          </div>
+          </form>
         </div>
       </div>
 
@@ -161,7 +213,7 @@ const Footer = () => {
       <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm">
-            © 2024 HYGLAM. All rights reserved.
+            © 2025 HYGLAM . All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
             <Link to="/privacy" className="hover:text-white transition-colors">

@@ -17,6 +17,7 @@ import ProductDetails from "../components/ProductDetails";
 import PrivacyPolicy from "../components/services/PrivacyPolicy";
 import TermsOfService from "../components/services/TermsOfService";
 import CookiePolicy from "../components/services/CookiePolicy";
+import SocialFeed from "../components/SocailMedia";
 
 export default function Routing() {
   return (
@@ -36,6 +37,7 @@ export default function Routing() {
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/cookies" element={<CookiePolicy />} />
+          <Route path="/social-media" element={<SocialFeed />} />
         </Route>
       </Routes>
     </BrowserRouter>
