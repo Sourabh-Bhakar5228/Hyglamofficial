@@ -16,7 +16,7 @@ import { setCookie, getCookie } from "../utils/cookies";
 import { useWishlist } from "../components/context/WishlistContext";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ShippingInformation from "./ShippingInformation";
+import ShippingInformation from "../components/services/ShippingInformation";
 
 export default function ProductDetails() {
   const { id } = useParams();

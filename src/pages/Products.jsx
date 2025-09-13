@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Heart, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import allProducts from "../data/allProducts.json";
 import { useWishlist } from "../components/context/WishlistContext";
-import GiftingCustomization from "../components/GiftingCustomization";
+import GiftingCustomization from "../components/services/GiftingCustomization";
 
 export default function Products() {
   const { addToWishlist, wishlist } = useWishlist();
