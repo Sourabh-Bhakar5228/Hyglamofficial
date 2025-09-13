@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const HyglamAboutUs = () => {
   return (
     <div className="min-h-screen bg-white">
@@ -8,12 +10,9 @@ const HyglamAboutUs = () => {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url(https://images.unsplash.com/photo-1659095141570-be8b9aff59ce?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8andlbGxlcnl8ZW58MHx8MHx8fDA%3D)",
+              "url(https://images.unsplash.com/photo-1659095141570-be8b9aff59ce?w=1200&auto=format&fit=crop&q=80)",
           }}
         ></div>
-
-        {/* Dark Overlay */}
-        {/* <div className="absolute inset-0 bg-gradient-to-r from-gray/20 via-black/30 to-gray-500/80"></div> */}
 
         {/* Decorative Pattern */}
         <div className="absolute inset-0 opacity-10">
@@ -26,135 +25,102 @@ const HyglamAboutUs = () => {
         <div className="container mx-auto px-4 relative z-20 text-center">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Our <span className="text-gray-300">Story</span>
+              About <span className="text-gray-300">HyGlam</span>
             </h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 leading-relaxed">
-              Redefining artificial jewellery with affordable luxury for every
-              woman
+              Jewellery that inspires confidence, elegance, and individuality
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-gray-200 transition duration-300 shadow-lg">
-                Explore Collections
-              </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-black transition duration-300">
-                Learn More
-              </button>
-            </div>
           </div>
         </div>
       </div>
 
-      {/* Intro */}
+      {/* About Us */}
       <section className="py-16 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-col md:flex-row items-center gap-10">
-            <div className="w-full md:w-1/2">
-              <img
-                src="https://media.tenor.com/kzfyLo5FIN8AAAAM/emerald-jewelry.gif"
-                alt="Hyglam jewellery"
-                className="rounded-lg shadow-lg w-full h-96 object-cover grayscale hover:grayscale-0 transition"
-              />
-            </div>
-            <div className="w-full md:w-1/2">
-              <h2 className="text-3xl font-bold mb-6 text-gray-900">
-                Welcome to Hyglam
-              </h2>
-              <p className="text-gray-700 mb-4">
-                At Hyglam, we're redefining artificial jewellery. Our mission is
-                simple: to bring affordable luxury into every woman's life.
-              </p>
-              <p className="text-gray-700 mb-4">
-                We understand that every girl plays many roles — from casual
-                everyday wear to festive joy to boss lady confidence to
-                glamorous evenings.
-              </p>
-              <p className="text-gray-700">
-                That's why we design jewellery that fits seamlessly into your
-                story, enhancing every moment with elegance and style.
-              </p>
-            </div>
-          </div>
+          <h2 className="text-3xl font-bold text-center mb-10 text-gray-900">
+            Who We Are
+          </h2>
+          <p className="text-lg text-gray-700 max-w-4xl mx-auto text-center leading-relaxed">
+            HyGlam is a jewellery brand where you’ll always find trendy and
+            stylish pieces. Our aim is simple – whenever someone thinks of
+            trendy jewellery, the first name that comes to mind should be
+            <span className="font-semibold"> HyGlam</span>. We don’t just create
+            jewellery; we build an emotional connection with our clients through
+            every piece. HyGlam wants every common woman to feel like a
+            superwoman, because we believe jewellery isn’t only about enhancing
+            your look – it’s also about boosting your confidence. And when you
+            feel confident, you carry the energy and passion to shine in every
+            moment of life.
+          </p>
         </div>
       </section>
 
-      {/* Why Choose Us */}
+      {/* Founder Section */}
       <section className="py-16 bg-gray-100 px-4">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-            Why Choose Hyglam?
+            Meet Our Founders
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: "✨",
-                title: "Craftsmanship",
-                desc: "Inspired by luxury jewellery, crafted with precision.",
-              },
-              {
-                icon: "🎨",
-                title: "Design",
-                desc: "Curated with trends, culture, and confidence in mind.",
-              },
-              {
-                icon: "⭐",
-                title: "Quality",
-                desc: "Lightweight, long-lasting finish that maintains beauty.",
-              },
-              {
-                icon: "👑",
-                title: "Style",
-                desc: "Designs that make heads turn — without breaking the bank.",
-              },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-white p-6 rounded-lg shadow-md text-center hover:bg-gray-50 transition"
-              >
-                <div className="text-black mb-4 text-4xl">{item.icon}</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">
-                  {item.title}
-                </h3>
-                <p className="text-gray-700">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Vision */}
-      <section className="py-16 px-4 bg-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-col md:flex-row-reverse items-center gap-10">
-            <div className="w-full md:w-1/2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            {/* Founder */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
               <img
-                src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=774&q=80"
-                alt="Woman wearing Hyglam jewellery"
-                className="rounded-lg shadow-lg w-full h-96 object-cover grayscale hover:grayscale-0 transition"
+                src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=600&auto=format&fit=crop&q=80"
+                alt="Founder - Nandini Sharma"
+                className="w-full h-80 object-cover"
               />
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  Nandini Sharma
+                </h3>
+                <p className="text-sm font-semibold text-gray-500 mb-4">
+                  Founder
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  HyGlam was founded by{" "}
+                  <span className="font-semibold">Nandini Sharma</span>, a
+                  professional graphic designer with a deep passion for
+                  creativity, aesthetics, and design. Drawing on her design
+                  expertise, Nandini envisioned a jewellery brand that goes
+                  beyond accessories—one that empowers women, celebrates
+                  individuality, and makes elegance accessible.
+                </p>
+              </div>
             </div>
-            <div className="w-full md:w-1/2">
-              <h2 className="text-3xl font-bold mb-6 text-gray-900">
-                Our Vision
-              </h2>
-              <p className="text-gray-700 mb-6">
-                To be every woman's first choice when she thinks style,
-                elegance, and affordable luxury.
-              </p>
-              <h2 className="text-3xl font-bold mb-6 text-gray-900">
-                Our Promise
-              </h2>
-              <p className="text-gray-700">
-                Every piece at Hyglam is more than jewellery — it's a feeling of
-                confidence and glamour.
-              </p>
+
+            {/* Co-Founder */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
+              <img
+                src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=600&auto=format&fit=crop&q=80"
+                alt="Co-Founder - Madhur Arneja"
+                className="w-full h-80 object-cover"
+              />
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  Madhur Arneja
+                </h3>
+                <p className="text-sm font-semibold text-gray-500 mb-4">
+                  Co-Founder
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  <span className="font-semibold">Madhur Arneja</span>, the
+                  Co-Founder of HyGlam, is a social media manager and
+                  advertising specialist who brings expertise in digital
+                  strategy and brand growth. He plays a key role in shaping
+                  HyGlam’s online presence, marketing campaigns, and customer
+                  engagement, working alongside the founder to ensure that the
+                  brand continues to empower modern women with stylish,
+                  high-quality jewellery.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Collections */}
-      <section className="py-16 bg-gray-100 px-4">
+      <section className="py-16 bg-white px-4">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">
             Discover Our Collections
@@ -166,15 +132,15 @@ const HyglamAboutUs = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                img: "https://images.unsplash.com/photo-1656428361240-47e1737b7dce?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8andlbGxlcnl8ZW58MHx8MHx8fDA%3D",
+                img: "https://images.unsplash.com/photo-1656428361240-47e1737b7dce?w=600&auto=format&fit=crop&q=80",
                 title: "Everyday Elegance",
               },
               {
-                img: "https://images.unsplash.com/photo-1679156271456-d6068c543ee7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGp3ZWxsZXJ5fGVufDB8fDB8fHww",
+                img: "https://images.unsplash.com/photo-1679156271456-d6068c543ee7?w=600&auto=format&fit=crop&q=80",
                 title: "Festive Joy",
               },
               {
-                img: "https://images.unsplash.com/photo-1695050049047-54e27a908898?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGp3ZWxsZXJ5fGVufDB8fDB8fHww",
+                img: "https://images.unsplash.com/photo-1695050049047-54e27a908898?w=600&auto=format&fit=crop&q=80",
                 title: "Evening Glamour",
               },
             ].map((item, idx) => (
@@ -197,9 +163,12 @@ const HyglamAboutUs = () => {
           </div>
 
           <div className="text-center mt-12">
-            <button className="bg-black text-white px-8 py-3 rounded-md hover:bg-gray-800 transition">
+            <Link
+              to="/products"
+              className="bg-black text-white px-8 py-3 rounded-md hover:bg-gray-800 transition inline-block"
+            >
               View All Collections
-            </button>
+            </Link>
           </div>
         </div>
       </section>

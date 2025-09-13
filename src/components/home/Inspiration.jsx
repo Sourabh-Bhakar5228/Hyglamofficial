@@ -7,22 +7,17 @@ const InspirationSection = () => {
         {/* Left Content */}
         <div className="flex-1">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Our Inspiration
+            Durga Maa – A Symbol of Empowerment
           </h2>
           <p className="text-lg mb-6">
-            Every girl carries a spark of{" "}
-            <span className="font-semibold">Durga</span> within her. Whether she
-            is studying, working, nurturing her family, or chasing her dreams,
-            her strength comes from the same source of energy Maa Durga
-            symbolizes.
-          </p>
-          <ul className="space-y-3 text-lg">
-            <li>✨ Gentle, yet powerful.</li>
-            <li>✨ Loving, yet fierce.</li>
-            <li>✨ Calm, yet unstoppable.</li>
-          </ul>
-          <p className="mt-6 text-lg">
-            Hyglam celebrates that spark with every design.
+            Durga Maa embodies strength, courage, and resilience, inspiring
+            women to embrace their inner power. She is a timeless symbol of
+            confidence, determination, and the ability to overcome challenges.
+            Just as Durga Maa triumphs over obstacles; she encourages every
+            woman to stand tall, assert herself, and celebrate her
+            individuality. Her energy resonates with empowerment, making her a
+            guiding inspiration for women to lead with confidence in all aspects
+            of life.
           </p>
         </div>
 

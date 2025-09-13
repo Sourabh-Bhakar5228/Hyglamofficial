@@ -11,14 +11,14 @@ const PrivacyPolicy = () => {
     >
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Privacy Policy</h1>
       <p className="text-gray-600 mb-4">
-        At HYGLAM, your privacy is our priority. We collect and process personal
-        data responsibly and transparently.
+        At HyGlam, your privacy matters to us. We collect only the information
+        needed to process your orders, improve our services, and share updates
+        with your consent.
       </p>
-      <ul className="list-disc list-inside text-gray-600 space-y-2">
-        <li>We only collect necessary personal data.</li>
-        <li>We never sell your data to third parties.</li>
-        <li>You may request data deletion at any time.</li>
-      </ul>
+      <p className="text-gray-600">
+        Your data is kept secure, never sold, and shared only with trusted
+        partners or when required by law.
+      </p>
     </motion.div>
   );
 };

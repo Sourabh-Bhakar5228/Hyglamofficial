@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Heart, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import allProducts from "../data/allProducts.json";
 import { useWishlist } from "../components/context/WishlistContext";
+import GiftingCustomization from "../components/GiftingCustomization";
 
 export default function Products() {
   const { addToWishlist, wishlist } = useWishlist();
@@ -210,6 +211,8 @@ export default function Products() {
           </div>
         </div>
       </div>
+
+      <GiftingCustomization />
 
       {/* All Products Section (same as before) */}
       <div className="max-w-7xl mx-auto px-4 py-12">

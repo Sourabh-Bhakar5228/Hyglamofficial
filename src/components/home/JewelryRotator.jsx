@@ -210,13 +210,13 @@ const JewelryRotator = () => {
           <div className="flex items-center justify-center gap-2 md:gap-3 mb-3 md:mb-4">
             <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-white" />
             <h1 className="text-3xl md:text-5xl lg:text-7xl font-serif font-bold bg-gradient-to-r from-white via-gray-300 to-white bg-clip-text text-transparent">
-              Jewelry 360°
+              Jewelry
             </h1>
             <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />
           </div>
           <p className="text-base md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-2">
-            Experience our luxury jewelry collection in stunning 360° detail.
-            Rotate, zoom, and explore every facet of craftsmanship.
+            Experience our luxury jewelry collection in stunning detail. Rotate,
+            zoom, and explore every facet of craftsmanship.
           </p>
         </div>
 

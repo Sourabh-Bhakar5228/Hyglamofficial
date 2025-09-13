@@ -14,6 +14,9 @@ import {
 import allProducts from "../data/allProducts.json";
 import { setCookie, getCookie } from "../utils/cookies";
 import { useWishlist } from "../components/context/WishlistContext";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import ShippingInformation from "./ShippingInformation";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -24,6 +27,16 @@ export default function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
   const [addedToCart, setAddedToCart] = useState(false);
   const [isWishlistUpdated, setIsWishlistUpdated] = useState(false);
+  const [showOrderForm, setShowOrderForm] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    address: "",
+    deliveryLocation: "",
+    productName: "",
+    productPrice: "",
+    quantity: 1,
+  });
 
   // Sample product images for gallery
   const productImages = product
@@ -48,8 +61,14 @@ export default function ProductDetails() {
       navigate("/products");
     } else {
       setProduct(found);
+      setFormData((prev) => ({
+        ...prev,
+        productName: found.name,
+        productPrice: found.price,
+        quantity: quantity,
+      }));
     }
-  }, [id, navigate]);
+  }, [id, navigate, quantity]);
 
   const handleAddToCart = () => {
     const cart = getCookie("cart") || [];
@@ -93,9 +112,78 @@ export default function ProductDetails() {
     }
   };
 
-  const increaseQuantity = () => setQuantity((prev) => prev + 1);
-  const decreaseQuantity = () =>
+  const increaseQuantity = () => {
+    setQuantity((prev) => prev + 1);
+    setFormData((prev) => ({ ...prev, quantity: quantity + 1 }));
+  };
+
+  const decreaseQuantity = () => {
     setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+    setFormData((prev) => ({
+      ...prev,
+      quantity: quantity > 1 ? quantity - 1 : 1,
+    }));
+  };
+
+  const handleOrderNow = () => {
+    setShowOrderForm(true);
+  };
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/hyglamofficial@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            address: formData.address,
+            deliveryLocation: formData.deliveryLocation,
+            product: formData.productName,
+            price: formData.productPrice,
+            quantity: formData.quantity,
+            total: formData.productPrice * formData.quantity,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.success === "true") {
+        toast.success("Order placed successfully! We'll contact you soon.");
+        setShowOrderForm(false);
+        setFormData({
+          name: "",
+          email: "",
+          address: "",
+          deliveryLocation: "",
+          productName: product.name,
+          productPrice: product.price,
+          quantity: quantity,
+        });
+      } else {
+        toast.error("Failed to place order. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Failed to place order. Please try again.");
+    }
+  };
 
   if (!product)
     return (
@@ -106,6 +194,7 @@ export default function ProductDetails() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
+      <ToastContainer position="top-right" autoClose={3000} />
       <div className="max-w-7xl mx-auto px-4">
         {/* Breadcrumb Navigation */}
         <nav className="flex mb-6" aria-label="Breadcrumb">
@@ -281,6 +370,13 @@ export default function ProductDetails() {
                 </button>
 
                 <button
+                  onClick={handleOrderNow}
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex-1"
+                >
+                  Order Now
+                </button>
+
+                <button
                   onClick={handleShare}
                   className="flex items-center justify-center gap-2 px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
                 >
@@ -301,6 +397,8 @@ export default function ProductDetails() {
             </div>
           </div>
         </div>
+
+        <ShippingInformation />
 
         {/* Related Products Section */}
         <div className="mt-12">
@@ -342,6 +440,110 @@ export default function ProductDetails() {
           </div>
         </div>
       </div>
+
+      {/* Order Form Modal */}
+      {showOrderForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-6">
+            <h2 className="text-2xl font-bold mb-4">Order {product.name}</h2>
+            <form onSubmit={handleFormSubmit}>
+              <div className="mb-4">
+                <label className="block text-gray-700 mb-2" htmlFor="name">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleFormChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  required
+                />
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-gray-700 mb-2" htmlFor="email">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleFormChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  required
+                />
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-gray-700 mb-2" htmlFor="address">
+                  Delivery Address
+                </label>
+                <textarea
+                  id="address"
+                  name="address"
+                  value={formData.address}
+                  onChange={handleFormChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+
+              <div className="mb-4">
+                <label
+                  className="block text-gray-700 mb-2"
+                  htmlFor="deliveryLocation"
+                >
+                  Delivery Location
+                </label>
+                <input
+                  type="text"
+                  id="deliveryLocation"
+                  name="deliveryLocation"
+                  value={formData.deliveryLocation}
+                  onChange={handleFormChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  required
+                />
+              </div>
+
+              <div className="mb-4">
+                <p className="text-gray-700">
+                  Product: <span className="font-semibold">{product.name}</span>
+                </p>
+                <p className="text-gray-700">
+                  Quantity: <span className="font-semibold">{quantity}</span>
+                </p>
+                <p className="text-gray-700">
+                  Total:{" "}
+                  <span className="font-semibold">
+                    ₹{product.price * quantity}
+                  </span>
+                </p>
+              </div>
+
+              <div className="flex justify-end gap-3">
+                <button
+                  type="button"
+                  onClick={() => setShowOrderForm(false)}
+                  className="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+                >
+                  Place Order
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* Notification Toasts */}
       {addedToCart && (

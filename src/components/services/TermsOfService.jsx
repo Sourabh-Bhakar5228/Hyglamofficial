@@ -10,16 +10,29 @@ const TermsOfService = () => {
       transition={{ duration: 0.6 }}
     >
       <h1 className="text-3xl font-bold text-gray-900 mb-6">
-        Terms of Service
+        Terms & Conditions
       </h1>
       <p className="text-gray-600 mb-4">
-        By using HYGLAM services, you agree to the following terms:
+        By using HyGlam’s website and services, you agree to our terms regarding
+        orders, payments, shipping, and returns.
       </p>
-      <ul className="list-disc list-inside text-gray-600 space-y-2">
-        <li>Use our services lawfully and respectfully.</li>
-        <li>Do not misuse or attempt unauthorized access.</li>
-        <li>All content is owned or licensed by HYGLAM.</li>
-      </ul>
+      <p className="text-gray-600 mb-4">
+        All products are subject to availability, and while we strive for
+        accuracy, slight variations in product details may occur.
+      </p>
+      <p className="text-gray-600 mb-4">
+        Payments are processed securely, and delivery timelines may vary. All
+        website content, including designs and images, is the property of
+        HyGlam.
+      </p>
+      <p className="text-gray-600 mb-4">
+        We are not liable for indirect or incidental damages, and our liability
+        is limited to the value of the purchased product.
+      </p>
+      <p className="text-gray-600">
+        By continuing to use our website, you accept these terms along with our
+        Privacy Policy.
+      </p>
     </motion.div>
   );
 };

@@ -6,125 +6,332 @@
     "image": "https://picsum.photos/400/400?random=1",
     "products": [
       {
-        "id": "boss-necklace",
-        "name": "Statement Choker",
-        "price": 2499,
-        "category": "Necklaces",
-        "image": "https://picsum.photos/400/400?random=2"
-      },
-      {
-        "id": "boss-earrings",
-        "name": "Sharp Hoops",
-        "price": 1299,
-        "category": "Earrings",
-        "image": "https://picsum.photos/400/400?random=3"
+        "id": "boss-ring",
+        "name": "Boss Lady Ring",
+        "price": 999,
+        "category": "Ring",
+        "image": "https://picsum.photos/400/400?random=2",
+        "images": [
+          "https://picsum.photos/600/600?random=201",
+          "https://picsum.photos/600/600?random=202",
+          "https://picsum.photos/600/600?random=203",
+          "https://picsum.photos/600/600?random=204"
+        ]
       },
       {
         "id": "boss-bracelet",
-        "name": "Modern Metallic Bracelet",
+        "name": "Boss Lady Bracelet",
         "price": 1799,
-        "category": "Bracelets",
-        "image": "https://picsum.photos/400/400?random=4"
+        "category": "Bracelet",
+        "image": "https://picsum.photos/400/400?random=3",
+        "images": [
+          "https://picsum.photos/600/600?random=205",
+          "https://picsum.photos/600/600?random=206",
+          "https://picsum.photos/600/600?random=207",
+          "https://picsum.photos/600/600?random=208"
+        ]
       },
       {
-        "id": "boss-ring",
-        "name": "Office Statement Ring",
-        "price": 999,
-        "category": "Rings",
-        "image": "https://picsum.photos/400/400?random=5"
+        "id": "boss-earring",
+        "name": "Boss Lady Earring",
+        "price": 1299,
+        "category": "Earring",
+        "image": "https://picsum.photos/400/400?random=4",
+        "images": [
+          "https://picsum.photos/600/600?random=209",
+          "https://picsum.photos/600/600?random=210",
+          "https://picsum.photos/600/600?random=211",
+          "https://picsum.photos/600/600?random=212"
+        ]
+      },
+      {
+        "id": "boss-earcuff",
+        "name": "Boss Lady Earcuff",
+        "price": 1599,
+        "category": "Earcuff",
+        "image": "https://picsum.photos/400/400?random=5",
+        "images": [
+          "https://picsum.photos/600/600?random=213",
+          "https://picsum.photos/600/600?random=214",
+          "https://picsum.photos/600/600?random=215",
+          "https://picsum.photos/600/600?random=216"
+        ]
+      },
+      {
+        "id": "boss-necklace",
+        "name": "Boss Lady Necklace",
+        "price": 2499,
+        "category": "Necklace",
+        "image": "https://picsum.photos/400/400?random=6",
+        "images": [
+          "https://picsum.photos/600/600?random=217",
+          "https://picsum.photos/600/600?random=218",
+          "https://picsum.photos/600/600?random=219",
+          "https://picsum.photos/600/600?random=220"
+        ]
       },
       {
         "id": "boss-pendant",
-        "name": "Geometric Pendant",
+        "name": "Boss Lady Pendant",
         "price": 1499,
-        "category": "Pendants",
-        "image": "https://picsum.photos/400/400?random=6"
-      }
-    ]
-  },
-  {
-    "id": "everyday-girl",
-    "title": "Everyday Girl",
-    "description": "Simple yet stunning pieces for daily wear.",
-    "image": "https://picsum.photos/400/400?random=7",
-    "products": [
-      {
-        "id": "everyday-necklace",
-        "name": "Minimal Chain Pendant",
-        "price": 899,
-        "category": "Necklaces",
-        "image": "https://picsum.photos/400/400?random=8"
+        "category": "Pendant",
+        "image": "https://picsum.photos/400/400?random=7",
+        "images": [
+          "https://picsum.photos/600/600?random=221",
+          "https://picsum.photos/600/600?random=222",
+          "https://picsum.photos/600/600?random=223",
+          "https://picsum.photos/600/600?random=224"
+        ]
       },
       {
-        "id": "everyday-earrings",
-        "name": "Chic Stud Earrings",
-        "price": 599,
-        "category": "Earrings",
-        "image": "https://picsum.photos/400/400?random=9"
-      },
-      {
-        "id": "everyday-bracelet",
-        "name": "Everyday Bangle",
+        "id": "boss-nosepin",
+        "name": "Boss Lady Nosepin",
         "price": 799,
-        "category": "Bracelets",
-        "image": "https://picsum.photos/400/400?random=10"
+        "category": "Nosepin",
+        "image": "https://picsum.photos/400/400?random=8",
+        "images": [
+          "https://picsum.photos/600/600?random=225",
+          "https://picsum.photos/600/600?random=226",
+          "https://picsum.photos/600/600?random=227",
+          "https://picsum.photos/600/600?random=228"
+        ]
       },
       {
-        "id": "everyday-ring",
-        "name": "Casual Chic Ring",
-        "price": 699,
-        "category": "Rings",
-        "image": "https://picsum.photos/400/400?random=11"
-      },
-      {
-        "id": "everyday-pendant",
-        "name": "Elegant Pendant",
-        "price": 999,
-        "category": "Pendants",
-        "image": "https://picsum.photos/400/400?random=12"
+        "id": "boss-anklets",
+        "name": "Boss Lady Anklets",
+        "price": 1199,
+        "category": "Anklets",
+        "image": "https://picsum.photos/400/400?random=9",
+        "images": [
+          "https://picsum.photos/600/600?random=229",
+          "https://picsum.photos/600/600?random=230",
+          "https://picsum.photos/600/600?random=231",
+          "https://picsum.photos/600/600?random=232"
+        ]
       }
     ]
   },
   {
-    "id": "glam-girl",
-    "title": "Trendsetter (Glam Girl)",
+    "id": "trendsetter",
+    "title": "Trendsetter",
     "description": "For the spotlight moments & red-carpet glow.",
-    "image": "https://picsum.photos/400/400?random=13",
+    "image": "https://picsum.photos/400/400?random=10",
     "products": [
       {
-        "id": "glam-necklace",
-        "name": "Stone-Studded Choker",
-        "price": 2799,
-        "category": "Necklaces",
-        "image": "https://picsum.photos/400/400?random=14"
+        "id": "trend-ring",
+        "name": "Trendsetter Ring",
+        "price": 1199,
+        "category": "Ring",
+        "image": "https://picsum.photos/400/400?random=11",
+        "images": [
+          "https://picsum.photos/600/600?random=301",
+          "https://picsum.photos/600/600?random=302",
+          "https://picsum.photos/600/600?random=303",
+          "https://picsum.photos/600/600?random=304"
+        ]
       },
       {
-        "id": "glam-earrings",
-        "name": "Cocktail Earrings",
-        "price": 1599,
-        "category": "Earrings",
-        "image": "https://picsum.photos/400/400?random=15"
+        "id": "trend-bracelet",
+        "name": "Trendsetter Bracelet",
+        "price": 1999,
+        "category": "Bracelet",
+        "image": "https://picsum.photos/400/400?random=12",
+        "images": [
+          "https://picsum.photos/600/600?random=305",
+          "https://picsum.photos/600/600?random=306",
+          "https://picsum.photos/600/600?random=307",
+          "https://picsum.photos/600/600?random=308"
+        ]
+      },
+      {
+        "id": "trend-earring",
+        "name": "Trendsetter Earring",
+        "price": 1499,
+        "category": "Earring",
+        "image": "https://picsum.photos/400/400?random=13",
+        "images": [
+          "https://picsum.photos/600/600?random=309",
+          "https://picsum.photos/600/600?random=310",
+          "https://picsum.photos/600/600?random=311",
+          "https://picsum.photos/600/600?random=312"
+        ]
+      },
+      {
+        "id": "trend-earcuff",
+        "name": "Trendsetter Earcuff",
+        "price": 1799,
+        "category": "Earcuff",
+        "image": "https://picsum.photos/400/400?random=14",
+        "images": [
+          "https://picsum.photos/600/600?random=313",
+          "https://picsum.photos/600/600?random=314",
+          "https://picsum.photos/600/600?random=315",
+          "https://picsum.photos/600/600?random=316"
+        ]
+      },
+      {
+        "id": "trend-necklace",
+        "name": "Trendsetter Necklace",
+        "price": 2699,
+        "category": "Necklace",
+        "image": "https://picsum.photos/400/400?random=15",
+        "images": [
+          "https://picsum.photos/600/600?random=317",
+          "https://picsum.photos/600/600?random=318",
+          "https://picsum.photos/600/600?random=319",
+          "https://picsum.photos/600/600?random=320"
+        ]
+      },
+      {
+        "id": "trend-pendant",
+        "name": "Trendsetter Pendant",
+        "price": 1999,
+        "category": "Pendant",
+        "image": "https://picsum.photos/400/400?random=16",
+        "images": [
+          "https://picsum.photos/600/600?random=321",
+          "https://picsum.photos/600/600?random=322",
+          "https://picsum.photos/600/600?random=323",
+          "https://picsum.photos/600/600?random=324"
+        ]
+      },
+      {
+        "id": "trend-nosepin",
+        "name": "Trendsetter Nosepin",
+        "price": 999,
+        "category": "Nosepin",
+        "image": "https://picsum.photos/400/400?random=17",
+        "images": [
+          "https://picsum.photos/600/600?random=325",
+          "https://picsum.photos/600/600?random=326",
+          "https://picsum.photos/600/600?random=327",
+          "https://picsum.photos/600/600?random=328"
+        ]
+      },
+      {
+        "id": "trend-anklets",
+        "name": "Trendsetter Anklets",
+        "price": 1399,
+        "category": "Anklets",
+        "image": "https://picsum.photos/400/400?random=18",
+        "images": [
+          "https://picsum.photos/600/600?random=329",
+          "https://picsum.photos/600/600?random=330",
+          "https://picsum.photos/600/600?random=331",
+          "https://picsum.photos/600/600?random=332"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "everyday-glam",
+    "title": "Everyday Glam",
+    "description": "Simple yet stunning pieces for daily wear.",
+    "image": "https://picsum.photos/400/400?random=19",
+    "products": [
+      {
+        "id": "glam-ring",
+        "name": "Everyday Glam Ring",
+        "price": 699,
+        "category": "Ring",
+        "image": "https://picsum.photos/400/400?random=20",
+        "images": [
+          "https://picsum.photos/600/600?random=401",
+          "https://picsum.photos/600/600?random=402",
+          "https://picsum.photos/600/600?random=403",
+          "https://picsum.photos/600/600?random=404"
+        ]
       },
       {
         "id": "glam-bracelet",
-        "name": "Glam Cuff Bracelet",
-        "price": 1999,
-        "category": "Bracelets",
-        "image": "https://picsum.photos/400/400?random=16"
+        "name": "Everyday Glam Bracelet",
+        "price": 999,
+        "category": "Bracelet",
+        "image": "https://picsum.photos/400/400?random=21",
+        "images": [
+          "https://picsum.photos/600/600?random=405",
+          "https://picsum.photos/600/600?random=406",
+          "https://picsum.photos/600/600?random=407",
+          "https://picsum.photos/600/600?random=408"
+        ]
       },
       {
-        "id": "glam-ring",
-        "name": "Cocktail Ring",
-        "price": 1299,
-        "category": "Rings",
-        "image": "https://picsum.photos/400/400?random=17"
+        "id": "glam-earring",
+        "name": "Everyday Glam Earring",
+        "price": 799,
+        "category": "Earring",
+        "image": "https://picsum.photos/400/400?random=22",
+        "images": [
+          "https://picsum.photos/600/600?random=409",
+          "https://picsum.photos/600/600?random=410",
+          "https://picsum.photos/600/600?random=411",
+          "https://picsum.photos/600/600?random=412"
+        ]
+      },
+      {
+        "id": "glam-earcuff",
+        "name": "Everyday Glam Earcuff",
+        "price": 1199,
+        "category": "Earcuff",
+        "image": "https://picsum.photos/400/400?random=23",
+        "images": [
+          "https://picsum.photos/600/600?random=413",
+          "https://picsum.photos/600/600?random=414",
+          "https://picsum.photos/600/600?random=415",
+          "https://picsum.photos/600/600?random=416"
+        ]
+      },
+      {
+        "id": "glam-necklace",
+        "name": "Everyday Glam Necklace",
+        "price": 1499,
+        "category": "Necklace",
+        "image": "https://picsum.photos/400/400?random=24",
+        "images": [
+          "https://picsum.photos/600/600?random=417",
+          "https://picsum.photos/600/600?random=418",
+          "https://picsum.photos/600/600?random=419",
+          "https://picsum.photos/600/600?random=420"
+        ]
       },
       {
         "id": "glam-pendant",
-        "name": "Sparkly Pendant",
-        "price": 1799,
-        "category": "Pendants",
-        "image": "https://picsum.photos/400/400?random=18"
+        "name": "Everyday Glam Pendant",
+        "price": 1099,
+        "category": "Pendant",
+        "image": "https://picsum.photos/400/400?random=25",
+        "images": [
+          "https://picsum.photos/600/600?random=421",
+          "https://picsum.photos/600/600?random=422",
+          "https://picsum.photos/600/600?random=423",
+          "https://picsum.photos/600/600?random=424"
+        ]
+      },
+      {
+        "id": "glam-nosepin",
+        "name": "Everyday Glam Nosepin",
+        "price": 499,
+        "category": "Nosepin",
+        "image": "https://picsum.photos/400/400?random=26",
+        "images": [
+          "https://picsum.photos/600/600?random=425",
+          "https://picsum.photos/600/600?random=426",
+          "https://picsum.photos/600/600?random=427",
+          "https://picsum.photos/600/600?random=428"
+        ]
+      },
+      {
+        "id": "glam-anklets",
+        "name": "Everyday Glam Anklets",
+        "price": 899,
+        "category": "Anklets",
+        "image": "https://picsum.photos/400/400?random=27",
+        "images": [
+          "https://picsum.photos/600/600?random=429",
+          "https://picsum.photos/600/600?random=430",
+          "https://picsum.photos/600/600?random=431",
+          "https://picsum.photos/600/600?random=432"
+        ]
       }
     ]
   },
@@ -132,42 +339,111 @@
     "id": "festive-girl",
     "title": "Festive Girl",
     "description": "Celebrate in colour, culture & sparkle.",
-    "image": "https://picsum.photos/400/400?random=19",
+    "image": "https://picsum.photos/400/400?random=28",
     "products": [
       {
-        "id": "festive-necklace",
-        "name": "Kundan Necklace",
-        "price": 2999,
-        "category": "Necklaces",
-        "image": "https://picsum.photos/400/400?random=20"
-      },
-      {
-        "id": "festive-earrings",
-        "name": "Jhumkas",
-        "price": 1499,
-        "category": "Earrings",
-        "image": "https://picsum.photos/400/400?random=21"
+        "id": "festive-ring",
+        "name": "Festive Ring",
+        "price": 1299,
+        "category": "Ring",
+        "image": "https://picsum.photos/400/400?random=29",
+        "images": [
+          "https://picsum.photos/600/600?random=501",
+          "https://picsum.photos/600/600?random=502",
+          "https://picsum.photos/600/600?random=503",
+          "https://picsum.photos/600/600?random=504"
+        ]
       },
       {
         "id": "festive-bracelet",
-        "name": "Ethnic Sparkle Bracelet",
-        "price": 1899,
-        "category": "Bracelets",
-        "image": "https://picsum.photos/400/400?random=22"
+        "name": "Festive Bracelet",
+        "price": 1799,
+        "category": "Bracelet",
+        "image": "https://picsum.photos/400/400?random=30",
+        "images": [
+          "https://picsum.photos/600/600?random=505",
+          "https://picsum.photos/600/600?random=506",
+          "https://picsum.photos/600/600?random=507",
+          "https://picsum.photos/600/600?random=508"
+        ]
       },
       {
-        "id": "festive-ring",
-        "name": "Decorative Ring",
-        "price": 999,
-        "category": "Rings",
-        "image": "https://picsum.photos/400/400?random=23"
+        "id": "festive-earring",
+        "name": "Festive Earring",
+        "price": 1499,
+        "category": "Earring",
+        "image": "https://picsum.photos/400/400?random=31",
+        "images": [
+          "https://picsum.photos/600/600?random=509",
+          "https://picsum.photos/600/600?random=510",
+          "https://picsum.photos/600/600?random=511",
+          "https://picsum.photos/600/600?random=512"
+        ]
+      },
+      {
+        "id": "festive-earcuff",
+        "name": "Festive Earcuff",
+        "price": 1599,
+        "category": "Earcuff",
+        "image": "https://picsum.photos/400/400?random=32",
+        "images": [
+          "https://picsum.photos/600/600?random=513",
+          "https://picsum.photos/600/600?random=514",
+          "https://picsum.photos/600/600?random=515",
+          "https://picsum.photos/600/600?random=516"
+        ]
+      },
+      {
+        "id": "festive-necklace",
+        "name": "Festive Necklace",
+        "price": 2699,
+        "category": "Necklace",
+        "image": "https://picsum.photos/400/400?random=33",
+        "images": [
+          "https://picsum.photos/600/600?random=517",
+          "https://picsum.photos/600/600?random=518",
+          "https://picsum.photos/600/600?random=519",
+          "https://picsum.photos/600/600?random=520"
+        ]
       },
       {
         "id": "festive-pendant",
-        "name": "Stone Motif Pendant",
-        "price": 1599,
-        "category": "Pendants",
-        "image": "https://picsum.photos/400/400?random=24"
+        "name": "Festive Pendant",
+        "price": 1999,
+        "category": "Pendant",
+        "image": "https://picsum.photos/400/400?random=34",
+        "images": [
+          "https://picsum.photos/600/600?random=521",
+          "https://picsum.photos/600/600?random=522",
+          "https://picsum.photos/600/600?random=523",
+          "https://picsum.photos/600/600?random=524"
+        ]
+      },
+      {
+        "id": "festive-nosepin",
+        "name": "Festive Nosepin",
+        "price": 899,
+        "category": "Nosepin",
+        "image": "https://picsum.photos/400/400?random=35",
+        "images": [
+          "https://picsum.photos/600/600?random=525",
+          "https://picsum.photos/600/600?random=526",
+          "https://picsum.photos/600/600?random=527",
+          "https://picsum.photos/600/600?random=528"
+        ]
+      },
+      {
+        "id": "festive-anklets",
+        "name": "Festive Anklets",
+        "price": 1399,
+        "category": "Anklets",
+        "image": "https://picsum.photos/400/400?random=36",
+        "images": [
+          "https://picsum.photos/600/600?random=529",
+          "https://picsum.photos/600/600?random=530",
+          "https://picsum.photos/600/600?random=531",
+          "https://picsum.photos/600/600?random=532"
+        ]
       }
     ]
   }
