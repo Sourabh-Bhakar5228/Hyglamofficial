@@ -50,9 +50,6 @@ const Navbar = () => {
 
         {/* Right Menu (Desktop with FAQ, Gallery, Cart, Wishlist, Contact) */}
         <div className="hidden md:flex items-center space-x-4 text-black font-medium">
-          <Link to="/faq" className="hover:text-[#cbb87f]">
-            FAQ
-          </Link>
           <Link to="/gallery" className="hover:text-[#cbb87f]">
             Gallery
           </Link>
@@ -125,13 +122,7 @@ const Navbar = () => {
           >
             Products
           </Link>
-          <Link
-            to="/faq"
-            className="block hover:text-[#cbb87f]"
-            onClick={() => handleNavClick("/faq")}
-          >
-            FAQ
-          </Link>
+
           <Link
             to="/gallery"
             className="block hover:text-[#cbb87f]"

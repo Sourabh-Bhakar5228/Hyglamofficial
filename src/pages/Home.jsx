@@ -1,3 +1,4 @@
+import FAQSection from "../components/Faqs";
 import Collection from "../components/home/Collection";
 import HomePage from "../components/home/HomePageSlider";
 import InspirationSection from "../components/home/Inspiration";
@@ -16,6 +17,7 @@ const Home = () => {
       <Servicessection />
       <InspirationSection />
       <ProductSlider products={productsData} />
+      <FAQSection />
       <Collection />
       <JewelryLandingPage />
       <JewelryRotator />

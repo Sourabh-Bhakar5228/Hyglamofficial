@@ -8,7 +8,7 @@ import Products from "../pages/Products";
 import Contact from "../pages/Contact";
 import Layout from "../layout/Layout";
 import Gallery from "../pages/Gallery";
-import Faqs from "../pages/Faqs";
+// import Faqs from "../pages/Faqs";
 
 // Extra Pages
 import Cart from "../pages/Cart";
@@ -29,7 +29,7 @@ export default function Routing() {
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/faq" element={<Faqs />} />
+          {/* <Route path="/faq" element={<Faqs />} /> */}
           <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/wishlist" element={<Wishlist />} />

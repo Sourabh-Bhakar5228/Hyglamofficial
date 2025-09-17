@@ -88,19 +88,6 @@ export default function ProductSlider() {
         >
           <ChevronRightIcon className="h-6 w-6" />
         </button>
-
-        {/* Indicator dots */}
-        <div className="flex justify-center mt-6 space-x-2">
-          {products.map((_, idx) => (
-            <button
-              key={idx}
-              className={`w-3 h-3 rounded-full ${
-                currentIndex === idx ? "bg-white" : "bg-gray-600"
-              }`}
-              onClick={() => setCurrentIndex(idx)}
-            />
-          ))}
-        </div>
       </div>
     </div>
   );
