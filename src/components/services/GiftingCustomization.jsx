@@ -1,4 +1,3 @@
-import React from "react";
 import { Gift, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -19,11 +18,6 @@ const GiftingCustomization = () => {
               src="https://images.pexels.com/photos/5970866/pexels-photo-5970866.jpeg"
               alt="Gift Packaging"
               className="rounded-2xl shadow-lg"
-            />
-            <img
-              src="https://images.pexels.com/photos/1050312/pexels-photo-1050312.jpeg"
-              alt="Jewellery Customization"
-              className="absolute -bottom-24 -right-24 w-2/3 rounded-2xl shadow-xl border-4 border-white"
             />
           </div>
         </motion.div>

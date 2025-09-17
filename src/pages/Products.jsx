@@ -155,13 +155,13 @@ export default function Products() {
                         </div>
 
                         {/* Price */}
-                        <div className="text-indigo-600 font-bold text-lg mb-4">
+                        <div className="text-gray-600 font-bold text-lg mb-4">
                           ₹{product.price}
                         </div>
 
                         {/* Buttons */}
                         <div className="mt-auto flex space-x-3">
-                          <button className="flex-1 bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition-all">
+                          <button className="flex-1 bg-gray-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-700 transition-all">
                             Add to Cart
                           </button>
                           <Link
@@ -182,37 +182,20 @@ export default function Products() {
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-indigo-50 opacity-0 group-hover:opacity-100 transition-all"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-gray-50 opacity-0 group-hover:opacity-100 transition-all"
             aria-label="Previous slide"
           >
             <ChevronLeft size={26} className="text-gray-700" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-indigo-50 opacity-0 group-hover:opacity-100 transition-all"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-gray-50 opacity-0 group-hover:opacity-100 transition-all"
             aria-label="Next slide"
           >
             <ChevronRight size={26} className="text-gray-700" />
           </button>
-
-          {/* Circle Indicators */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2 bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
-            {Array.from({ length: totalSlides }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  currentSlide === index
-                    ? "bg-white scale-125"
-                    : "bg-white/60 hover:bg-white/80"
-                }`}
-              />
-            ))}
-          </div>
         </div>
       </div>
-
-      <GiftingCustomization />
 
       {/* All Products Section (same as before) */}
       <div className="max-w-7xl mx-auto px-4 py-12">
@@ -275,7 +258,7 @@ export default function Products() {
                           size={14}
                           className={
                             star <= 4
-                              ? "text-yellow-400 fill-current"
+                              ? "text-black fill-current"
                               : "text-gray-300"
                           }
                         />
@@ -283,12 +266,12 @@ export default function Products() {
                       <span className="ml-1 text-xs text-gray-500">(24)</span>
                     </div>
                     <div className="mt-auto flex items-center justify-between">
-                      <div className="text-indigo-600 font-bold">
+                      <div className="text-black font-bold">
                         ₹{product.price}
                       </div>
                       <Link
                         to={`/product/${product.id}`}
-                        className="text-indigo-600 hover:text-indigo-800 font-medium text-sm flex items-center"
+                        className="text-black hover:text-grays-800 font-medium text-sm flex items-center"
                       >
                         View Details
                         <ChevronRight size={16} className="ml-1" />
@@ -301,7 +284,7 @@ export default function Products() {
           </div>
         ))}
       </div>
-
+      <GiftingCustomization />
       {/* Wishlist Confirmation Toast */}
       {isWishlistUpdated && (
         <div className="fixed bottom-4 right-4 bg-green-100 text-green-800 px-4 py-2 rounded-lg shadow-lg animate-fadeInOut">

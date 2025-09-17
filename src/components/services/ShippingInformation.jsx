@@ -20,11 +20,6 @@ const ShippingInformation = () => {
               alt="Shipping Package"
               className="rounded-2xl shadow-lg"
             />
-            <img
-              src="https://images.unsplash.com/photo-1617347454431-f49d7ff5c3b1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZGVsaXZlcnl8ZW58MHx8MHx8fDA%3D"
-              alt="Delivery"
-              className="absolute -bottom-16 -right-24 w-2/3 rounded-2xl shadow-xl border-4 border-white"
-            />
           </div>
         </motion.div>
 
