@@ -18,7 +18,7 @@ const Home = () => {
       <InspirationSection />
       <ProductSlider products={productsData} />
       <FAQSection />
-      <Collection />
+      {/* <Collection /> */}
       <JewelryLandingPage />
       <JewelryRotator />
       <SocialSlider />

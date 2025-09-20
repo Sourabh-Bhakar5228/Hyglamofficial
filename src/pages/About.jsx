@@ -57,7 +57,7 @@ const HyglamAboutUs = () => {
 
       {/* Founder Section */}
       <section className="py-16 bg-gray-100 px-4">
-        <div className="container mx-auto max-w-6xl">
+        <div className="container mx-auto max-w-7xl">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
             Meet Our Founders
           </h2>
@@ -66,7 +66,7 @@ const HyglamAboutUs = () => {
             {/* Founder */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
               <img
-                src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=600&auto=format&fit=crop&q=80"
+                src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=600&auto=format&fit=crop&q=80"
                 alt="Founder - Nandini Sharma"
                 className="w-full h-80 object-cover"
               />
@@ -92,7 +92,7 @@ const HyglamAboutUs = () => {
             {/* Co-Founder */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
               <img
-                src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=600&auto=format&fit=crop&q=80"
+                src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=600&auto=format&fit=crop&q=80"
                 alt="Co-Founder - Madhur Arneja"
                 className="w-full h-80 object-cover"
               />
