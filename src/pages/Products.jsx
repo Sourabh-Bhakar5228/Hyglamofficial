@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Heart, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { Heart, ChevronLeft, ChevronRight, Star, Filter } from "lucide-react";
 import allProducts from "../data/allProducts.json";
 import { useWishlist } from "../components/context/WishlistContext";
 import GiftingCustomization from "../components/services/GiftingCustomization";
@@ -9,6 +9,23 @@ export default function Products() {
   const { addToWishlist, wishlist } = useWishlist();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isWishlistUpdated, setIsWishlistUpdated] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [showFilters, setShowFilters] = useState(false);
+
+  // Get all unique categories
+  const categories = [
+    { id: "all", name: "All Products" },
+    ...allProducts.map((category) => ({
+      id: category.id,
+      name: category.title,
+    })),
+  ];
+
+  // Filter products based on selected category
+  const filteredProducts =
+    selectedCategory === "all"
+      ? allProducts
+      : allProducts.filter((category) => category.id === selectedCategory);
 
   // Get featured products for the slider (first 5 products from each category)
   const featuredProducts = allProducts
@@ -46,169 +63,104 @@ export default function Products() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Banner Section with Image */}
+      {/* Banner Section with Image - Text on Left */}
       <div className="relative h-[80vh] w-full overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1710756640106-add3c3be763d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGRpYW1vbmR8ZW58MHx8MHx8fDA%3D" // ✅ replace with your image path
+          src="https://images.unsplash.com/photo-1620656798579-1984d9e87df7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bmVja2xhY2V8ZW58MHx8MHx8fDA%3D"
           alt="Banner"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/40"></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-4">
-            <h1 className="text-5xl font-bold mb-4">Our Products</h1>
-            <p className="text-xl max-w-2xl mx-auto">
-              Discover our curated collection of premium products designed for
-              your lifestyle
-            </p>
+        <div className="absolute inset-0 flex items-center">
+          <div className="container mx-auto px-4">
+            <div className="max-w-lg">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
+                Our Products
+              </h1>
+              <p className="text-lg md:text-xl lg:text-2xl text-white mb-6">
+                Discover our curated collection of premium products designed for
+                your lifestyle
+              </p>
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("products-section")
+                    .scrollIntoView({ behavior: "smooth" })
+                }
+                className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
+              >
+                Shop Now
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Featured Products Slider */}
-      <div className="max-w-7xl mx-auto px-4 py-16 relative">
-        <div className="text-center mb-14">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Featured Products
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Discover our most popular and premium quality products loved by
-            thousands of customers
-          </p>
-        </div>
+      {/* Category Filters */}
+      <div id="products-section" className="max-w-7xl mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+          <h2 className="text-3xl font-bold mb-4 md:mb-0">All Products</h2>
 
-        {/* Slider Wrapper */}
-        <div className="relative overflow-hidden rounded-2xl group">
-          <div
-            className="flex transition-transform duration-700 ease-out"
-            style={{
-              transform: `translateX(-${currentSlide * (100 / totalSlides)}%)`,
-              width: `${totalSlides * 20}%`,
-            }}
+          {/* Mobile Filter Button */}
+          <button
+            onClick={() => setShowFilters(!showFilters)}
+            className="md:hidden flex items-center justify-center gap-2 bg-white border border-gray-300 rounded-lg px-4 py-2 mb-4"
           >
-            {Array.from({ length: totalSlides }).map((_, slideIndex) => (
-              <div
-                key={slideIndex}
-                className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 flex-shrink-0"
+            <Filter size={18} />
+            Filter Categories
+          </button>
+
+          {/* Category Filters - Desktop */}
+          <div className="hidden md:flex flex-wrap gap-2">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-4 py-2 rounded-full border transition-colors duration-200 ${
+                  selectedCategory === category.id
+                    ? "bg-black text-white border-black"
+                    : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
+                }`}
               >
-                {featuredProducts
-                  .slice(
-                    slideIndex * itemsPerSlide,
-                    slideIndex * itemsPerSlide + itemsPerSlide
-                  )
-                  .map((product) => (
-                    <div
-                      key={product.id}
-                      className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
-                    >
-                      {/* Product Image */}
-                      <div className="relative">
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="w-full h-56 object-cover"
-                        />
-                        <button
-                          className={`absolute top-3 right-3 p-2 rounded-full transition-all ${
-                            wishlist.some((item) => item.id === product.id)
-                              ? "bg-red-100 text-red-500"
-                              : "bg-white text-gray-500 hover:bg-red-100 hover:text-red-500"
-                          }`}
-                          onClick={() => handleAddToWishlist(product)}
-                        >
-                          <Heart
-                            size={18}
-                            className={
-                              wishlist.some((item) => item.id === product.id)
-                                ? "fill-current"
-                                : ""
-                            }
-                          />
-                        </button>
-                      </div>
-
-                      {/* Product Details */}
-                      <div className="p-4 flex flex-col flex-grow">
-                        <h3 className="text-lg font-semibold">
-                          {product.name}
-                        </h3>
-                        <p className="text-gray-500 text-sm mb-3">
-                          {product.category}
-                        </p>
-
-                        {/* Rating */}
-                        <div className="flex items-center mb-3">
-                          {[1, 2, 3, 4, 5].map((star) => (
-                            <Star
-                              key={star}
-                              size={14}
-                              className={
-                                star <= (product.rating || 4)
-                                  ? "text-yellow-400 fill-current"
-                                  : "text-gray-300"
-                              }
-                            />
-                          ))}
-                          <span className="ml-1 text-xs text-gray-500">
-                            ({product.reviews || 24})
-                          </span>
-                        </div>
-
-                        {/* Price */}
-                        <div className="text-gray-600 font-bold text-lg mb-4">
-                          ₹{product.price}
-                        </div>
-
-                        {/* Buttons */}
-                        <div className="mt-auto flex space-x-3">
-                          <button className="flex-1 bg-gray-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-700 transition-all">
-                            Add to Cart
-                          </button>
-                          <Link
-                            to={`/product/${product.id}`}
-                            className="px-4 py-2 border border-gray-300 rounded-lg font-medium text-gray-700 hover:bg-gray-50 flex items-center"
-                          >
-                            View
-                            <ChevronRight size={16} className="ml-1" />
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-              </div>
+                {category.name}
+              </button>
             ))}
           </div>
 
-          {/* Navigation Buttons */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-gray-50 opacity-0 group-hover:opacity-100 transition-all"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft size={26} className="text-gray-700" />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-lg hover:bg-gray-50 opacity-0 group-hover:opacity-100 transition-all"
-            aria-label="Next slide"
-          >
-            <ChevronRight size={26} className="text-gray-700" />
-          </button>
-        </div>
-      </div>
-
-      {/* All Products Section (same as before) */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-3xl font-bold text-center mb-10">All Products</h2>
-
-        {allProducts.map((category) => (
-          <div key={category.id} className="mb-16">
-            <div className="mb-8 text-center">
-              <h2 className="text-2xl font-bold mb-2">{category.title}</h2>
-              <p className="text-gray-600 max-w-3xl mx-auto">
-                {category.description}
-              </p>
+          {/* Category Filters - Mobile */}
+          {showFilters && (
+            <div className="md:hidden grid grid-cols-2 gap-2 mb-6">
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => {
+                    setSelectedCategory(category.id);
+                    setShowFilters(false);
+                  }}
+                  className={`px-4 py-2 rounded-lg border transition-colors duration-200 ${
+                    selectedCategory === category.id
+                      ? "bg-black text-white border-black"
+                      : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
+                  }`}
+                >
+                  {category.name}
+                </button>
+              ))}
             </div>
+          )}
+        </div>
+
+        {/* Products Grid */}
+        {filteredProducts.map((category) => (
+          <div key={category.id} className="mb-16">
+            {selectedCategory === "all" && (
+              <div className="mb-8 text-center">
+                <h2 className="text-2xl font-bold mb-2">{category.title}</h2>
+                <p className="text-gray-600 max-w-3xl mx-auto">
+                  {category.description}
+                </p>
+              </div>
+            )}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {category.products.map((product) => (
@@ -271,7 +223,7 @@ export default function Products() {
                       </div>
                       <Link
                         to={`/product/${product.id}`}
-                        className="text-black hover:text-grays-800 font-medium text-sm flex items-center"
+                        className="text-black hover:text-gray-800 font-medium text-sm flex items-center"
                       >
                         View Details
                         <ChevronRight size={16} className="ml-1" />
@@ -284,7 +236,9 @@ export default function Products() {
           </div>
         ))}
       </div>
+
       <GiftingCustomization />
+
       {/* Wishlist Confirmation Toast */}
       {isWishlistUpdated && (
         <div className="fixed bottom-4 right-4 bg-green-100 text-green-800 px-4 py-2 rounded-lg shadow-lg animate-fadeInOut">
