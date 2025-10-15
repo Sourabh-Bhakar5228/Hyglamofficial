@@ -14,8 +14,8 @@ const Home = () => {
   return (
     <div>
       <HomePage />
-      <Servicessection />
       <InspirationSection />
+      <Servicessection />
       <ProductSlider products={productsData} />
       <FAQSection />
       {/* <Collection /> */}

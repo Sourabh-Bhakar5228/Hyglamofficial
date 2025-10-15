@@ -105,7 +105,7 @@ const GalleryPage = () => {
       {/* Content Layer */}
       <div className="relative z-10">
         {/* Banner Section */}
-        <div className="relative w-full h-[60vh] overflow-hidden">
+        <div className="relative w-full h-[30vh] md:h-[60vh] overflow-hidden">
           {/* Overlay gradient */}
           <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black opacity-60 z-10" />
 
@@ -116,13 +116,12 @@ const GalleryPage = () => {
             loop
             muted
             playsInline
-            poster="https://videos.openai.com/vg-assets/assets%2Ftask_01jy5pnh02e1t8j7cp2ybv1c7c%2F1750390749_img_1.webp?st=2025-09-02T10%3A16%3A12Z&se=2025-09-08T11%3A16%3A12Z&sks=b&skt=2025-09-02T10%3A16%3A12Z&ske=2025-09-08T11%3A16%3A12Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=fea36edb-a052-425e-a84a-436fdce0a7b4&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=YjOgzX3pJEa3wv82FyMcEql1upt2dU1QITR%2BwtnSZb4%3D&az=oaivgprodscus"
+            poster="https://videos.openai.com/vg-assets/assets%2Ftask_01jy5pnh02e1t8j7cp2ybv1c7c%2F1750390749_img_1.webp"
           >
             <source
-              src="https://videos.openai.com/vg-assets/assets%2Ftask_01jm239mh6f0yt0kph1m47xnwn%2Ftask_01jm239mh6f0yt0kph1m47xnwn_genid_79e1c16c-f28d-4b04-b0a5-fe55a9f9a382_25_02_14_11_25_301948%2Fvideos%2F00000_372303279%2Fmd.mp4?st=2025-09-02T11%3A13%3A08Z&se=2025-09-08T12%3A13%3A08Z&sks=b&skt=2025-09-02T11%3A13%3A08Z&ske=2025-09-08T12%3A13%3A08Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=fea36edb-a052-425e-a84a-436fdce0a7b4&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=Glt0LvA1Kk%2FXkuYD%2B2IE5DeJZRJPJwr9TPMYzu739TU%3D&az=oaivgprodscus"
+              src="https://videos.openai.com/vg-assets/assets%2Ftask_01jm239mh6f0yt0kph1m47xnwn%2Ftask_01jm239mh6f0yt0kph1m47xnwn_genid_79e1c16c-f28d-4b04-b0a5-fe55a9f9a382_25_02_14_11_25_301948%2Fvideos%2F00000_372303279%2Fmd.mp4"
               type="video/mp4"
             />
-            {/* Fallback for browsers not supporting video */}
             <img
               src="https://videos.openai.com/vg-assets/assets%2Ftask_01jy5pnh02e1t8j7cp2ybv1c7c%2F1750390749_img_1.webp"
               alt="Gallery Banner"
@@ -130,12 +129,12 @@ const GalleryPage = () => {
           </video>
 
           {/* Centered Content */}
-          <div className="absolute inset-0 flex items-center justify-center z-20">
-            <div className="text-center space-y-4">
-              <h1 className="text-gray-100 text-5xl md:text-7xl font-bold tracking-wider animate-fade-in drop-shadow-xl">
+          <div className="absolute inset-0 flex items-center justify-center z-20 px-4">
+            <div className="text-center space-y-2 sm:space-y-4">
+              <h1 className="text-black text-3xl sm:text-5xl md:text-7xl font-bold tracking-wider animate-fade-in drop-shadow-xl">
                 GALLERY
               </h1>
-              <p className="text-gray-100 text-lg font-light tracking-wide drop-shadow-lg">
+              <p className="text-black text-sm sm:text-lg font-light tracking-wide drop-shadow-lg">
                 Curated Visual Experience
               </p>
             </div>
@@ -143,10 +142,10 @@ const GalleryPage = () => {
         </div>
 
         {/* Tabs */}
-        <div className="flex justify-center mt-8 space-x-8">
+        <div className="flex flex-wrap justify-center mt-6 sm:mt-8 gap-4 sm:space-x-8 px-4">
           <button
             onClick={() => setActiveTab("images")}
-            className={`px-8 py-3 rounded-full font-semibold text-lg tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg ${
+            className={`px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold text-base sm:text-lg tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg ${
               activeTab === "images"
                 ? "bg-gray-800 text-white shadow-xl shadow-gray-400/30"
                 : "bg-white text-gray-800 border-2 border-gray-300 hover:bg-gray-100 shadow-md"
@@ -156,7 +155,7 @@ const GalleryPage = () => {
           </button>
           <button
             onClick={() => setActiveTab("videos")}
-            className={`px-8 py-3 rounded-full font-semibold text-lg tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg ${
+            className={`px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold text-base sm:text-lg tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg ${
               activeTab === "videos"
                 ? "bg-gray-800 text-white shadow-xl shadow-gray-400/30"
                 : "bg-white text-gray-800 border-2 border-gray-300 hover:bg-gray-100 shadow-md"
@@ -167,24 +166,24 @@ const GalleryPage = () => {
         </div>
 
         {/* Gallery Grid */}
-        <div className="p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-8xl mx-auto">
+        <div className="p-4 sm:p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 max-w-8xl mx-auto">
           {activeTab === "images"
             ? images.map((img, i) => (
                 <div
                   key={i}
-                  className="group relative rounded-xl overflow-hidden shadow-xl cursor-pointer transform transition-all duration-500 hover:scale-105 hover:-rotate-1 bg-white border-2 border-gray-200 hover:shadow-2xl"
+                  className="group relative rounded-xl overflow-hidden shadow-xl cursor-pointer transform transition-all duration-500 hover:scale-105 hover:-rotate-1 bg-white border border-gray-200 hover:shadow-2xl"
                   onClick={() => setSelectedImage(img)}
                 >
                   <div className="relative overflow-hidden">
                     <img
                       src={img}
                       alt={`Gallery ${i}`}
-                      className="w-full h-64 object-cover  transition-all duration-500 group-hover:scale-110"
+                      className="w-full h-52 sm:h-64 object-cover transition-all duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                    <div className="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                    <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-3 group-hover:translate-y-0">
                       <HyglamLogo
-                        size={24}
+                        size={20}
                         className="text-white drop-shadow-lg"
                       />
                     </div>
@@ -195,16 +194,16 @@ const GalleryPage = () => {
             : videos.map((video, i) => (
                 <div
                   key={i}
-                  className="group relative rounded-xl overflow-hidden shadow-xl bg-white border-2 border-gray-200 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl"
+                  className="group relative rounded-xl overflow-hidden shadow-xl bg-white border border-gray-200 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl"
                 >
                   <video
                     src={video}
                     controls
-                    className="w-full h-64 object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
+                    className="w-full h-52 sm:h-64 object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
                   />
-                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
                     <HyglamLogo
-                      size={20}
+                      size={18}
                       className="text-gray-700 drop-shadow-lg"
                     />
                   </div>
@@ -215,17 +214,17 @@ const GalleryPage = () => {
         {/* Full Image Modal */}
         {selectedImage && (
           <div
-            className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 backdrop-blur-sm p-4"
             onClick={() => setSelectedImage(null)}
           >
-            <div className="relative max-w-5xl max-h-[90vh] m-4">
+            <div className="relative max-w-5xl max-h-[90vh] w-full">
               <img
                 src={selectedImage}
                 alt="Full view"
                 className="max-w-full max-h-full rounded-lg shadow-2xl border-4 border-white/20"
               />
               <button
-                className="absolute top-4 right-4 text-white bg-gray-800/80 rounded-full w-12 h-12 flex items-center justify-center hover:bg-gray-700 transition-colors text-xl font-bold shadow-lg"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white bg-gray-800/80 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center hover:bg-gray-700 transition-colors text-lg sm:text-xl font-bold shadow-lg"
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelectedImage(null);
@@ -233,9 +232,9 @@ const GalleryPage = () => {
               >
                 ×
               </button>
-              <div className="absolute bottom-4 left-4">
+              <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
                 <HyglamLogo
-                  size={32}
+                  size={28}
                   className="text-white/80 drop-shadow-xl"
                 />
               </div>

@@ -44,13 +44,13 @@ export default function Cart() {
     <div className="min-h-screen bg-gray-100 text-gray-900 transition-all duration-300">
       {/* Banner */}
       <div
-        className="relative bg-cover bg-center h-[80vh] flex items-center justify-center"
+        className="relative bg-cover bg-center h-[30vh] md:h-[80vh] flex items-center justify-center"
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-          url('https://images.unsplash.com/photo-1664455340023-214c33a9d0bd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcHBpbmclMjBjYXJ0fGVufDB8fDB8fHww')`,
+    url('https://images.unsplash.com/photo-1664455340023-214c33a9d0bd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcHBpbmclMjBjYXJ0fGVufDB8fDB8fHww')`,
         }}
       >
-        <h1 className="text-4xl md:text-5xl font-bold text-white text-center animate-slideInDown">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center animate-slideInDown">
           🛒 Your Cart
         </h1>
       </div>

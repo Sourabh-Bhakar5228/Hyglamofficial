@@ -4,7 +4,7 @@ const HyglamAboutUs = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Banner */}
-      <div className="relative bg-gradient-to-r from-white to-gray-300 py-20 text-white min-h-[80vh] flex items-center">
+      <div className="relative bg-gradient-to-r from-white to-gray-300 py-16 md:py-20 text-white min-h-[30vh] md:min-h-[80vh] flex items-center">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -15,19 +15,19 @@ const HyglamAboutUs = () => {
         ></div>
 
         {/* Decorative Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-20 h-20 border-2 border-white rounded-full"></div>
-          <div className="absolute top-32 right-20 w-16 h-16 border border-white rounded-full"></div>
-          <div className="absolute bottom-20 left-32 w-12 h-12 border border-white rounded-full"></div>
-          <div className="absolute bottom-32 right-10 w-24 h-24 border-2 border-white rounded-full"></div>
+        <div className="absolute inset-0 opacity-10 hidden sm:block">
+          <div className="absolute top-10 left-10 w-16 md:w-20 h-16 md:h-20 border-2 border-white rounded-full"></div>
+          <div className="absolute top-32 right-20 w-12 md:w-16 h-12 md:h-16 border border-white rounded-full"></div>
+          <div className="absolute bottom-20 left-32 w-10 md:w-12 h-10 md:h-12 border border-white rounded-full"></div>
+          <div className="absolute bottom-32 right-10 w-20 md:w-24 h-20 md:h-24 border-2 border-white rounded-full"></div>
         </div>
 
         <div className="container mx-auto px-4 relative z-20 text-center">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight">
               About <span className="text-gray-300">HyGlam</span>
             </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-2xl max-w-3xl mx-auto mb-6 md:mb-8 leading-relaxed">
               Jewellery that inspires confidence, elegance, and individuality
             </p>
           </div>

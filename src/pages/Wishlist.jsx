@@ -33,20 +33,25 @@ export default function Wishlist() {
     <div className="min-h-screen bg-gray-100 text-gray-900 transition-all duration-300">
       {/* Black & White Banner with Image */}
       <div
-        className="relative h-[80vh] flex items-center justify-center bg-cover bg-center"
+        className="relative h-[30vh] md:h-[80vh] flex items-center justify-center bg-cover bg-center"
         style={{
           backgroundImage: `url('https://plus.unsplash.com/premium_photo-1672883551961-dd625e47990a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2hvcHBpbmclMjB3aXNobGlzdHxlbnwwfHwwfHx8MA%3D%3D')`,
         }}
       >
+        {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black/60"></div>
-        <div className="relative text-center text-white px-6">
-          <h1 className="text-5xl md:text-6xl font-extrabold animate-slideInDown">
+
+        {/* Centered content */}
+        <div className="relative text-center text-white px-4 sm:px-6">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold animate-slideInDown">
             Your Wishlist
           </h1>
-          <p className="text-lg md:text-xl mt-3 text-gray-200 animate-fadeInUp">
+
+          <p className="text-base sm:text-lg md:text-xl mt-3 text-gray-200 animate-fadeInUp">
             ❤️ Save your favorite items & shop later
           </p>
-          <p className="text-base font-semibold mt-4 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full inline-block animate-fadeInUp">
+
+          <p className="text-sm sm:text-base md:text-lg font-semibold mt-4 bg-white/10 backdrop-blur-md px-3 sm:px-4 py-2 rounded-full inline-block animate-fadeInUp">
             {wishlist.length} item{wishlist.length !== 1 ? "s" : ""} | Total: ₹
             {wishlist.reduce((s, i) => s + i.price, 0)}
           </p>

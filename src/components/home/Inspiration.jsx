@@ -21,12 +21,11 @@ const InspirationSection = () => {
           </p>
         </div>
 
-        {/* Right Image */}
-        <div className="flex-1">
+        <div className="flex-1 flex justify-center items-center">
           <img
-            src="/assets/images/durgama.png" // <-- replace with your actual image path
+            src="/assets/images/durgama.png"
             alt="Maa Durga"
-            className="rounded-2xl shadow-lg w-full object-contain h-[400px] lg:h-[500px]"
+            className="rounded-2xl shadow-lg max-h-[500px] w-auto object-contain"
           />
         </div>
       </div>

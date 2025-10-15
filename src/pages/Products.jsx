@@ -64,7 +64,7 @@ export default function Products() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Banner Section with Image - Text on Left */}
-      <div className="relative h-[80vh] w-full overflow-hidden">
+      <div className="relative h-[30vh] md:h-[60vh] w-full overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1620656798579-1984d9e87df7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bmVja2xhY2V8ZW58MHx8MHx8fDA%3D"
           alt="Banner"
@@ -74,10 +74,10 @@ export default function Products() {
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
             <div className="max-w-lg">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
                 Our Products
               </h1>
-              <p className="text-lg md:text-xl lg:text-2xl text-white mb-6">
+              <p className="text-base md:text-xl lg:text-2xl text-white mb-6">
                 Discover our curated collection of premium products designed for
                 your lifestyle
               </p>

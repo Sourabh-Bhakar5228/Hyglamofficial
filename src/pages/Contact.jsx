@@ -81,10 +81,10 @@ const ContactPage = () => {
       <div
         className="relative h-80 md:h-96 text-white overflow-hidden"
         style={{
-          backgroundImage: `url(${bannerImages[currentImage]})`,
+          backgroundImage: `url(${bannerImages[currentImage]})`, // changes image dynamically
           backgroundSize: "cover",
           backgroundPosition: "center",
-          transition: "background-image 1s ease-in-out",
+          transition: "background-image 1s ease-in-out", // smooth transition
         }}
       >
         {/* Gradient Overlay */}
