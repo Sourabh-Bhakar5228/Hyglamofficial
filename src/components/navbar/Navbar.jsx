@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, Heart, ShoppingCart } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "/assets/hygalmlogo.png";
+import logo from "/assets/hyglamlogo.png";
 import leftLogo from "/assets/lettermark.png";
 
 const Navbar = () => {
