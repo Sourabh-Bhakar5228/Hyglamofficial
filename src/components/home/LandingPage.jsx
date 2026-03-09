@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
+import HighlightedHeading from "../common/HighlightedHeading";
 
 const VideoSection = () => {
   // Animation controls for the section
@@ -25,9 +26,9 @@ const VideoSection = () => {
       className="max-w-6xl mx-auto px-4 py-20"
     >
       <div className="text-center mb-10">
-        <h2 className="text-4xl font-serif font-light text-gray-800 mb-4">
+        <HighlightedHeading level="h2" className="text-4xl font-serif font-light text-gray-800 mb-4">
           Crafted Brilliance
-        </h2>
+        </HighlightedHeading>
         <p className="max-w-2xl mx-auto text-base text-gray-600 leading-relaxed">
           Discover the artistry behind our 2025 collection. Each piece is
           meticulously crafted to capture light, movement, and emotion, bringing

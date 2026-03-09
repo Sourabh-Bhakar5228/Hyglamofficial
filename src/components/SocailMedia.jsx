@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { motion } from 'framer-motion';
+import HighlightedHeading from './common/HighlightedHeading';
 
 export default function SocialFeed() {
   const [platform, setPlatform] = useState("instagram"); // instagram | facebook
@@ -73,11 +75,10 @@ export default function SocialFeed() {
 
         {/* Badge */}
         <span
-          className={`absolute top-3 left-3 px-2 py-1 text-xs rounded-full font-medium ${
-            post.type === "image"
+          className={`absolute top-3 left-3 px-2 py-1 text-xs rounded-full font-medium ${post.type === "image"
               ? "bg-blue-500 text-white"
               : "bg-green-500 text-white"
-          }`}
+            }`}
         >
           {post.type === "image" ? "📷 Image" : "🎥 Video"}
         </span>
@@ -89,24 +90,22 @@ export default function SocialFeed() {
     <div className="max-w-6xl mx-auto p-6">
       {/* Controls */}
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
-        <h2 className="text-2xl font-bold">Jewelry Social Feed</h2>
+        <HighlightedHeading level="h2" className="text-2xl font-bold">Jewelry Social Feed</HighlightedHeading>
 
         <div className="flex gap-3 items-center">
           {/* Platform selector */}
           <div className="flex items-center gap-1 bg-gray-100 rounded-full p-1">
             <button
               onClick={() => setPlatform("instagram")}
-              className={`px-3 py-2 rounded-full text-sm ${
-                platform === "instagram" ? "bg-white shadow" : "text-gray-600"
-              }`}
+              className={`px-3 py-2 rounded-full text-sm ${platform === "instagram" ? "bg-white shadow" : "text-gray-600"
+                }`}
             >
               Instagram
             </button>
             <button
               onClick={() => setPlatform("facebook")}
-              className={`px-3 py-2 rounded-full text-sm ${
-                platform === "facebook" ? "bg-white shadow" : "text-gray-600"
-              }`}
+              className={`px-3 py-2 rounded-full text-sm ${platform === "facebook" ? "bg-white shadow" : "text-gray-600"
+                }`}
             >
               Facebook
             </button>
@@ -116,17 +115,15 @@ export default function SocialFeed() {
           <div className="flex items-center gap-1 bg-gray-100 rounded-full p-1">
             <button
               onClick={() => setMediaType("image")}
-              className={`px-3 py-2 rounded-full text-sm ${
-                mediaType === "image" ? "bg-white shadow" : "text-gray-600"
-              }`}
+              className={`px-3 py-2 rounded-full text-sm ${mediaType === "image" ? "bg-white shadow" : "text-gray-600"
+                }`}
             >
               Image
             </button>
             <button
               onClick={() => setMediaType("video")}
-              className={`px-3 py-2 rounded-full text-sm ${
-                mediaType === "video" ? "bg-white shadow" : "text-gray-600"
-              }`}
+              className={`px-3 py-2 rounded-full text-sm ${mediaType === "video" ? "bg-white shadow" : "text-gray-600"
+                }`}
             >
               Video
             </button>

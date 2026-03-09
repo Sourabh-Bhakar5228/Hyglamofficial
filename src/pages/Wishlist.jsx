@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useWishlist } from "../components/context/WishlistContext";
+import HighlightedHeading from "../components/common/HighlightedHeading";
 
 export default function Wishlist() {
   const { wishlist, removeFromWishlist } = useWishlist();
@@ -30,7 +31,7 @@ export default function Wishlist() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-900 transition-all duration-300">
+    <div className="min-h-screen text-white transition-all duration-300" style={{ background: 'radial-gradient(circle at center, #1a1605 0%, #000 100%)' }}>
       {/* Black & White Banner with Image */}
       <div
         className="relative h-[30vh] md:h-[80vh] flex items-center justify-center bg-cover bg-center"
@@ -43,15 +44,15 @@ export default function Wishlist() {
 
         {/* Centered content */}
         <div className="relative text-center text-white px-4 sm:px-6">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold animate-slideInDown">
+          <HighlightedHeading level="h1" className="text-3xl sm:text-4xl md:text-6xl font-extrabold animate-slideInDown text-white">
             Your Wishlist
-          </h1>
+          </HighlightedHeading>
 
           <p className="text-base sm:text-lg md:text-xl mt-3 text-gray-200 animate-fadeInUp">
             ❤️ Save your favorite items & shop later
           </p>
 
-          <p className="text-sm sm:text-base md:text-lg font-semibold mt-4 bg-white/10 backdrop-blur-md px-3 sm:px-4 py-2 rounded-full inline-block animate-fadeInUp">
+          <p className="text-sm sm:text-base md:text-lg font-bold mt-4 bg-gold-500/10 backdrop-blur-md px-5 py-2.5 rounded-full inline-block animate-fadeInUp border border-gold-500/20 text-gold-500">
             {wishlist.length} item{wishlist.length !== 1 ? "s" : ""} | Total: ₹
             {wishlist.reduce((s, i) => s + i.price, 0)}
           </p>
@@ -61,9 +62,9 @@ export default function Wishlist() {
       {/* Wishlist Section */}
       <div className="container mx-auto px-4 py-12">
         {wishlist.length === 0 ? (
-          <div className="text-center py-16 animate-fadeIn text-gray-800">
-            <div className="text-7xl mb-4">❤️</div>
-            <p className="text-xl font-semibold">Your wishlist is empty</p>
+          <div className="text-center py-24 animate-fadeIn text-gray-400">
+            <div className="text-8xl mb-6 opacity-30">❤️</div>
+            <HighlightedHeading level="h2" className="text-2xl font-bold text-white mb-2">Your wishlist is empty</HighlightedHeading>
             <p className="text-gray-500 mt-2">
               Start exploring and add items you adore
             </p>
@@ -73,30 +74,29 @@ export default function Wishlist() {
             {wishlist.map((item) => (
               <div
                 key={item.id}
-                className={`bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden transition-all duration-300 transform ${
-                  removingItem === item.id
+                className={`bg-black/40 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/5 overflow-hidden transition-all duration-300 transform ${removingItem === item.id
                     ? "opacity-0 scale-90"
                     : "opacity-100 scale-100"
-                } hover:shadow-lg hover:-translate-y-1`}
+                  } hover:border-gold-500/50 hover:-translate-y-2 group`}
               >
                 {/* Image Top */}
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full h-56 object-cover"
+                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
 
                 {/* Details Below */}
-                <div className="p-4 flex flex-col items-center text-center">
-                  <h3 className="font-semibold text-lg text-gray-900">
+                <div className="p-6 flex flex-col items-center text-center">
+                  <h3 className="font-bold text-xl text-white group-hover:text-gold-500 transition-colors">
                     {item.name}
                   </h3>
-                  <p className="text-gray-600 text-sm mt-1">
-                    Price: ₹{item.price}
+                  <p className="text-gold-500 font-extrabold text-lg mt-2">
+                    ₹{item.price}
                   </p>
                   <button
                     onClick={() => handleRemove(item.id)}
-                    className="mt-4 px-5 py-2 border border-black rounded-full text-sm font-medium text-black hover:bg-black hover:text-white transition-all duration-300"
+                    className="mt-6 px-8 py-2.5 border border-gold-500/30 rounded-full text-sm font-bold text-gold-500 hover:bg-gold-500 hover:text-black transition-all duration-300 active:scale-95"
                   >
                     Remove
                   </button>

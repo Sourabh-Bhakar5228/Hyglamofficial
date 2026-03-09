@@ -1,0 +1,53 @@
+{
+  "name": "Hyglam - Premium Beauty & Lifestyle",
+  "short_name": "Hyglam",
+  "description": "Premium beauty and lifestyle brand offering luxury skincare, makeup, and fashion essentials.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f5f5",
+  "theme_color": "#f5f5f5",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["lifestyle", "shopping", "beauty", "fashion"],
+  "icons": [
+    {
+      "src": "/assets/hyglamlogo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/hyglamlogo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Shop Beauty",
+      "short_name": "Beauty",
+      "description": "Shop premium beauty products",
+      "url": "/category/beauty",
+      "icons": [
+        {
+          "src": "/assets/hyglamlogo.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Shop Fashion",
+      "short_name": "Fashion",
+      "description": "Shop trendy fashion items",
+      "url": "/category/fashion",
+      "icons": [
+        {
+          "src": "/assets/hyglamlogo.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

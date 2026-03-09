@@ -2,6 +2,7 @@ import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import HighlightedHeading from "../components/common/HighlightedHeading";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -45,14 +46,17 @@ const ContactPage = () => {
 
     try {
       const res = await fetch(
-        "https://formsubmit.co/ajax/bhakarsoursbh@gmail.com",
+        "https://formsubmit.co/ajax/hyglamofficial@gmail.com",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify({
+            Subject: "New Contact Inquiry - HyGlam",
+            ...formData
+          }),
         }
       );
 
@@ -68,7 +72,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <div className="min-h-screen text-white overflow-hidden" style={{ background: 'radial-gradient(circle at center, #1a1605 0%, #000 100%)' }}>
       {/* Toast Container */}
       <ToastContainer
         position="top-center"
@@ -90,14 +94,13 @@ const ContactPage = () => {
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/40 flex items-center justify-center">
           <div
-            className={`text-center transform transition-all duration-1000 ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-10 opacity-0"
-            }`}
+            className={`text-center transform transition-all duration-1000 ${isVisible
+              ? "translate-y-0 opacity-100"
+              : "translate-y-10 opacity-0"
+              }`}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-            <p className="text-gray-300 text-lg">We'd Love to Hear from You!</p>
+            <HighlightedHeading level="h1" className="text-4xl md:text-5xl font-bold mb-4 text-white">Contact Us</HighlightedHeading>
+            <p className="text-gold-500/80 text-lg font-medium tracking-widest uppercase">We'd Love to Hear from You!</p>
           </div>
         </div>
       </div>
@@ -107,66 +110,64 @@ const ContactPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info with Animation */}
           <div
-            className={`space-y-6 transition-all duration-700 delay-150 ${
-              isVisible
-                ? "translate-x-0 opacity-100"
-                : "-translate-x-10 opacity-0"
-            }`}
+            className={`space-y-6 transition-all duration-700 delay-150 ${isVisible
+              ? "translate-x-0 opacity-100"
+              : "-translate-x-10 opacity-0"
+              }`}
           >
-            <h2 className="text-2xl font-bold text-gray-800">Get in Touch</h2>
-            <p className="text-gray-600">
+            <HighlightedHeading level="h2" className="text-3xl font-bold text-white mb-4">Get in Touch</HighlightedHeading>
+            <p className="text-gray-400 leading-relaxed">
               Have questions about our services or want to discuss a project?
               Reach out to us using the information below or fill out the form.
             </p>
 
-            <div className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-100 transition-colors duration-300 border border-gray-200">
-              <div className="bg-gray-800 p-3 rounded-full">
-                <MapPin className="w-6 h-6 text-white" />
+            <div className="flex items-start space-x-4 p-5 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-all duration-300 group">
+              <div className="bg-gold-500 p-3 rounded-xl shadow-lg shadow-gold-500/20">
+                <MapPin className="w-6 h-6 text-black" />
               </div>
               <div>
-                <h3 className="font-semibold text-lg text-gray-800">Address</h3>
-                <p className="text-gray-600">Modinagar</p>
+                <h3 className="font-bold text-lg text-white">Address</h3>
+                <p className="text-gray-400">Modinagar, Uttar Pradesh</p>
               </div>
             </div>
 
-            <div className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-100 transition-colors duration-300 border border-gray-200">
-              <div className="bg-gray-800 p-3 rounded-full">
-                <Phone className="w-6 h-6 text-white" />
+            <div className="flex items-start space-x-4 p-5 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-all duration-300 group">
+              <div className="bg-gold-500 p-3 rounded-xl shadow-lg shadow-gold-500/20">
+                <Phone className="w-6 h-6 text-black" />
               </div>
               <div>
-                <h3 className="font-semibold text-lg text-gray-800">Phone</h3>
-                <p className="text-gray-600">+91-9837235619</p>
+                <h3 className="font-bold text-lg text-white">Phone</h3>
+                <p className="text-gray-400">+91-9837235619</p>
               </div>
             </div>
 
-            <div className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-100 transition-colors duration-300 border border-gray-200">
-              <div className="bg-gray-800 p-3 rounded-full">
-                <Mail className="w-6 h-6 text-white" />
+            <div className="flex items-start space-x-4 p-5 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 transition-all duration-300 group">
+              <div className="bg-gold-500 p-3 rounded-xl shadow-lg shadow-gold-500/20">
+                <Mail className="w-6 h-6 text-black" />
               </div>
               <div>
-                <h3 className="font-semibold text-lg text-gray-800">Email</h3>
-                <p className="text-gray-800 font-medium">hyglam@gmail.com</p>
+                <h3 className="font-bold text-lg text-white">Email</h3>
+                <p className="text-gold-500 font-extrabold uppercase text-xs tracking-widest mt-1">hyglamofficial@gmail.com</p>
               </div>
             </div>
 
-            <div className="bg-gray-100 p-4 rounded-lg mt-6 border border-gray-200">
-              <p className="text-gray-600 text-sm">
-                Customer Support Hours: Mon – Sat | 10:00 AM – 7:00 PM
+            <div className="bg-white/5 p-4 rounded-xl mt-6 border border-white/5 italic">
+              <p className="text-gray-500 text-xs">
+                ✨ Guest Support Hours: Mon – Sat | 10:00 AM – 7:00 PM IST
               </p>
             </div>
           </div>
 
           {/* Contact Form with Animation */}
           <div
-            className={`bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-200 transition-all duration-700 delay-300 ${
-              isVisible
-                ? "translate-x-0 opacity-100"
-                : "translate-x-10 opacity-0"
-            }`}
+            className={`bg-black/40 backdrop-blur-xl p-10 rounded-3xl shadow-2xl border border-white/5 transition-all duration-700 delay-300 ${isVisible
+              ? "translate-x-0 opacity-100"
+              : "translate-x-10 opacity-0"
+              }`}
           >
-            <h2 className="text-2xl font-bold mb-6 text-gray-800">
+            <HighlightedHeading level="h2" className="text-2xl font-bold mb-8 text-white">
               Send us a Message
-            </h2>
+            </HighlightedHeading>
 
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
@@ -177,7 +178,7 @@ const ContactPage = () => {
                   onChange={handleInputChange}
                   placeholder="Your Name"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-transparent transition-all duration-300 bg-white"
+                  className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500 transition-all placeholder:text-gray-600"
                 />
               </div>
               <div>
@@ -188,7 +189,7 @@ const ContactPage = () => {
                   onChange={handleInputChange}
                   placeholder="Your Email"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-transparent transition-all duration-300 bg-white"
+                  className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500 transition-all placeholder:text-gray-600"
                 />
               </div>
               <div>
@@ -198,7 +199,7 @@ const ContactPage = () => {
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder="Phone Number"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-transparent transition-all duration-300 bg-white"
+                  className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500 transition-all placeholder:text-gray-600"
                 />
               </div>
               <div>
@@ -209,15 +210,15 @@ const ContactPage = () => {
                   placeholder="Your Message"
                   rows="4"
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-800 focus:border-transparent transition-all duration-300 bg-white"
+                  className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500 transition-all placeholder:text-gray-600"
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full bg-gray-800 text-white font-semibold py-3 rounded-lg hover:bg-gray-900 transition-all duration-300 flex items-center justify-center gap-2 group"
+                className="w-full bg-gold-500 text-black font-extrabold py-4 rounded-xl hover:bg-white transition-all duration-300 flex items-center justify-center gap-3 group shadow-lg shadow-gold-500/20 active:scale-95"
               >
                 Send Message
-                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                <Send className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
               </button>
             </form>
           </div>
@@ -226,12 +227,11 @@ const ContactPage = () => {
 
       {/* Footer Text with Animation */}
       <div
-        className={`text-center mt-12 text-gray-700 pb-12 transition-all duration-700 delay-500 ${
-          isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-        }`}
+        className={`text-center mt-16 text-gray-500 pb-16 transition-all duration-700 delay-500 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
       >
         <p className="text-lg">
-          ✨ Your Hyglam journey starts here. Reach out today!
+          ✨ Your <span className="text-gold-500 font-bold">Hyglam</span> journey starts here. Reach out today!
         </p>
       </div>
     </div>

@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
+import HighlightedHeading from "../common/HighlightedHeading";
 
 const JewelryCollection = () => {
   const [loaded, setLoaded] = useState(false);
@@ -93,9 +93,9 @@ const JewelryCollection = () => {
         <p className="text-xs sm:text-sm uppercase tracking-widest text-gray-400 mb-3 sm:mb-4 font-medium">
           NEW COLLECTION
         </p>
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-extralight text-white mb-4 sm:mb-6 lg:mb-8">
+        <HighlightedHeading level="h1" className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif font-extralight text-white mb-4 sm:mb-6 lg:mb-8">
           2025
-        </h1>
+        </HighlightedHeading>
         <p className="max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed px-4">
           Our newest collection blends timeless elegance with contemporary
           flair. Crafted with precision, each piece—from radiant gold accents to
@@ -139,9 +139,9 @@ const JewelryCollection = () => {
             </div>
           </div>
           <div className="w-full lg:w-1/2 text-center lg:text-left px-4 sm:px-6 lg:px-0">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-serif font-light text-white mb-4 sm:mb-6">
+            <HighlightedHeading level="h2" className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-serif font-light text-white mb-4 sm:mb-6">
               Glamour That Glows
-            </h2>
+            </HighlightedHeading>
             <p className="text-gray-300 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base md:text-lg">
               Illuminate your style with our crystal-embellished aluminum
               earrings, designed to add a touch of brilliance to any ensemble.
@@ -182,9 +182,9 @@ const JewelryCollection = () => {
             </div>
           </div>
           <div className="w-full lg:w-1/2 text-center lg:text-left px-4 sm:px-6 lg:px-0">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-serif font-light text-white mb-4 sm:mb-6">
+            <HighlightedHeading level="h2" className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-serif font-light text-white mb-4 sm:mb-6">
               Sculpted in Strength
-            </h2>
+            </HighlightedHeading>
             <p className="text-gray-300 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base md:text-lg">
               Bold and empowering, our gold champ rings are crafted to make a
               statement with every gesture.
@@ -225,9 +225,9 @@ const JewelryCollection = () => {
             </div>
           </div>
           <div className="w-full lg:w-1/2 text-center lg:text-left px-4 sm:px-6 lg:px-0">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-serif font-light text-white mb-4 sm:mb-6">
+            <HighlightedHeading level="h2" className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-serif font-light text-white mb-4 sm:mb-6">
               Timeless Together
-            </h2>
+            </HighlightedHeading>
             <p className="text-gray-300 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base md:text-lg">
               Our gold pendants symbolize connection and elegance, perfect for
               cherishing life's special moments.

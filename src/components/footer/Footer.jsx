@@ -3,11 +3,11 @@ import {
   Phone,
   Mail,
   Facebook,
-  Twitter,
   Instagram,
-  Linkedin,
 } from "lucide-react";
+import { FaPinterest } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import HighlightedHeading from "../common/HighlightedHeading";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -29,7 +29,10 @@ const Footer = () => {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email }),
+          body: JSON.stringify({
+            Subject: "New Newsletter Subscription - HyGlam",
+            email
+          }),
         }
       );
 
@@ -50,22 +53,31 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Brand Info */}
         <div>
-          <h3 className="text-2xl font-bold text-white mb-4">HYGLAM</h3>
+          <HighlightedHeading level="h3" className="text-2xl font-bold text-white mb-4">
+            HYGLAM
+          </HighlightedHeading>
           <p className="text-sm leading-relaxed mb-6">
             Elevating beauty and wellness through premium products and
             exceptional service.
           </p>
           <div className="flex space-x-4">
-            <Facebook className="w-5 h-5 hover:text-white transition-colors cursor-pointer" />
-            <Twitter className="w-5 h-5 hover:text-white transition-colors cursor-pointer" />
-            <Instagram className="w-5 h-5 hover:text-white transition-colors cursor-pointer" />
-            <Linkedin className="w-5 h-5 hover:text-white transition-colors cursor-pointer" />
+            <a href="https://www.facebook.com/share/14eJHXisoDj/" target="_blank" rel="noopener noreferrer">
+              <Facebook className="w-5 h-5 hover:text-gold-500 transition-colors cursor-pointer" />
+            </a>
+            <a href="https://www.instagram.com/hyglam_?igsh=Y3gwdWIzcWJ3Y2tl" target="_blank" rel="noopener noreferrer">
+              <Instagram className="w-5 h-5 hover:text-gold-500 transition-colors cursor-pointer" />
+            </a>
+            <a href="https://pin.it/3eabnFlhH" target="_blank" rel="noopener noreferrer">
+              <FaPinterest className="w-5 h-5 hover:text-gold-500 transition-colors cursor-pointer" />
+            </a>
           </div>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
+          <HighlightedHeading level="h4" className="text-lg font-semibold text-white mb-4">
+            Quick Links
+          </HighlightedHeading>
           <ul className="space-y-2 text-sm">
             <li>
               <Link to="/about" className="hover:text-white transition-colors">
@@ -86,22 +98,15 @@ const Footer = () => {
                 Cart
               </Link>
             </li>
-            <li>
-              <Link
-                to="/social-media"
-                className="hover:text-white transition-colors"
-              >
-                Socail Media
-              </Link>
-            </li>
+
           </ul>
         </div>
 
         {/* Featured Products */}
         <div>
-          <h4 className="text-lg font-semibold text-white mb-4">
+          <HighlightedHeading level="h4" className="text-lg font-semibold text-white mb-4">
             Popular Products
-          </h4>
+          </HighlightedHeading>
           <ul className="space-y-2 text-sm">
             <li>
               <Link
@@ -140,15 +145,14 @@ const Footer = () => {
 
         {/* Contact Info */}
         <div>
-          <h4 className="text-lg font-semibold text-white mb-4">
+          <HighlightedHeading level="h4" className="text-lg font-semibold text-white mb-4">
             Get in Touch
-          </h4>
+          </HighlightedHeading>
           <div className="space-y-3 text-sm">
             <div className="flex items-center space-x-3">
               <MapPin className="w-4 h-4" />
               <span>
-                Akshya Nagar 1st Block 1st Cross, Rammurthy nagar,
-                Bangalore-560016
+                Modinagar, Uttar Pradesh
               </span>
             </div>
             <div className="flex items-center space-x-3">
@@ -167,9 +171,9 @@ const Footer = () => {
       <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h4 className="text-lg font-semibold text-white mb-1">
+            <HighlightedHeading level="h4" className="text-lg font-semibold text-white mb-1">
               Stay Glamorous
-            </h4>
+            </HighlightedHeading>
             <p className="text-sm text-gray-400">
               Subscribe for beauty tips & exclusive offers
             </p>

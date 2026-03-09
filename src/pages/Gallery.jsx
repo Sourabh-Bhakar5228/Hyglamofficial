@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
+import HighlightedHeading from "../components/common/HighlightedHeading";
 
 const GalleryPage = () => {
-  const [activeTab, setActiveTab] = useState("images");
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [activeTab, setActiveTab] = useState("instagram");
   const [logoPositions, setLogoPositions] = useState([]);
 
   // Generate random positions for floating logos
@@ -18,29 +18,10 @@ const GalleryPage = () => {
     setLogoPositions(positions);
   }, []);
 
-  // Random sample images
-  const images = [
-    "https://picsum.photos/800/500?random=1",
-    "https://picsum.photos/800/500?random=2",
-    "https://picsum.photos/800/500?random=3",
-    "https://picsum.photos/800/500?random=4",
-    "https://picsum.photos/800/500?random=5",
-    "https://picsum.photos/800/500?random=6",
-    "https://picsum.photos/800/500?random=8",
-    "https://picsum.photos/800/500?random=9",
-  ];
-
-  // Random sample videos
-  const videos = [
-    "https://www.w3schools.com/html/mov_bbb.mp4",
-    "https://samplelib.com/lib/preview/mp4/sample-5s.mp4",
-    "https://samplelib.com/lib/preview/mp4/sample-10s.mp4",
-  ];
-
-  // Hyglam Logo Component
+  // Generate random positions for floating logos
   const HyglamLogo = ({ size = 40, className = "" }) => (
     <div
-      className={`font-bold text-gray-600/40 drop-shadow-lg ${className}`}
+      className={`font-black text-gold-500/20 drop-shadow-[0_0_10px_rgba(250,176,63,0.3)] ${className}`}
       style={{ fontSize: `${size}px` }}
     >
       HYGLAM
@@ -48,7 +29,7 @@ const GalleryPage = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-gray-100 to-gray-200 relative overflow-hidden">
+    <div className="min-h-screen text-white relative overflow-hidden" style={{ background: 'radial-gradient(circle at center, #1a1605 0%, #000 100%)' }}>
       {/* Animated Background Logos */}
       <div className="fixed inset-0 pointer-events-none z-0">
         {logoPositions.map((pos) => (
@@ -72,7 +53,7 @@ const GalleryPage = () => {
           {Array.from({ length: 30 }).map((_, i) => (
             <div
               key={i}
-              className="absolute w-2 h-2 bg-gray-400/30 rounded-full animate-pulse"
+              className="absolute w-1.5 h-1.5 bg-gold-500/20 rounded-full animate-pulse blur-[1px]"
               style={{
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
@@ -88,14 +69,14 @@ const GalleryPage = () => {
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className="absolute rounded-full bg-white/20 blur-xl animate-pulse"
+              className="absolute rounded-full bg-gold-500/5 blur-[120px] animate-pulse"
               style={{
                 top: `${Math.random() * 100}%`,
                 left: `${Math.random() * 100}%`,
-                width: `${100 + Math.random() * 200}px`,
-                height: `${100 + Math.random() * 200}px`,
+                width: `${200 + Math.random() * 300}px`,
+                height: `${200 + Math.random() * 300}px`,
                 animationDelay: `${Math.random() * 4}s`,
-                animationDuration: `${3 + Math.random() * 3}s`,
+                animationDuration: `${4 + Math.random() * 3}s`,
               }}
             />
           ))}
@@ -130,117 +111,58 @@ const GalleryPage = () => {
 
           {/* Centered Content */}
           <div className="absolute inset-0 flex items-center justify-center z-20 px-4">
-            <div className="text-center space-y-2 sm:space-y-4">
-              <h1 className="text-black text-3xl sm:text-5xl md:text-7xl font-bold tracking-wider animate-fade-in drop-shadow-xl">
+            <div className="text-center space-y-3 sm:space-y-6">
+              <HighlightedHeading level="h1" className="text-white text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter animate-fade-in drop-shadow-2xl">
                 GALLERY
-              </h1>
-              <p className="text-black text-sm sm:text-lg font-light tracking-wide drop-shadow-lg">
-                Curated Visual Experience
+              </HighlightedHeading>
+              <p className="text-gold-500/80 text-xs sm:text-sm md:text-lg font-bold tracking-[0.4em] uppercase drop-shadow-lg animate-pulse">
+                A Curated Visual Experience
               </p>
             </div>
           </div>
         </div>
 
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center mt-6 sm:mt-8 gap-4 sm:space-x-8 px-4">
+        <div className="flex flex-wrap justify-center mt-10 sm:mt-12 gap-5 sm:space-x-10 px-4">
           <button
-            onClick={() => setActiveTab("images")}
-            className={`px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold text-base sm:text-lg tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg ${
-              activeTab === "images"
-                ? "bg-gray-800 text-white shadow-xl shadow-gray-400/30"
-                : "bg-white text-gray-800 border-2 border-gray-300 hover:bg-gray-100 shadow-md"
-            }`}
+            onClick={() => setActiveTab("instagram")}
+            className={`px-10 py-4 rounded-2xl font-black text-xs sm:text-sm tracking-[0.2em] transition-all duration-500 transform hover:scale-110 shadow-2xl active:scale-95 border ${activeTab === "instagram"
+              ? "bg-gold-500 text-black border-gold-500 shadow-gold-500/20"
+              : "bg-white/5 text-gold-500/50 border-white/10 hover:border-gold-500/50 hover:text-gold-500"
+              }`}
           >
-            IMAGES
+            INSTAGRAM
           </button>
           <button
-            onClick={() => setActiveTab("videos")}
-            className={`px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold text-base sm:text-lg tracking-wide transition-all duration-300 transform hover:scale-105 shadow-lg ${
-              activeTab === "videos"
-                ? "bg-gray-800 text-white shadow-xl shadow-gray-400/30"
-                : "bg-white text-gray-800 border-2 border-gray-300 hover:bg-gray-100 shadow-md"
-            }`}
+            onClick={() => setActiveTab("facebook")}
+            className={`px-10 py-4 rounded-2xl font-black text-xs sm:text-sm tracking-[0.2em] transition-all duration-500 transform hover:scale-110 shadow-2xl active:scale-95 border ${activeTab === "facebook"
+              ? "bg-gold-500 text-black border-gold-500 shadow-gold-500/20"
+              : "bg-white/5 text-gold-500/50 border-white/10 hover:border-gold-500/50 hover:text-gold-500"
+              }`}
           >
-            VIDEOS
+            FACEBOOK
           </button>
         </div>
 
         {/* Gallery Grid */}
         <div className="p-4 sm:p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 max-w-8xl mx-auto">
-          {activeTab === "images"
-            ? images.map((img, i) => (
-                <div
-                  key={i}
-                  className="group relative rounded-xl overflow-hidden shadow-xl cursor-pointer transform transition-all duration-500 hover:scale-105 hover:-rotate-1 bg-white border border-gray-200 hover:shadow-2xl"
-                  onClick={() => setSelectedImage(img)}
-                >
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={img}
-                      alt={`Gallery ${i}`}
-                      className="w-full h-52 sm:h-64 object-cover transition-all duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                    <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-3 group-hover:translate-y-0">
-                      <HyglamLogo
-                        size={20}
-                        className="text-white drop-shadow-lg"
-                      />
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-gray-400/50 transition-all duration-300 rounded-xl" />
-                </div>
-              ))
-            : videos.map((video, i) => (
-                <div
-                  key={i}
-                  className="group relative rounded-xl overflow-hidden shadow-xl bg-white border border-gray-200 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl"
-                >
-                  <video
-                    src={video}
-                    controls
-                    className="w-full h-52 sm:h-64 object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
-                  />
-                  <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                    <HyglamLogo
-                      size={18}
-                      className="text-gray-700 drop-shadow-lg"
-                    />
-                  </div>
-                </div>
-              ))}
+          {activeTab === "instagram" && (
+            <div className="w-full h-full min-h-[600px] col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-4 bg-black/40 backdrop-blur-2xl rounded-[2rem] border border-white/5 overflow-hidden p-6 sm:p-10 shadow-2xl relative">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gold-500/5 blur-[100px] -mr-32 -mt-32"></div>
+              {/* Elfsight Instagram Feed */}
+              <div className="elfsight-app-a08e3d3f-2c7d-4d34-ad75-ef98423621a0" data-elfsight-app-lazy></div>
+            </div>
+          )}
+
+          {activeTab === "facebook" && (
+            <div className="w-full h-full min-h-[600px] col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-4 bg-black/40 backdrop-blur-2xl rounded-[2rem] border border-white/5 overflow-hidden p-6 sm:p-10 shadow-2xl relative">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gold-500/5 blur-[100px] -mr-32 -mt-32"></div>
+              {/* Elfsight Facebook Feed */}
+              <div className="elfsight-app-69cc0bc1-cc70-4825-914d-b8606f5b66bc" data-elfsight-app-lazy></div>
+            </div>
+          )}
         </div>
 
-        {/* Full Image Modal */}
-        {selectedImage && (
-          <div
-            className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 backdrop-blur-sm p-4"
-            onClick={() => setSelectedImage(null)}
-          >
-            <div className="relative max-w-5xl max-h-[90vh] w-full">
-              <img
-                src={selectedImage}
-                alt="Full view"
-                className="max-w-full max-h-full rounded-lg shadow-2xl border-4 border-white/20"
-              />
-              <button
-                className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white bg-gray-800/80 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center hover:bg-gray-700 transition-colors text-lg sm:text-xl font-bold shadow-lg"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setSelectedImage(null);
-                }}
-              >
-                ×
-              </button>
-              <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
-                <HyglamLogo
-                  size={28}
-                  className="text-white/80 drop-shadow-xl"
-                />
-              </div>
-            </div>
-          </div>
-        )}
       </div>
 
       <style jsx>{`

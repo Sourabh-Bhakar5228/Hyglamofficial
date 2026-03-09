@@ -1,7 +1,11 @@
 import { useState, useRef, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
+import HighlightedHeading from "../common/HighlightedHeading";
+import AppointmentModal from "../common/AppointmentModal";
 
 const HyglamLuxurySlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -190,28 +194,28 @@ const HyglamLuxurySlider = () => {
   }, [currentIndex]);
 
   return (
-    <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black min-h-screen py-8 sm:py-12 px-3 sm:px-6 lg:px-8 font-sans relative overflow-hidden">
+    <section className="min-h-screen py-24 px-3 sm:px-6 lg:px-8 font-sans relative overflow-hidden" style={{ background: 'radial-gradient(circle at center, #1a1605 0%, #000 100%)' }}>
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_white_1px,_transparent_1px)] bg-[length:30px_30px]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_#fab03f_1px,_transparent_1px)] bg-[length:30px_30px]"></div>
       </div>
 
       <div className="max-w-8xl mx-auto relative z-10">
         {/* Enhanced Header */}
-        <div className="text-center mb-8 sm:mb-16">
+        <div className="text-center mb-12 sm:mb-20">
           <div className="relative inline-block">
-            <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extralight text-white mb-2 sm:mb-4 tracking-tight">
+            <HighlightedHeading level="h2" className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-black text-white mb-4 tracking-tighter">
               HYGLAM
-            </h2>
-            <div className="absolute -top-2 -right-6 w-2 h-2 bg-white rounded-full animate-pulse"></div>
+            </HighlightedHeading>
+            <div className="absolute -top-4 -right-8 w-3 h-3 bg-gold-500 rounded-full animate-pulse shadow-[0_0_15px_rgba(250,176,63,0.8)]"></div>
           </div>
 
-          <div className="flex items-center justify-center mb-4 sm:mb-8">
-            <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent w-24 sm:w-48"></div>
-            <span className="text-2xl sm:text-3xl font-light text-white mx-4 sm:mx-8">
+          <div className="flex items-center justify-center mb-6 sm:mb-12">
+            <div className="h-[2px] bg-gradient-to-r from-transparent via-gold-500 to-transparent w-32 sm:w-64"></div>
+            <span className="text-3xl sm:text-4xl font-black text-gold-500 mx-6 sm:mx-10 scale-y-150">
               華
             </span>
-            <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent w-24 sm:w-48"></div>
+            <div className="h-[2px] bg-gradient-to-r from-transparent via-gold-500 to-transparent w-32 sm:w-64"></div>
           </div>
         </div>
 
@@ -226,7 +230,7 @@ const HyglamLuxurySlider = () => {
           onTouchEnd={handleTouchEnd}
         >
           {/* Main media display */}
-          <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-black backdrop-blur-sm border border-gray-700/30">
+          <div className="relative overflow-hidden rounded-[2.5rem] shadow-2xl bg-black/40 backdrop-blur-xl border border-white/5">
             <div
               className="relative w-full"
               style={{
@@ -238,7 +242,7 @@ const HyglamLuxurySlider = () => {
               {/* Loading overlay */}
               {isLoading && (
                 <div className="absolute inset-0 bg-black/80 flex items-center justify-center z-20 transition-opacity duration-300">
-                  <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                  <div className="w-10 h-10 border-2 border-gold-500/30 border-t-gold-500 rounded-full animate-spin"></div>
                 </div>
               )}
 
@@ -265,7 +269,7 @@ const HyglamLuxurySlider = () => {
                   <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 flex space-x-2">
                     <button
                       onClick={togglePlay}
-                      className="bg-black/70 backdrop-blur-sm text-white p-2 sm:p-3 rounded-full hover:bg-black/90 transition-all duration-300 hover:scale-110"
+                      className="bg-gold-500 text-black p-3 sm:p-4 rounded-2xl hover:bg-white transition-all duration-300 hover:scale-110 shadow-lg shadow-gold-500/20"
                       title={isPlaying ? "Pause" : "Play"}
                     >
                       {isPlaying ? (
@@ -301,7 +305,7 @@ const HyglamLuxurySlider = () => {
                     <div className="absolute inset-0 flex items-center justify-center">
                       <button
                         onClick={togglePlay}
-                        className="bg-white/20 backdrop-blur-md rounded-full p-4 sm:p-6 transition-all duration-300 hover:bg-white/30 hover:scale-110"
+                        className="bg-gold-500/20 backdrop-blur-xl rounded-full p-6 sm:p-10 border border-gold-500/30 transition-all duration-500 hover:bg-gold-500/40 hover:scale-110 relative group-hover:shadow-[0_0_50px_rgba(250,176,63,0.3)]"
                       >
                         <svg
                           className="w-8 h-8 sm:w-12 sm:h-12 text-white"
@@ -328,7 +332,7 @@ const HyglamLuxurySlider = () => {
           {/* Enhanced Navigation arrows */}
           <button
             onClick={goToPrevious}
-            className="absolute top-1/2 left-2 sm:left-4 transform -translate-y-1/2 bg-white/10 backdrop-blur-md text-white rounded-full p-2 sm:p-3 hover:bg-white/20 transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 border border-white/20"
+            className="absolute top-1/2 left-4 sm:left-8 transform -translate-y-1/2 bg-black/50 backdrop-blur-xl text-gold-500 rounded-2xl p-3 sm:p-4 hover:bg-gold-500 hover:text-black transition-all duration-500 opacity-0 group-hover:opacity-100 hover:scale-110 border border-white/5 shadow-2xl"
             aria-label="Previous slide"
           >
             <svg
@@ -348,7 +352,7 @@ const HyglamLuxurySlider = () => {
 
           <button
             onClick={goToNext}
-            className="absolute top-1/2 right-2 sm:right-4 transform -translate-y-1/2 bg-white/10 backdrop-blur-md text-white rounded-full p-2 sm:p-3 hover:bg-white/20 transition-all duration-300 opacity-0 group-hover:opacity-100 hover:scale-110 border border-white/20"
+            className="absolute top-1/2 right-4 sm:right-8 transform -translate-y-1/2 bg-black/50 backdrop-blur-xl text-gold-500 rounded-2xl p-3 sm:p-4 hover:bg-gold-500 hover:text-black transition-all duration-500 opacity-0 group-hover:opacity-100 hover:scale-110 border border-white/5 shadow-2xl"
             aria-label="Next slide"
           >
             <svg
@@ -372,11 +376,10 @@ const HyglamLuxurySlider = () => {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-xl overflow-hidden border-2 transition-all duration-300 transform hover:scale-105 ${
-                  currentIndex === index
-                    ? "border-white shadow-lg shadow-white/25"
-                    : "border-gray-600 hover:border-gray-400"
-                }`}
+                className={`flex-shrink-0 w-12 h-12 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-2xl overflow-hidden border-2 transition-all duration-500 transform hover:scale-110 ${currentIndex === index
+                  ? "border-gold-500 shadow-2xl shadow-gold-500/30"
+                  : "border-white/5 grayscale opacity-50 hover:grayscale-0 hover:opacity-100"
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               >
                 {item.type === "image" ? (
@@ -412,8 +415,8 @@ const HyglamLuxurySlider = () => {
           </div>
 
           {/* Enhanced Slide indicator */}
-          <div className="text-center mt-4 sm:mt-6 text-gray-400 font-light text-sm sm:text-base tracking-wider">
-            <span className="text-white font-medium">
+          <div className="text-center mt-8 sm:mt-12 text-gray-500 font-bold text-sm sm:text-base tracking-[0.5em] uppercase">
+            <span className="text-gold-500 text-xl font-black">
               {String(currentIndex + 1).padStart(2, "0")}
             </span>
             <span className="mx-2 text-gray-600">/</span>
@@ -423,7 +426,7 @@ const HyglamLuxurySlider = () => {
           {/* Progress bar */}
           <div className="mt-4 sm:mt-6 w-full bg-gray-700/50 h-1 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-white to-gray-300 transition-all duration-300"
+              className="h-full bg-gradient-to-r from-gold-500 via-white to-gold-500 transition-all duration-700 shadow-[0_0_15px_rgba(250,176,63,0.5)]"
               style={{
                 width: `${((currentIndex + 1) / mediaItems.length) * 100}%`,
               }}
@@ -432,24 +435,34 @@ const HyglamLuxurySlider = () => {
         </div>
 
         {/* Enhanced Description */}
-        <div className="max-w-3xl mx-auto mt-12 sm:mt-16 text-center">
-          <p className="text-gray-300 leading-relaxed text-sm sm:text-base lg:text-lg font-light mb-8 sm:mb-10">
-            Discover the exquisite craftsmanship of our Hyglam Luxury
-            Collection. Each piece is meticulously designed with precision-cut
-            gemstones set in radiant precious metals, embodying elegance and
-            sophistication for the modern connoisseur.
+        <div className="max-w-4xl mx-auto mt-16 sm:mt-24 text-center">
+          <p className="text-gray-400 leading-relaxed text-lg sm:text-xl lg:text-2xl font-light mb-12 italic">
+            Discover the exquisite craftsmanship of our <span className="text-gold-500 font-bold">HyGlam Luxury</span> Collection.
+            Each piece is meticulously designed with precision-cut gemstones set in radiant precious metals,
+            embodying elegance and sophistication for the modern connoisseur.
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-6">
-            <button className="px-6 sm:px-10 py-3 sm:py-4 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-sm sm:text-base">
+          <div className="flex flex-col sm:flex-row justify-center gap-5 sm:gap-10 mt-12">
+            <Link
+              to="/products"
+              className="px-12 py-5 bg-gold-500 text-black font-black uppercase tracking-widest rounded-2xl hover:bg-white transition-all duration-500 shadow-2xl shadow-gold-500/20 transform hover:-translate-y-2 active:scale-95 text-center"
+            >
               Explore Collection
-            </button>
-            <button className="px-6 sm:px-10 py-3 sm:py-4 border border-white text-white font-medium rounded-lg hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 text-sm sm:text-base">
+            </Link>
+            <button
+              onClick={() => setIsAppointmentOpen(true)}
+              className="px-12 py-5 border-2 border-gold-500/30 text-gold-500 font-black uppercase tracking-widest rounded-2xl hover:bg-gold-500 hover:text-black transition-all duration-500 transform hover:-translate-y-2 active:scale-95 shadow-xl"
+            >
               Book Appointment
             </button>
           </div>
         </div>
       </div>
+
+      <AppointmentModal
+        isOpen={isAppointmentOpen}
+        onClose={() => setIsAppointmentOpen(false)}
+      />
 
       {/* Floating elements for visual enhancement */}
       <div className="absolute top-20 right-10 w-2 h-2 bg-white/20 rounded-full animate-pulse hidden lg:block"></div>

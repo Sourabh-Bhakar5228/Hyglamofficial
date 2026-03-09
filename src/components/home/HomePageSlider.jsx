@@ -72,9 +72,8 @@ const WeddingDressSlider = () => {
             <div className="relative w-full h-full">
               {/* Slide 1 */}
               <div
-                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                  currentSlide === 0 ? "opacity-100" : "opacity-0"
-                }`}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${currentSlide === 0 ? "opacity-100" : "opacity-0"
+                  }`}
               >
                 <img
                   src="https://plus.unsplash.com/premium_photo-1674748385436-db725f68e312?w=1200&auto=format&fit=crop&q=80"
@@ -94,9 +93,8 @@ const WeddingDressSlider = () => {
 
               {/* Slide 2 */}
               <div
-                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                  currentSlide === 1 ? "opacity-100" : "opacity-0"
-                }`}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${currentSlide === 1 ? "opacity-100" : "opacity-0"
+                  }`}
               >
                 <img
                   src="https://plus.unsplash.com/premium_photo-1732700371929-33734953c369?w=1200&auto=format&fit=crop&q=80"
@@ -116,9 +114,8 @@ const WeddingDressSlider = () => {
 
               {/* Slide 3 */}
               <div
-                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                  currentSlide === 2 ? "opacity-100" : "opacity-0"
-                }`}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${currentSlide === 2 ? "opacity-100" : "opacity-0"
+                  }`}
               >
                 <img
                   src="https://plus.unsplash.com/premium_photo-1680181724947-75f0956f1469?w=1200&auto=format&fit=crop&q=80"
@@ -139,18 +136,16 @@ const WeddingDressSlider = () => {
 
             {/* Navigation Arrows */}
             <button
-              className={`absolute left-3 md:left-6 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-900 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                isHovered ? "opacity-100" : "opacity-0"
-              }`}
+              className={`absolute left-3 md:left-6 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-900 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isHovered ? "opacity-100" : "opacity-0"
+                }`}
               onClick={prevSlide}
             >
               &#10094;
             </button>
 
             <button
-              className={`absolute right-3 md:right-6 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-900 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                isHovered ? "opacity-100" : "opacity-0"
-              }`}
+              className={`absolute right-3 md:right-6 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-900 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isHovered ? "opacity-100" : "opacity-0"
+                }`}
               onClick={nextSlide}
             >
               &#10095;
@@ -161,9 +156,8 @@ const WeddingDressSlider = () => {
               {[...Array(totalSlides)].map((_, index) => (
                 <button
                   key={index}
-                  className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
-                    currentSlide === index ? "bg-white" : "bg-white/50"
-                  }`}
+                  className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${currentSlide === index ? "bg-white" : "bg-white/50"
+                    }`}
                   onClick={() => goToSlide(index)}
                 />
               ))}

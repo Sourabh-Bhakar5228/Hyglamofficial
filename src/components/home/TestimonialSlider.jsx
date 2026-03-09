@@ -1,8 +1,86 @@
-import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect, useMemo } from "react";
+import { Link } from "react-router-dom";
+import { ChevronLeft, ChevronRight, Star, X, CheckCircle, Award } from "lucide-react";
+import HighlightedHeading from "../common/HighlightedHeading";
 
 const HyglamTestimonialCTA = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const [quizFinished, setQuizFinished] = useState(false);
+
+  const quizQuestions = useMemo(() => [
+    {
+      question: "Which metal is known as the 'King of Metals' in jewelry?",
+      options: ["Silver", "Platinum", "Gold", "Titanium"],
+      correct: 2,
+    },
+    {
+      question: "What is the hardest natural substance used in jewelry?",
+      options: ["Ruby", "Sapphire", "Diamond", "Emerald"],
+      correct: 2,
+    },
+    {
+      question: "The purity of gold is measured in?",
+      options: ["Carats", "Karat", "Grams", "Percent"],
+      correct: 1,
+    },
+    {
+      question: "Which gemstone is famous for its deep green color?",
+      options: ["Topaz", "Emerald", "Amethyst", "Opal"],
+      correct: 1,
+    },
+    {
+      question: "What is 'Rose Gold' an alloy of gold and which other metal?",
+      options: ["Silver", "Copper", "Platinum", "Zinc"],
+      correct: 1,
+    },
+    {
+      question: "Which era is famous for ornate, romantic jewelry design?",
+      options: ["Art Deco", "Victorian", "Modernist", "Retro"],
+      correct: 1,
+    },
+    {
+      question: "A 'Solitaire' ring typically features how many main stones?",
+      options: ["One", "Two", "Three", "Five"],
+      correct: 0,
+    },
+    {
+      question: "Pearls are formed inside which aquatic creature?",
+      options: ["Crab", "Oyster", "Starfish", "Snail"],
+      correct: 1,
+    },
+    {
+      question: "Which cut of diamond is known for having 58 facets?",
+      options: ["Emerald Cut", "Princess Cut", "Round Brilliant", "Pear Cut"],
+      correct: 2,
+    },
+    {
+      question: "What does 'Sterling Silver' consist of mostly?",
+      options: ["Gold", "Silver", "Platinum", "Iron"],
+      correct: 1,
+    },
+  ], []);
+
+  const handleAnswer = (index) => {
+    if (index === quizQuestions[currentQuestion].correct) {
+      setScore(score + 1);
+    }
+
+    if (currentQuestion + 1 < quizQuestions.length) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      setQuizFinished(true);
+    }
+  };
+
+  const resetQuiz = () => {
+    setShowQuiz(false);
+    setCurrentQuestion(0);
+    setScore(0);
+    setQuizFinished(false);
+  };
 
   const testimonials = [
     {
@@ -74,9 +152,10 @@ const HyglamTestimonialCTA = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen text-white relative overflow-hidden" style={{ background: 'radial-gradient(circle at center, #1a1605 0%, #000 100%)' }}>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-500/5 blur-[150px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
       {/* Testimonial Slider Section */}
-      <div className="bg-black text-white py-20 px-6">
+      <div className="bg-black/50 backdrop-blur-xl py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16">
             What Our Customers Say
@@ -87,16 +166,16 @@ const HyglamTestimonialCTA = () => {
             {/* Navigation Arrows - Desktop Only */}
             <button
               onClick={prevSlide}
-              className="hidden lg:block absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-6 bg-white text-black p-3 rounded-full hover:bg-gray-200 transition-colors z-10"
+              className="hidden lg:flex absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-12 bg-black/50 backdrop-blur-xl text-gold-500 p-5 rounded-2xl hover:bg-gold-500 hover:text-black transition-all duration-500 z-10 border border-white/5 shadow-2xl items-center justify-center group"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={28} className="group-hover:-translate-x-1 transition-transform" />
             </button>
 
             <button
               onClick={nextSlide}
-              className="hidden lg:block absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-6 bg-white text-black p-3 rounded-full hover:bg-gray-200 transition-colors z-10"
+              className="hidden lg:flex absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-12 bg-black/50 backdrop-blur-xl text-gold-500 p-5 rounded-2xl hover:bg-gold-500 hover:text-black transition-all duration-500 z-10 border border-white/5 shadow-2xl items-center justify-center group"
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={28} className="group-hover:translate-x-1 transition-transform" />
             </button>
 
             {/* Testimonial Cards */}
@@ -104,9 +183,8 @@ const HyglamTestimonialCTA = () => {
               <div
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{
-                  transform: `translateX(-${
-                    currentSlide * (window.innerWidth >= 1024 ? 100 / 3 : 100)
-                  }%)`,
+                  transform: `translateX(-${currentSlide * (window.innerWidth >= 1024 ? 100 / 3 : 100)
+                    }%)`,
                 }}
               >
                 {testimonials.map((testimonial, index) => (
@@ -114,35 +192,39 @@ const HyglamTestimonialCTA = () => {
                     key={index}
                     className="w-full lg:w-1/3 flex-shrink-0 px-4"
                   >
-                    <div className="bg-white text-black p-8 rounded-lg shadow-lg h-full flex flex-col justify-between min-h-[350px] mx-2">
+                    <div className="bg-white/5 backdrop-blur-xl border border-white/5 p-8 rounded-[2.5rem] shadow-2xl h-full flex flex-col justify-between min-h-[400px] mx-2 group hover:border-gold-500/30 transition-all duration-500">
                       <div>
                         {/* Product Image */}
-                        <div className="w-full h-40 mb-6 overflow-hidden rounded-md">
+                        <div className="w-full h-48 mb-6 overflow-hidden rounded-2xl relative">
+                          <div className="absolute inset-0 bg-gold-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10"></div>
                           <img
                             src={testimonial.productImage}
                             alt="Product"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-1000"
                           />
                         </div>
 
                         {/* Quote */}
-                        <div className="text-4xl mb-6 text-center">"</div>
-                        <blockquote className="text-lg italic mb-6 leading-relaxed text-center">
+                        <div className="text-gold-500 text-5xl mb-4 font-serif opacity-30">"</div>
+                        <blockquote className="text-lg text-gray-300 italic mb-8 leading-relaxed">
                           {testimonial.quote}
                         </blockquote>
                       </div>
 
                       {/* Author & Rating */}
-                      <div className="text-center">
-                        <p className="font-semibold text-lg">
-                          — {testimonial.author}
-                        </p>
-                        <div className="flex justify-center mt-4">
-                          {[...Array(5)].map((_, i) => (
-                            <span key={i} className="text-black text-xl">
-                              ★
-                            </span>
-                          ))}
+                      <div className="border-t border-white/5 pt-6 flex items-center justify-between">
+                        <div>
+                          <p className="font-bold text-white tracking-wide">
+                            — {testimonial.author}
+                          </p>
+                          <div className="flex mt-1">
+                            {[...Array(5)].map((_, i) => (
+                              <Star key={i} size={14} className="fill-gold-500 text-gold-500 mr-1" />
+                            ))}
+                          </div>
+                        </div>
+                        <div className="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 border border-gold-500/20">
+                          <Star size={18} fill="currentColor" />
                         </div>
                       </div>
                     </div>
@@ -162,11 +244,10 @@ const HyglamTestimonialCTA = () => {
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? "bg-white scale-125"
-                      : "bg-gray-500 hover:bg-gray-300"
-                  }`}
+                  className={`h-2 rounded-full transition-all duration-700 ${index === currentSlide
+                    ? "bg-gold-500 w-12 shadow-[0_0_15px_rgba(250,176,63,0.5)]"
+                    : "bg-white/10 w-3 hover:bg-white/30"
+                    }`}
                 />
               ))}
             </div>
@@ -175,27 +256,120 @@ const HyglamTestimonialCTA = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="py-20 px-6 text-center bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-6">
-            Find Your Hyglam Personality
-          </h2>
-          <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+      <div id="quiz-cta" className="py-24 px-6 relative overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-gold-500/5 to-transparent"></div>
+        <div className="max-w-4xl mx-auto relative z-10 text-center">
+          <HighlightedHeading level="h2" className="text-4xl md:text-5xl font-black mb-10 leading-tight">
+            Find Your HyGlam Personality
+          </HighlightedHeading>
+          <p className="text-lg md:text-xl text-gray-400 mb-16 max-w-2xl mx-auto font-light leading-relaxed">
             Discover jewelry that matches your unique style and personality.
-            From everyday elegance to glamorous statements.
+            From everyday elegance to <span className="text-gold-500 font-bold">glamorous statements</span>.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button className="bg-black text-white px-12 py-4 text-xl font-semibold hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 min-w-[200px]">
+          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+            <Link
+              to="/products"
+              className="bg-gold-500 text-black px-12 py-5 text-lg font-black uppercase tracking-widest rounded-2xl hover:bg-white transition-all duration-500 transform hover:-translate-y-2 active:scale-95 shadow-2xl shadow-gold-500/20 min-w-[250px] text-center"
+            >
               Shop Now
-            </button>
-            <button className="border-2 border-black text-black px-12 py-4 text-xl font-semibold hover:bg-black hover:text-white transition-all duration-300 transform hover:scale-105 min-w-[200px]">
-              Take Style Quiz
+            </Link>
+            <button
+              onClick={() => setShowQuiz(true)}
+              className="border-2 border-gold-500/30 text-gold-500 px-12 py-5 text-lg font-black uppercase tracking-widest rounded-2xl hover:bg-gold-500 hover:text-black transition-all duration-500 transform hover:-translate-y-2 active:scale-95 shadow-xl min-w-[250px]"
+            >
+              Play Quiz and won rewards
             </button>
           </div>
         </div>
       </div>
+
+      {/* Style Quiz Modal */}
+      {showQuiz && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+          <div
+            className="absolute inset-0 bg-black/80 backdrop-blur-md"
+            onClick={resetQuiz}
+          ></div>
+
+          <div className="relative w-full max-w-2xl bg-neutral-900 border border-gold-500/30 rounded-[2.5rem] shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300">
+            {/* Modal Header */}
+            <div className="p-8 border-b border-white/5 flex items-center justify-between">
+              <div>
+                <h3 className="text-2xl font-black text-white uppercase tracking-tight">Luxury Style Quiz</h3>
+                <p className="text-gold-500/70 text-sm font-bold uppercase tracking-widest mt-1">Question {currentQuestion + 1} of {quizQuestions.length}</p>
+              </div>
+              <button
+                onClick={resetQuiz}
+                className="p-3 bg-white/5 rounded-2xl text-gray-400 hover:text-white hover:bg-red-500/20 transition-all"
+              >
+                <X size={24} />
+              </button>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-8 sm:p-12">
+              {!quizFinished ? (
+                <div className="space-y-8">
+                  {/* Progress Bar */}
+                  <div className="w-full bg-white/5 h-2 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-gold-500 to-white transition-all duration-500"
+                      style={{ width: `${((currentQuestion + 1) / quizQuestions.length) * 100}%` }}
+                    ></div>
+                  </div>
+
+                  <h4 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+                    {quizQuestions[currentQuestion].question}
+                  </h4>
+
+                  <div className="grid grid-cols-1 gap-4">
+                    {quizQuestions[currentQuestion].options.map((option, index) => (
+                      <button
+                        key={index}
+                        onClick={() => handleAnswer(index)}
+                        className="w-full p-5 text-left bg-white/5 border border-white/5 rounded-2xl text-gray-300 hover:border-gold-500/50 hover:bg-gold-500/10 hover:text-gold-500 transition-all duration-300 group flex items-center justify-between"
+                      >
+                        <span className="text-lg font-medium">{option}</span>
+                        <div className="w-6 h-6 rounded-full border border-white/20 group-hover:border-gold-500/50 transition-colors"></div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="text-center py-10 space-y-8 animate-in fade-in slide-in-from-bottom-10 duration-700">
+                  <div className="relative inline-block">
+                    <div className="absolute inset-0 bg-gold-500/20 blur-[50px] rounded-full"></div>
+                    <Award size={100} className="text-gold-500 relative z-10 mx-auto" strokeWidth={1} />
+                  </div>
+
+                  <div>
+                    <h4 className="text-4xl font-black text-white mb-2">Elegance Confirmed!</h4>
+                    <p className="text-gray-400 text-lg">You scored <span className="text-gold-500 font-bold">{score} out of {quizQuestions.length}</span></p>
+                  </div>
+
+                  <div className="bg-gold-500/10 border border-gold-500/20 p-8 rounded-[2rem] relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/10 blur-3xl rounded-full -mr-16 -mt-16"></div>
+                    <p className="text-gray-400 uppercase tracking-[0.3em] text-xs font-bold mb-2">Your Exclusive Reward</p>
+                    <div className="text-6xl sm:text-7xl font-black text-gold-500 tracking-tighter">
+                      {score}% <span className="text-3xl sm:text-4xl">OFF</span>
+                    </div>
+                    <p className="text-white font-bold mt-4 tracking-wide uppercase text-sm">Valid for the next 24 hours</p>
+                  </div>
+
+                  <button
+                    onClick={resetQuiz}
+                    className="w-full py-5 bg-gold-500 text-black font-black uppercase tracking-widest rounded-2xl hover:bg-white transition-all duration-500 shadow-2xl shadow-gold-500/20 transform hover:-translate-y-1"
+                  >
+                    Claim Your Reward
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

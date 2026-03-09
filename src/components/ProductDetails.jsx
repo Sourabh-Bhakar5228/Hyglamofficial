@@ -11,6 +11,7 @@ import {
   Minus,
   Plus,
 } from "lucide-react";
+import HighlightedHeading from "./common/HighlightedHeading";
 import allProducts from "../data/allProducts.json";
 import { setCookie, getCookie } from "../utils/cookies";
 import { useWishlist } from "../components/context/WishlistContext";
@@ -41,11 +42,11 @@ export default function ProductDetails() {
   // Sample product images for gallery
   const productImages = product
     ? [
-        product.image,
-        product.image, // In a real app, these would be different images
-        product.image,
-        product.image,
-      ]
+      product.image,
+      product.image, // In a real app, these would be different images
+      product.image,
+      product.image,
+    ]
     : [];
 
   useEffect(() => {
@@ -150,6 +151,7 @@ export default function ProductDetails() {
             Accept: "application/json",
           },
           body: JSON.stringify({
+            Subject: "New Direct Order - HyGlam",
             name: formData.name,
             email: formData.email,
             address: formData.address,
@@ -193,56 +195,55 @@ export default function ProductDetails() {
     );
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen py-8" style={{ background: 'radial-gradient(circle at center, #1a1605 0%, #000 100%)' }}>
       <ToastContainer position="top-right" autoClose={3000} />
       <div className="max-w-7xl mx-auto px-4">
         {/* Breadcrumb Navigation */}
         <nav className="flex mb-6" aria-label="Breadcrumb">
           <ol className="flex items-center space-x-2">
             <li>
-              <Link to="/" className="text-gray-500 hover:text-indigo-600">
+              <Link to="/" className="text-gray-400 hover:text-gold-500 transition-colors">
                 Home
               </Link>
             </li>
             <li>
-              <ChevronRight size={16} className="text-gray-400" />
+              <ChevronRight size={16} className="text-gray-600" />
             </li>
             <li>
               <Link
                 to="/products"
-                className="text-gray-500 hover:text-indigo-600"
+                className="text-gray-400 hover:text-gold-500 transition-colors"
               >
                 Products
               </Link>
             </li>
             <li>
-              <ChevronRight size={16} className="text-gray-400" />
+              <ChevronRight size={16} className="text-gray-600" />
             </li>
-            <li className="text-gray-800 font-medium truncate">
+            <li className="text-white font-medium truncate">
               {product.name}
             </li>
           </ol>
         </nav>
 
-        <div className="bg-white rounded-xl shadow-sm p-6 md:p-8">
+        <div className="bg-black/40 backdrop-blur-xl rounded-2xl shadow-2xl p-6 md:p-10 border border-white/5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Product Images */}
             <div>
-              <div className="relative rounded-lg overflow-hidden mb-4">
+              <div className="relative rounded-2xl overflow-hidden mb-6 border border-white/10 group">
                 <img
                   src={productImages[selectedImage]}
                   alt={product.name}
-                  className="w-full h-96 object-cover"
+                  className="w-full h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
 
                 {/* Wishlist Button */}
                 <button
                   onClick={handleAddToWishlist}
-                  className={`absolute top-4 right-4 p-2 rounded-full shadow-md ${
-                    wishlist.some((item) => item.id === product.id)
-                      ? "bg-red-500 text-white"
-                      : "bg-white text-gray-700 hover:bg-red-50 hover:text-red-500"
-                  } transition-colors`}
+                  className={`absolute top-6 right-6 p-3 rounded-full shadow-2xl backdrop-blur-md transition-all duration-300 ${wishlist.some((item) => item.id === product.id)
+                    ? "bg-gold-500 text-black"
+                    : "bg-black/40 text-white hover:bg-gold-500 hover:text-black"
+                    }`}
                 >
                   <Heart
                     size={24}
@@ -261,11 +262,10 @@ export default function ProductDetails() {
                   <button
                     key={index}
                     onClick={() => setSelectedImage(index)}
-                    className={`rounded-md overflow-hidden border-2 ${
-                      selectedImage === index
-                        ? "border-indigo-600"
-                        : "border-gray-200"
-                    }`}
+                    className={`rounded-xl overflow-hidden border-2 transition-all duration-300 ${selectedImage === index
+                      ? "border-gold-500 scale-105"
+                      : "border-white/10 opacity-60 hover:opacity-100"
+                      }`}
                   >
                     <img
                       src={img}
@@ -279,10 +279,10 @@ export default function ProductDetails() {
 
             {/* Product Info */}
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              <h1 className="text-4xl font-bold text-white mb-3">
                 {product.name}
               </h1>
-              <p className="text-gray-500 mb-4">{product.category}</p>
+              <p className="text-gold-500/80 font-medium tracking-wide mb-6 uppercase text-sm">{product.category}</p>
 
               {/* Rating */}
               <div className="flex items-center mb-4">
@@ -290,108 +290,120 @@ export default function ProductDetails() {
                   {[1, 2, 3, 4, 5].map((star) => (
                     <Star
                       key={star}
-                      size={18}
+                      size={20}
                       className={
                         star <= 4
-                          ? "text-yellow-400 fill-current"
-                          : "text-gray-300"
+                          ? "text-gold-500 fill-current"
+                          : "text-white/20"
                       }
                     />
                   ))}
                 </div>
-                <span className="ml-2 text-gray-600">(42 reviews)</span>
+                <span className="ml-3 text-gray-400 font-medium">(42 Verified Reviews)</span>
               </div>
 
               {/* Price */}
-              <div className="text-3xl font-bold text-indigo-600 mb-6">
+              <div className="text-4xl font-extrabold text-gold-500 mb-8 flex items-center gap-2">
                 ₹{product.price}
+                <span className="text-sm font-normal text-gray-400 line-through ml-2">₹{Math.round(product.price * 1.5)}</span>
               </div>
 
               {/* Description */}
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold mb-2">Description</h3>
-                <p className="text-gray-600">
+              <div className="mb-8">
+                <h3 className="text-xl font-bold mb-3 text-white">Product Description</h3>
+                <p className="text-gray-400 leading-relaxed text-lg">
                   {product.description ||
-                    "This premium product is designed for maximum comfort and durability. Made with high-quality materials and expert craftsmanship."}
+                    "This premium jewelry piece is meticulously crafted for elegance and enduring beauty. Each detail reflects our commitment to high-end artistry and sophistication."}
                 </p>
               </div>
 
               {/* Features */}
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold mb-2">Features</h3>
-                <ul className="text-gray-600 space-y-1">
-                  <li className="flex items-center">
-                    <Check size={16} className="text-green-500 mr-2" />
-                    High-quality materials
+              <div className="mb-8 p-6 bg-white/5 rounded-2xl border border-white/5">
+                <h3 className="text-xl font-bold mb-4 text-white">Luxury Features</h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <li className="flex items-center text-gray-300">
+                    <div className="w-6 h-6 rounded-full bg-gold-500/20 flex items-center justify-center mr-3">
+                      <Check size={14} className="text-gold-500" />
+                    </div>
+                    Premium Quality
                   </li>
-                  <li className="flex items-center">
-                    <Check size={16} className="text-green-500 mr-2" />
-                    Expert craftsmanship
+                  <li className="flex items-center text-gray-300">
+                    <div className="w-6 h-6 rounded-full bg-gold-500/20 flex items-center justify-center mr-3">
+                      <Check size={14} className="text-gold-500" />
+                    </div>
+                    Sourced Stones
                   </li>
-                  <li className="flex items-center">
-                    <Check size={16} className="text-green-500 mr-2" />
-                    Long-lasting durability
+                  <li className="flex items-center text-gray-300">
+                    <div className="w-6 h-6 rounded-full bg-gold-500/20 flex items-center justify-center mr-3">
+                      <Check size={14} className="text-gold-500" />
+                    </div>
+                    Life-time Polish
                   </li>
-                  <li className="flex items-center">
-                    <Check size={16} className="text-green-500 mr-2" />
-                    Easy maintenance
+                  <li className="flex items-center text-gray-300">
+                    <div className="w-6 h-6 rounded-full bg-gold-500/20 flex items-center justify-center mr-3">
+                      <Check size={14} className="text-gold-500" />
+                    </div>
+                    Eco-Friendly Box
                   </li>
                 </ul>
               </div>
 
               {/* Quantity Selector */}
-              <div className="mb-6">
-                <h3 className="text-lg font-semibold mb-2">Quantity</h3>
-                <div className="flex items-center">
+              <div className="mb-8">
+                <h3 className="text-lg font-bold mb-3 text-white">Quantity</h3>
+                <div className="flex items-center w-fit p-1 bg-white/5 rounded-xl border border-white/10">
                   <button
                     onClick={decreaseQuantity}
-                    className="p-2 rounded-l-md bg-gray-100 hover:bg-gray-200"
+                    className="p-3 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-all"
                   >
-                    <Minus size={16} />
+                    <Minus size={18} />
                   </button>
-                  <span className="px-4 py-2 bg-gray-50">{quantity}</span>
+                  <span className="px-6 py-2 text-white font-bold text-lg min-w-[50px] text-center">{quantity}</span>
                   <button
                     onClick={increaseQuantity}
-                    className="p-2 rounded-r-md bg-gray-100 hover:bg-gray-200"
+                    className="p-3 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-all"
                   >
-                    <Plus size={16} />
+                    <Plus size={18} />
                   </button>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-6">
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <button
                   onClick={handleAddToCart}
-                  className="flex items-center justify-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors flex-1"
+                  className="flex items-center justify-center gap-3 px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-gold-500 transition-all duration-300 flex-1 shadow-xl shadow-white/5 active:scale-95"
                 >
-                  <ShoppingCart size={20} />
-                  {addedToCart ? "Added to Cart" : "Add to Cart"}
+                  <ShoppingCart size={22} />
+                  {addedToCart ? "In Your Cart" : "Add to Cart"}
                 </button>
 
                 <button
                   onClick={handleOrderNow}
-                  className="flex items-center justify-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex-1"
+                  className="flex items-center justify-center gap-3 px-8 py-4 bg-gold-500 text-black font-bold rounded-xl hover:bg-gold-600 transition-all duration-300 flex-1 shadow-xl shadow-gold-500/20 active:scale-95"
                 >
-                  Order Now
+                  Order Direct
                 </button>
 
                 <button
                   onClick={handleShare}
-                  className="flex items-center justify-center gap-2 px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                  className="flex items-center justify-center gap-3 px-6 py-4 bg-white/5 border border-white/10 text-white rounded-xl hover:bg-white/10 transition-all active:scale-95"
                 >
-                  <Share size={20} />
-                  Share
+                  <Share size={22} />
                 </button>
               </div>
 
               {/* Additional Info */}
-              <div className="border-t border-gray-200 pt-4">
-                <div className="text-sm text-gray-500">
-                  <span className="block mb-1">
-                    Free shipping on orders over ₹1000
-                  </span>
-                  <span className="block">30-day money-back guarantee</span>
+              <div className="border-t border-white/5 pt-6">
+                <div className="text-sm text-gray-400 space-y-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gold-500"></div>
+                    <span>Complimentary signature gift packaging</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-gold-500"></div>
+                    <span>Global express shipping available</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -401,8 +413,10 @@ export default function ProductDetails() {
         <ShippingInformation />
 
         {/* Related Products Section */}
-        <div className="mt-12">
-          <h2 className="text-2xl font-bold mb-6">You might also like</h2>
+        <div className="mt-20">
+          <HighlightedHeading level="h2" className="text-3xl font-bold mb-8 text-white">
+            Exclusively Curated for You
+          </HighlightedHeading>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {allProducts
               .flatMap((category) => category.products)
@@ -411,28 +425,29 @@ export default function ProductDetails() {
               .map((relatedProduct) => (
                 <div
                   key={relatedProduct.id}
-                  className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-all"
+                  className="bg-black/40 backdrop-blur-md rounded-2xl shadow-xl border border-white/5 overflow-hidden hover:border-gold-500/50 transition-all group"
                 >
                   <img
                     src={relatedProduct.image}
                     alt={relatedProduct.name}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="p-4">
-                    <h3 className="font-semibold mb-1">
+                  <div className="p-5">
+                    <h3 className="font-bold text-white text-lg mb-1 group-hover:text-gold-500 transition-colors">
                       {relatedProduct.name}
                     </h3>
-                    <p className="text-gray-500 text-sm mb-2">
+                    <p className="text-gray-400 text-sm mb-4 italic">
                       {relatedProduct.category}
                     </p>
-                    <div className="text-indigo-600 font-bold">
+                    <div className="text-gold-500 font-extrabold text-lg mb-4">
                       ₹{relatedProduct.price}
                     </div>
                     <Link
                       to={`/product/${relatedProduct.id}`}
-                      className="mt-3 inline-block text-indigo-600 hover:text-indigo-800 font-medium text-sm"
+                      className="inline-flex items-center text-white hover:text-gold-500 font-bold text-xs uppercase tracking-widest transition-colors"
                     >
-                      View Details
+                      Explore Piece
+                      <ChevronRight size={14} className="ml-1" />
                     </Link>
                   </div>
                 </div>
@@ -443,12 +458,17 @@ export default function ProductDetails() {
 
       {/* Order Form Modal */}
       {showOrderForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-6">
-            <h2 className="text-2xl font-bold mb-4">Order {product.name}</h2>
-            <form onSubmit={handleFormSubmit}>
-              <div className="mb-4">
-                <label className="block text-gray-700 mb-2" htmlFor="name">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-neutral-900 border border-gold-500/30 rounded-3xl shadow-2xl shadow-gold-500/10 max-w-lg w-full p-8 relative overflow-hidden">
+            {/* Background Accent */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 blur-3xl rounded-full -mr-16 -mt-16"></div>
+
+            <h2 className="text-3xl font-extrabold mb-2 text-white">Secure Your Piece</h2>
+            <p className="text-gold-500/70 text-sm mb-8 font-medium">Complete details for {product.name}</p>
+
+            <form onSubmit={handleFormSubmit} className="space-y-5">
+              <div>
+                <label className="block text-gray-400 text-xs uppercase tracking-widest mb-2 font-bold" htmlFor="name">
                   Full Name
                 </label>
                 <input
@@ -457,13 +477,14 @@ export default function ProductDetails() {
                   name="name"
                   value={formData.name}
                   onChange={handleFormChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  placeholder="Enter your name"
+                  className="w-full px-5 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500 transition-all"
                   required
                 />
               </div>
 
-              <div className="mb-4">
-                <label className="block text-gray-700 mb-2" htmlFor="email">
+              <div>
+                <label className="block text-gray-400 text-xs uppercase tracking-widest mb-2 font-bold" htmlFor="email">
                   Email Address
                 </label>
                 <input
@@ -472,32 +493,34 @@ export default function ProductDetails() {
                   name="email"
                   value={formData.email}
                   onChange={handleFormChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  placeholder="name@luxury.com"
+                  className="w-full px-5 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500 transition-all"
                   required
                 />
               </div>
 
-              <div className="mb-4">
-                <label className="block text-gray-700 mb-2" htmlFor="address">
-                  Delivery Address
+              <div>
+                <label className="block text-gray-400 text-xs uppercase tracking-widest mb-2 font-bold" htmlFor="address">
+                  Delivery Details
                 </label>
                 <textarea
                   id="address"
                   name="address"
                   value={formData.address}
                   onChange={handleFormChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                  rows="3"
+                  placeholder="Enter your complete address"
+                  className="w-full px-5 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500 transition-all"
+                  rows="2"
                   required
                 ></textarea>
               </div>
 
-              <div className="mb-4">
+              <div>
                 <label
-                  className="block text-gray-700 mb-2"
+                  className="block text-gray-400 text-xs uppercase tracking-widest mb-2 font-bold"
                   htmlFor="deliveryLocation"
                 >
-                  Delivery Location
+                  City / Location
                 </label>
                 <input
                   type="text"
@@ -505,37 +528,34 @@ export default function ProductDetails() {
                   name="deliveryLocation"
                   value={formData.deliveryLocation}
                   onChange={handleFormChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  placeholder="e.g. Mumbai, Maharashtra"
+                  className="w-full px-5 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500 transition-all"
                   required
                 />
               </div>
 
-              <div className="mb-4">
-                <p className="text-gray-700">
-                  Product: <span className="font-semibold">{product.name}</span>
-                </p>
-                <p className="text-gray-700">
-                  Quantity: <span className="font-semibold">{quantity}</span>
-                </p>
-                <p className="text-gray-700">
-                  Total:{" "}
-                  <span className="font-semibold">
-                    ₹{product.price * quantity}
-                  </span>
-                </p>
+              <div className="bg-white/5 p-4 rounded-2xl border border-white/5 flex items-center justify-between">
+                <div>
+                  <p className="text-gray-500 text-[10px] uppercase font-bold">Total Amount</p>
+                  <p className="text-gold-500 font-extrabold text-2xl">₹{product.price * quantity}</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-gray-500 text-[10px] uppercase font-bold">Quantity</p>
+                  <p className="text-white font-bold">{quantity} Items</p>
+                </div>
               </div>
 
-              <div className="flex justify-end gap-3">
+              <div className="flex gap-4 pt-4">
                 <button
                   type="button"
                   onClick={() => setShowOrderForm(false)}
-                  className="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400"
+                  className="flex-1 px-6 py-4 bg-transparent border border-white/10 text-gray-400 font-bold rounded-xl hover:bg-white/5 transition-all"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+                  className="flex-1 px-6 py-4 bg-gold-500 text-black font-extrabold rounded-xl hover:bg-gold-600 shadow-lg shadow-gold-500/20 transition-all active:scale-95"
                 >
                   Place Order
                 </button>

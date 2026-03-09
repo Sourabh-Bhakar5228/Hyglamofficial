@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const ShippingInformation = () => {
   return (
-    <section className="bg-gradient-to-r from-gray-50 to-gray-100 py-16 px-6">
+    <section className="py-20 px-6 bg-transparent border-t border-white/5">
       <div className="max-w-8xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         {/* Left Side - Image */}
         <motion.div
@@ -31,30 +31,30 @@ const ShippingInformation = () => {
           viewport={{ once: true }}
         >
           <div className="flex justify-start mb-6">
-            <div className="bg-black text-white p-4 rounded-full shadow-lg">
-              <Truck size={32} />
+            <div className="bg-gold-500 text-black p-5 rounded-2xl shadow-2xl shadow-gold-500/20">
+              <Truck size={36} />
             </div>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Shipping Information
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            Luminous Delivery
           </h2>
 
-          <p className="text-lg text-gray-700 leading-relaxed mb-4">
+          <p className="text-lg text-gray-400 leading-relaxed mb-6">
             At HyGlam, we ensure that every order is carefully processed and
             shipped through trusted courier partners. Customers receive a
             tracking ID once the order is dispatched, making it easy to follow
             the delivery.
           </p>
 
-          <p className="text-lg text-gray-700 leading-relaxed mb-4">
-            We offer <span className="font-semibold">free shipping</span> on
+          <p className="text-lg text-gray-400 leading-relaxed mb-6">
+            We offer <span className="font-semibold text-gold-500">free shipping</span> on
             eligible prepaid orders, while standard charges may apply for
             certain orders or international deliveries. Customs duties and taxes
             for international shipments are the responsibility of the customer.
           </p>
 
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-gray-400 leading-relaxed">
             While we strive for timely delivery, delays may occasionally occur
             due to unforeseen circumstances or issues with our courier.
           </p>

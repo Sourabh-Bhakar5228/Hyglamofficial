@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hyglamofficial.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow specific paths if any
+# Disallow: /private/
+# Disallow: /admin/
+
+# Allow specific important directories
+Allow: /src/
+Allow: /assets/
+Allow: /images/
+
+# Block common non-content files
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /dist/

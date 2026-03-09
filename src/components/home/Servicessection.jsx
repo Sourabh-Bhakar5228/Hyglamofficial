@@ -5,6 +5,7 @@ import {
   FaPercent,
   FaHeadset,
 } from "react-icons/fa";
+import HighlightedHeading from "../common/HighlightedHeading";
 import "./css/ServiceFeatures.css"; // We'll create this CSS file
 
 const ServiceFeatures = () => {
@@ -13,7 +14,9 @@ const ServiceFeatures = () => {
   return (
     <div className="service-features-container">
       <div className="service-features-header">
-        <h2 className="service-features-title">Our Premium Services</h2>
+        <HighlightedHeading level="h2" className="service-features-title">
+          Our Premium Services
+        </HighlightedHeading>
         <p className="service-features-subtitle">
           Experience our exceptional customer service and benefits
         </p>
@@ -22,9 +25,8 @@ const ServiceFeatures = () => {
       <div className="service-features-grid">
         {/* Worldwide Shipping */}
         <div
-          className={`service-feature-card ${
-            hoveredCard === 0 ? "hovered" : ""
-          }`}
+          className={`service-feature-card ${hoveredCard === 0 ? "hovered" : ""
+            }`}
           onMouseEnter={() => setHoveredCard(0)}
           onMouseLeave={() => setHoveredCard(null)}
         >
@@ -39,7 +41,7 @@ const ServiceFeatures = () => {
         </div>
 
         {/* Money Back Guarantee */}
-        <div
+        {/* <div
           className={`service-feature-card ${
             hoveredCard === 1 ? "hovered" : ""
           }`}
@@ -52,13 +54,12 @@ const ServiceFeatures = () => {
           <h3 className="service-feature-title">MONEY BACK GUARANTEE</h3>
           <p className="service-feature-description">Return within 30 days</p>
           <span className="service-feature-tag">NO HASSLE</span>
-        </div>
+        </div> */}
 
         {/* Offers And Discounts */}
         <div
-          className={`service-feature-card ${
-            hoveredCard === 2 ? "hovered" : ""
-          }`}
+          className={`service-feature-card ${hoveredCard === 2 ? "hovered" : ""
+            }`}
           onMouseEnter={() => setHoveredCard(2)}
           onMouseLeave={() => setHoveredCard(null)}
         >
@@ -72,9 +73,8 @@ const ServiceFeatures = () => {
 
         {/* 24/7 Support */}
         <div
-          className={`service-feature-card ${
-            hoveredCard === 3 ? "hovered" : ""
-          }`}
+          className={`service-feature-card ${hoveredCard === 3 ? "hovered" : ""
+            }`}
           onMouseEnter={() => setHoveredCard(3)}
           onMouseLeave={() => setHoveredCard(null)}
         >
@@ -84,6 +84,31 @@ const ServiceFeatures = () => {
           <h3 className="service-feature-title">24/7 SUPPORT</h3>
           <p className="service-feature-description">Contact us anytime</p>
           <span className="service-feature-tag">ALWAYS AVAILABLE</span>
+        </div>
+
+        {/* Rewards / Play Quiz */}
+        <div
+          className={`service-feature-card ${hoveredCard === 4 ? "hovered" : ""
+            }`}
+          onMouseEnter={() => setHoveredCard(4)}
+          onMouseLeave={() => setHoveredCard(null)}
+        >
+          <div className="service-icon-container">
+            <FaDollarSign className="service-icon" />
+          </div>
+          <h3 className="service-feature-title">REWARDS / PLAY QUIZ</h3>
+          <p className="service-feature-description">Win exclusive discounts</p>
+          <button
+            onClick={() => {
+              const element = document.getElementById('quiz-cta');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="service-feature-tag cursor-pointer hover:bg-gold-500 hover:text-black transition-all"
+          >
+            PLAY QUIZ
+          </button>
         </div>
       </div>
     </div>

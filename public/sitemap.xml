@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://hyglamofficial.com/</loc>
+    <lastmod>2025-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://hyglamofficial.com/images/og-image.jpg</image:loc>
+      <image:title>Hyglam - Premium Beauty & Lifestyle</image:title>
+      <image:caption>Premium beauty and lifestyle brand offering luxury skincare, makeup, and fashion essentials</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://hyglamofficial.com/about</loc>
+    <lastmod>2025-02-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Shop/Products Page -->
+  <url>
+    <loc>https://hyglamofficial.com/shop</loc>
+    <lastmod>2025-02-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Beauty Category -->
+  <url>
+    <loc>https://hyglamofficial.com/category/beauty</loc>
+    <lastmod>2025-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Fashion Category -->
+  <url>
+    <loc>https://hyglamofficial.com/category/fashion</loc>
+    <lastmod>2025-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Lifestyle Category -->
+  <url>
+    <loc>https://hyglamofficial.com/category/lifestyle</loc>
+    <lastmod>2025-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Blog Page -->
+  <url>
+    <loc>https://hyglamofficial.com/blog</loc>
+    <lastmod>2025-02-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://hyglamofficial.com/contact</loc>
+    <lastmod>2025-02-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- FAQ Page -->
+  <url>
+    <loc>https://hyglamofficial.com/faq</loc>
+    <lastmod>2025-02-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://hyglamofficial.com/privacy</loc>
+    <lastmod>2025-02-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://hyglamofficial.com/terms</loc>
+    <lastmod>2025-02-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+</urlset>
